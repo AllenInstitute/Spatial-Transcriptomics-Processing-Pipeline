@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:10e7c2e0f1a520981320aa806e50d57ac5c5bb612b4f662623a571c86903d8b7
+// hash:sha256:1d5c076a25d3bb35724a1068b6ecec9e0f42a7c0d615eafff0d85ea6f6d19456
 
 nextflow.enable.dsl = 1
 
@@ -7,8 +7,8 @@ capsule_filtering_11_to_capsule_combine_sections_2_1 = channel.create()
 capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_2 = channel.create()
 capsule_combine_sections_2_to_capsule_flatmapping_celltypemapper_4_3 = channel.create()
 capsule_add_colors_7_to_capsule_double_mad_filtering_hierarchical_5_4 = channel.create()
-capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_5 = channel.create()
-capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_6 = channel.create()
+capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_5 = channel.create()
+capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_6 = channel.create()
 capsule_hierarchical_mapping_celltypemapper_3_to_capsule_add_colors_7_7 = channel.create()
 capsule_flatmapping_celltypemapper_4_to_capsule_add_colors_flat_8_8 = channel.create()
 capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_9 = channel.create()
@@ -45,6 +45,7 @@ process capsule_combine_sections_2 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
+	git -C capsule-repo checkout 989095bd85a99e66bbcad3a602636ba6f0ede958 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -87,6 +88,7 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4571712.git" capsule-repo
+	git -C capsule-repo checkout 28f8a19aae0853d806e7e48e3fd391b4328bdaf3 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -129,6 +131,7 @@ process capsule_flatmapping_celltypemapper_4 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7602887.git" capsule-repo
+	git -C capsule-repo checkout 64a1b58ff3b9880c74daba16f6617cd9e899819f --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -153,7 +156,7 @@ process capsule_double_mad_filtering_hierarchical_5 {
 	path 'capsule/data/' from capsule_add_colors_7_to_capsule_double_mad_filtering_hierarchical_5_4
 
 	output:
-	path 'capsule/results/*' into capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_6
+	path 'capsule/results/*' into capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_5
 
 	script:
 	"""
@@ -171,6 +174,7 @@ process capsule_double_mad_filtering_hierarchical_5 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5853172.git" capsule-repo
+	git -C capsule-repo checkout a2564f72dbceecc684869bb9a3c1f238137b613e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -194,8 +198,8 @@ process capsule_combine_results_save_6 {
 	publishDir "$RESULTS_PATH", saveAs: { filename -> new File(filename).getName() }
 
 	input:
-	path 'capsule/data/' from capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_5
-	path 'capsule/data/' from capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_6.collect()
+	path 'capsule/data/' from capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_5
+	path 'capsule/data/' from capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_6
 
 	output:
 	path 'capsule/results/*'
@@ -216,6 +220,7 @@ process capsule_combine_results_save_6 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1792859.git" capsule-repo
+	git -C capsule-repo checkout 4ffb4e07851f647bf9c1fca15e3987e883684e07 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -258,6 +263,7 @@ process capsule_add_colors_7 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-3136666.git" capsule-repo
+	git -C capsule-repo checkout 840e91147ec95ffe14cdc19e2a721eca07210139 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -300,6 +306,7 @@ process capsule_add_colors_flat_8 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6286069.git" capsule-repo
+	git -C capsule-repo checkout 4705e25dfc44bf8eccb929b08fc338fc2238be53 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -324,7 +331,7 @@ process capsule_double_mad_filtering_flat_10 {
 	path 'capsule/data/' from capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_9
 
 	output:
-	path 'capsule/results/*' into capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_5
+	path 'capsule/results/*' into capsule_double_mad_filtering_flat_10_to_capsule_combine_results_save_6_6
 
 	script:
 	"""
@@ -342,6 +349,7 @@ process capsule_double_mad_filtering_flat_10 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6132720.git" capsule-repo
+	git -C capsule-repo checkout cfb92d0c8f728e460219c0c60b601b07b74ebc11 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -388,6 +396,7 @@ process capsule_filtering_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
+	git -C capsule-repo checkout 0d0f15ec0b3357b47d0a4385b3ddd850fa9fe231 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
