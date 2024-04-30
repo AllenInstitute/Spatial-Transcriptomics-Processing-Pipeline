@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:f0a1da1fe17e98b88d15768f6ead69b5630b16df02c2e3907d999284799fba38
+// hash:sha256:f759dcf8cf8a70a6ff7d5aeb6d3a3c592e5ae726d4cf62aa886dea01536d0fa1
 
 nextflow.enable.dsl = 1
 
@@ -69,8 +69,8 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 	tag 'capsule-4571712'
 	container "$REGISTRY_HOST/capsule/7cbe36e9-643b-4dd2-83f1-cf7a655bc382"
 
-	cpus 2
-	memory '0 GB'
+	cpus 8
+	memory '64 GB'
 
 	input:
 	val path2 from markers_to_hierarchical_mapping_cell_type_mapper_2
@@ -86,8 +86,8 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 	set -e
 
 	export CO_CAPSULE_ID=7cbe36e9-643b-4dd2-83f1-cf7a655bc382
-	export CO_CPUS=2
-	export CO_MEMORY=0
+	export CO_CPUS=8
+	export CO_MEMORY=68719476736
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -99,7 +99,7 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4571712.git" capsule-repo
-	git -C capsule-repo checkout 28f8a19aae0853d806e7e48e3fd391b4328bdaf3 --quiet
+	git -C capsule-repo checkout a433bac4b03bd9e2e0009dacf08c861d5e89a415 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -117,8 +117,8 @@ process capsule_flatmapping_celltypemapper_4 {
 	tag 'capsule-7602887'
 	container "$REGISTRY_HOST/capsule/b99e4355-d65b-4348-a287-cde9d6831bc3"
 
-	cpus 1
-	memory '8 GB'
+	cpus 4
+	memory '32 GB'
 
 	input:
 	val path5 from markers_to_flat_mapping_cell_type_mapper_5
@@ -134,8 +134,8 @@ process capsule_flatmapping_celltypemapper_4 {
 	set -e
 
 	export CO_CAPSULE_ID=b99e4355-d65b-4348-a287-cde9d6831bc3
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=4
+	export CO_MEMORY=34359738368
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -147,7 +147,7 @@ process capsule_flatmapping_celltypemapper_4 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7602887.git" capsule-repo
-	git -C capsule-repo checkout 64a1b58ff3b9880c74daba16f6617cd9e899819f --quiet
+	git -C capsule-repo checkout 0ced181bab144d769fc073e5b7328d79caf220f3 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -165,8 +165,8 @@ process capsule_double_mad_filtering_hierarchical_5 {
 	tag 'capsule-5853172'
 	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf"
 
-	cpus 1
-	memory '8 GB'
+	cpus 2
+	memory '16 GB'
 
 	input:
 	path 'capsule/data/' from capsule_add_colors_7_to_capsule_double_mad_filtering_hierarchical_5_8
@@ -180,8 +180,8 @@ process capsule_double_mad_filtering_hierarchical_5 {
 	set -e
 
 	export CO_CAPSULE_ID=c12178b9-5294-4420-94fb-43751457c7cf
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=2
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -282,7 +282,7 @@ process capsule_add_colors_7 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-3136666.git" capsule-repo
-	git -C capsule-repo checkout 840e91147ec95ffe14cdc19e2a721eca07210139 --quiet
+	git -C capsule-repo checkout c6254319371d26e821b0c2934307d2dc02fa6f14 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -328,7 +328,7 @@ process capsule_add_colors_flat_8 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6286069.git" capsule-repo
-	git -C capsule-repo checkout 4705e25dfc44bf8eccb929b08fc338fc2238be53 --quiet
+	git -C capsule-repo checkout a04c5b53aa139c50a07bb037f469fd00d5c58ea5 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -346,8 +346,8 @@ process capsule_double_mad_filtering_flat_10 {
 	tag 'capsule-6132720'
 	container "$REGISTRY_HOST/capsule/c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f"
 
-	cpus 1
-	memory '8 GB'
+	cpus 2
+	memory '16 GB'
 
 	input:
 	path 'capsule/data/' from capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_15
@@ -361,8 +361,8 @@ process capsule_double_mad_filtering_flat_10 {
 	set -e
 
 	export CO_CAPSULE_ID=c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=2
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
