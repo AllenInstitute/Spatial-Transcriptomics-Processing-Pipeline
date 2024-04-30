@@ -1,11 +1,11 @@
 #!/usr/bin/env nextflow
-// hash:sha256:29dd2dd72af5f118d30f034e1af2ca353abbb1e30f664b7c33136cd8d8581d39
+// hash:sha256:a43616e2b1ea922c87e83b9d1111cc0f42589c7f551e15b176068342ba643897
 
 nextflow.enable.dsl = 1
 
 capsule_filtering_11_to_capsule_combine_sections_2_1 = channel.create()
-markers_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
-precomputed_stats_to_hierarchical_mapping_cell_type_mapper_3 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
+precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
+markers_to_hierarchical_mapping_cell_type_mapper_3 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
 capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4 = channel.create()
 precomputed_stats_to_flat_mapping_cell_type_mapper_5 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
 markers_to_flat_mapping_cell_type_mapper_6 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
@@ -73,8 +73,8 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 	memory '64 GB'
 
 	input:
-	val path2 from markers_to_hierarchical_mapping_cell_type_mapper_2
-	val path3 from precomputed_stats_to_hierarchical_mapping_cell_type_mapper_3
+	val path2 from precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2
+	val path3 from markers_to_hierarchical_mapping_cell_type_mapper_3
 	path 'capsule/data/' from capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4
 
 	output:
@@ -93,9 +93,11 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+	mkdir -p capsule/data/precomputed_stats
+	mkdir -p capsule/data/markers
 
-	ln -s "/tmp/data/markers/$path2" "capsule/data/markers" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
-	ln -s "/tmp/data/precomputed_stats/$path3" "capsule/data/precomputed_stats" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
+	ln -s "/tmp/data/precomputed_stats/$path2" "capsule/data/precomputed_stats/$path2" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
+	ln -s "/tmp/data/markers/$path3" "capsule/data/markers/$path3" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4571712.git" capsule-repo
@@ -141,9 +143,11 @@ process capsule_flatmapping_celltypemapper_4 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+	mkdir -p capsule/data/precomputed_stats
+	mkdir -p capsule/data/markers
 
-	ln -s "/tmp/data/precomputed_stats/$path5" "capsule/data/precomputed_stats" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
-	ln -s "/tmp/data/markers/$path6" "capsule/data/markers" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
+	ln -s "/tmp/data/precomputed_stats/$path5" "capsule/data/precomputed_stats/$path5" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
+	ln -s "/tmp/data/markers/$path6" "capsule/data/markers/$path6" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7602887.git" capsule-repo
@@ -277,8 +281,9 @@ process capsule_add_colors_7 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+	mkdir -p capsule/data/cell_type_colors
 
-	ln -s "/tmp/data/cell_type_colors/$path11" "capsule/data/cell_type_colors" # id: ada9bde4-502c-43e2-8e6d-517d02744905
+	ln -s "/tmp/data/cell_type_colors/$path11" "capsule/data/cell_type_colors/$path11" # id: ada9bde4-502c-43e2-8e6d-517d02744905
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-3136666.git" capsule-repo
@@ -323,8 +328,9 @@ process capsule_add_colors_flat_8 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+	mkdir -p capsule/data/cell_type_colors
 
-	ln -s "/tmp/data/cell_type_colors/$path13" "capsule/data/cell_type_colors" # id: ada9bde4-502c-43e2-8e6d-517d02744905
+	ln -s "/tmp/data/cell_type_colors/$path13" "capsule/data/cell_type_colors/$path13" # id: ada9bde4-502c-43e2-8e6d-517d02744905
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6286069.git" capsule-repo
