@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:79c253fcfdbe67da02923efccb74cd5dae1a4630dac7e2470634e7e62d78365d
+// hash:sha256:127067242c62853fdf4a66c3c4d5fa8fe68974a6dbe59394b2da4fa64ae9e730
 
 nextflow.enable.dsl = 1
 
@@ -25,11 +25,11 @@ process capsule_combine_sections_2 {
 	tag 'capsule-5790984'
 	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba"
 
-	cpus 1
-	memory '8 GB'
+	cpus 2
+	memory '16 GB'
 
 	input:
-	path 'capsule/data/mouse_702265_filt/' from capsule_filtering_11_to_capsule_combine_sections_2_1.collect()
+	path 'capsule/data/' from capsule_filtering_11_to_capsule_combine_sections_2_1.collect()
 
 	output:
 	path 'capsule/results/*' into capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4
@@ -41,8 +41,8 @@ process capsule_combine_sections_2 {
 	set -e
 
 	export CO_CAPSULE_ID=56b1d4f6-2a6a-4536-8b35-7c208d62f3ba
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=2
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -169,8 +169,8 @@ process capsule_double_mad_filtering_hierarchical_5 {
 	tag 'capsule-5853172'
 	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf"
 
-	cpus 2
-	memory '16 GB'
+	cpus 4
+	memory '32 GB'
 
 	input:
 	path 'capsule/data/' from capsule_add_colors_7_to_capsule_double_mad_filtering_hierarchical_5_8
@@ -184,8 +184,8 @@ process capsule_double_mad_filtering_hierarchical_5 {
 	set -e
 
 	export CO_CAPSULE_ID=c12178b9-5294-4420-94fb-43751457c7cf
-	export CO_CPUS=2
-	export CO_MEMORY=17179869184
+	export CO_CPUS=4
+	export CO_MEMORY=34359738368
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -258,8 +258,8 @@ process capsule_add_colors_7 {
 	tag 'capsule-3136666'
 	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2"
 
-	cpus 1
-	memory '8 GB'
+	cpus 2
+	memory '16 GB'
 
 	input:
 	val path11 from cell_type_colors_to_add_colors_hierarchical_11
@@ -274,8 +274,8 @@ process capsule_add_colors_7 {
 	set -e
 
 	export CO_CAPSULE_ID=75566aa0-4659-44a1-83ac-a0139ce461c2
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=2
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -305,8 +305,8 @@ process capsule_add_colors_flat_8 {
 	tag 'capsule-6286069'
 	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858"
 
-	cpus 1
-	memory '8 GB'
+	cpus 2
+	memory '16 GB'
 
 	input:
 	val path13 from cell_type_colors_to_add_colors_flat_13
@@ -321,8 +321,8 @@ process capsule_add_colors_flat_8 {
 	set -e
 
 	export CO_CAPSULE_ID=542f20f7-8868-45c7-958c-463f954ce858
-	export CO_CPUS=1
-	export CO_MEMORY=8589934592
+	export CO_CPUS=2
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -425,7 +425,7 @@ process capsule_filtering_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout c9b7739e30b3fd7a31e5674229612a73718c5b86 --quiet
+	git -C capsule-repo checkout 5036c6425521e882391329bd0eb7c80821cd41b9 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
