@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:7d48e6243d3ca8aa9da085e5912da4fc4f70c0ea382f898bb6c25b134983d5f4
+// hash:sha256:c43ba55c2a8fb349a65ec72e807c1a923683d98ed2f252e46c8b0b6102e78158
 
 nextflow.enable.dsl = 1
 
@@ -23,13 +23,13 @@ whole_dataset_to_filtering_16 = channel.fromPath("../data/whole_dataset/*", type
 // capsule - Combine Sections
 process capsule_combine_sections_2 {
 	tag 'capsule-5790984'
-	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba:56258a32c910287ccd1a4dc7663b71af"
+	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba"
 
 	cpus 2
 	memory '16 GB'
 
 	input:
-	path 'capsule/data/whole_dataset/' from capsule_filtering_11_to_capsule_combine_sections_2_1.collect()
+	path 'capsule/data/' from capsule_filtering_11_to_capsule_combine_sections_2_1.collect()
 
 	output:
 	path 'capsule/results/*' into capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4
@@ -51,7 +51,7 @@ process capsule_combine_sections_2 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
-	git -C capsule-repo checkout e1a98e264574dfdef6b6a3460c9d3e51c5b7782c --quiet
+	git -C capsule-repo checkout 797847043bae4cbcc26742c2a206657b886905a4 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -67,7 +67,7 @@ process capsule_combine_sections_2 {
 // capsule - Hierarchical Mapping - cell_type_mapper
 process capsule_hierarchical_mapping_celltypemapper_3 {
 	tag 'capsule-4571712'
-	container "$REGISTRY_HOST/capsule/7cbe36e9-643b-4dd2-83f1-cf7a655bc382:929bfb7b61403f94753ff7e7fcfce9e7"
+	container "$REGISTRY_HOST/capsule/7cbe36e9-643b-4dd2-83f1-cf7a655bc382"
 
 	cpus 8
 	memory '64 GB'
@@ -117,7 +117,7 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 // capsule - Flat mapping - cell_type_mapper
 process capsule_flatmapping_celltypemapper_4 {
 	tag 'capsule-7602887'
-	container "$REGISTRY_HOST/capsule/b99e4355-d65b-4348-a287-cde9d6831bc3:35053cecae67686b065bf3e1ce53ad3d"
+	container "$REGISTRY_HOST/capsule/b99e4355-d65b-4348-a287-cde9d6831bc3"
 
 	cpus 4
 	memory '32 GB'
@@ -167,7 +167,7 @@ process capsule_flatmapping_celltypemapper_4 {
 // capsule - DoubleMAD Filtering - Hierarchical
 process capsule_double_mad_filtering_hierarchical_5 {
 	tag 'capsule-5853172'
-	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf:18538b5e44c59261e2cd9ea6ef4561f9"
+	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf"
 
 	cpus 4
 	memory '32 GB'
@@ -210,7 +210,7 @@ process capsule_double_mad_filtering_hierarchical_5 {
 // capsule - Combine Results + Save
 process capsule_combine_results_save_6 {
 	tag 'capsule-1792859'
-	container "$REGISTRY_HOST/capsule/8eb1cb3b-b081-4b12-8813-10a8c08a1d51:93f4714eb2b3d0469aa1d7033e47b5a9"
+	container "$REGISTRY_HOST/capsule/8eb1cb3b-b081-4b12-8813-10a8c08a1d51"
 
 	cpus 2
 	memory '8 GB'
@@ -256,7 +256,7 @@ process capsule_combine_results_save_6 {
 // capsule - Add Colors - Hierarchical
 process capsule_add_colors_7 {
 	tag 'capsule-3136666'
-	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2:a335ec6ed7309f1f5da9e768dd5c8dfe"
+	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2"
 
 	cpus 2
 	memory '16 GB'
@@ -303,7 +303,7 @@ process capsule_add_colors_7 {
 // capsule - Add Colors - Flat
 process capsule_add_colors_flat_8 {
 	tag 'capsule-6286069'
-	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858:a335ec6ed7309f1f5da9e768dd5c8dfe"
+	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858"
 
 	cpus 2
 	memory '16 GB'
@@ -350,7 +350,7 @@ process capsule_add_colors_flat_8 {
 // capsule - DoubleMAD Filtering - Flat
 process capsule_double_mad_filtering_flat_10 {
 	tag 'capsule-6132720'
-	container "$REGISTRY_HOST/capsule/c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f:18538b5e44c59261e2cd9ea6ef4561f9"
+	container "$REGISTRY_HOST/capsule/c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f"
 
 	cpus 2
 	memory '16 GB'
@@ -393,7 +393,7 @@ process capsule_double_mad_filtering_flat_10 {
 // capsule - Filtering
 process capsule_filtering_11 {
 	tag 'capsule-8257790'
-	container "$REGISTRY_HOST/capsule/b4b7bdd0-4078-46c8-9f11-34e926e3caf2:b162d832f77e7ae13871d3dc88acad3f"
+	container "$REGISTRY_HOST/capsule/b4b7bdd0-4078-46c8-9f11-34e926e3caf2"
 
 	cpus 4
 	memory '16 GB'
