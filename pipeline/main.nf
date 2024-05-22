@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:c43ba55c2a8fb349a65ec72e807c1a923683d98ed2f252e46c8b0b6102e78158
+// hash:sha256:adff6a7c98129f449d176e3e380a472bc12cea7c3ef49e3bad985fc970817be8
 
 nextflow.enable.dsl = 1
 
@@ -18,7 +18,7 @@ capsule_hierarchical_mapping_celltypemapper_3_to_capsule_add_colors_7_12 = chann
 cell_type_colors_to_add_colors_flat_13 = channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 capsule_flatmapping_celltypemapper_4_to_capsule_add_colors_flat_8_14 = channel.create()
 capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_15 = channel.create()
-whole_dataset_to_filtering_16 = channel.fromPath("../data/whole_dataset/*", type: 'any', relative: true)
+mouse_702265_to_filtering_16 = channel.fromPath("../data/mouse_702265/*", type: 'any', relative: true)
 
 // capsule - Combine Sections
 process capsule_combine_sections_2 {
@@ -240,7 +240,7 @@ process capsule_combine_results_save_6 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1792859.git" capsule-repo
-	git -C capsule-repo checkout 3c34d711e7c69aee3097ee7ae28154a6c2a0d878 --quiet
+	git -C capsule-repo checkout 1cabf8239cba44c18fd7902c8bf280ae1534ed20 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -401,7 +401,7 @@ process capsule_filtering_11 {
 	label 'gpu'
 
 	input:
-	val path16 from whole_dataset_to_filtering_16
+	val path16 from mouse_702265_to_filtering_16
 
 	output:
 	path 'capsule/results/*' into capsule_filtering_11_to_capsule_combine_sections_2_1
@@ -419,13 +419,13 @@ process capsule_filtering_11 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-	mkdir -p capsule/data/whole_dataset
+	mkdir -p capsule/data/mouse_702265
 
-	ln -s "/tmp/data/whole_dataset/$path16" "capsule/data/whole_dataset/$path16" # id: 156575d0-c080-4d30-b253-68b88cafe275
+	ln -s "/tmp/data/mouse_702265/$path16" "capsule/data/mouse_702265/$path16" # id: a2af7353-ba84-42d0-9f86-fbbba419f924
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout ea094d9bf834702ab2d3906c4725ff0df7fd80ab --quiet
+	git -C capsule-repo checkout d717b02c391866c4233323f7222c03d6a8d2b013 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
