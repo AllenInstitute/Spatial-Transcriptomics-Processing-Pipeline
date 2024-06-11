@@ -1,7 +1,9 @@
 #!/usr/bin/env nextflow
-// hash:sha256:c6e7b4157d0098279d7368f0f2de22b5ccd3a8388660da478e09e905a4a57cad
+// hash:sha256:63b5e617a84772b97e7d6173157a9558a8312d78501e3e306ac5bfcdbe8b1a3a
 
 nextflow.enable.dsl = 1
+
+params.whole_dataset_url = 's3://aibs-isilon-bucket-01/allen/programs/celltypes/workgroups/rnaseqanalysis/mFISH/spatial_bioinformatics/production_data/MERSCOPES/mousedev/mouse_702265/sections'
 
 capsule_filtering_11_to_capsule_combine_sections_2_1 = channel.create()
 precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
@@ -18,7 +20,7 @@ capsule_hierarchical_mapping_celltypemapper_3_to_capsule_add_colors_7_12 = chann
 cell_type_colors_to_add_colors_flat_13 = channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 capsule_flatmapping_celltypemapper_4_to_capsule_add_colors_flat_8_14 = channel.create()
 capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_15 = channel.create()
-mouse_702265_to_filtering_16 = channel.fromPath("../data/mouse_702265/*", type: 'any', relative: true)
+whole_dataset_to_filtering_16 = channel.fromPath(params.whole_dataset_url + "/*_pre.h5ad", type: 'any')
 
 // capsule - Combine Sections
 process capsule_combine_sections_2 {
@@ -151,7 +153,7 @@ process capsule_flatmapping_celltypemapper_4 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7602887.git" capsule-repo
-	git -C capsule-repo checkout d3f0bfe74e81e7a849adeb486494485b1a8df242 --quiet
+	git -C capsule-repo checkout 4abfbc85115cb85b1e8d635cdcd823db742e3522 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -401,7 +403,7 @@ process capsule_filtering_11 {
 	label 'gpu'
 
 	input:
-	val path16 from mouse_702265_to_filtering_16
+	path 'capsule/data/whole_dataset/' from whole_dataset_to_filtering_16
 
 	output:
 	path 'capsule/results/*' into capsule_filtering_11_to_capsule_combine_sections_2_1
@@ -419,13 +421,10 @@ process capsule_filtering_11 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-	mkdir -p capsule/data/mouse_702265
-
-	ln -s "/tmp/data/mouse_702265/$path16" "capsule/data/mouse_702265/$path16" # id: a2af7353-ba84-42d0-9f86-fbbba419f924
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout 94a9abceedb16bb6b03d63343ab7069f37e408ab --quiet
+	git -C capsule-repo checkout 6743d03141e567f256db552f1d6999ace9584d95 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
