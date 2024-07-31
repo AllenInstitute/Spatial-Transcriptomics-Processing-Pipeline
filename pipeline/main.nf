@@ -1,9 +1,7 @@
 #!/usr/bin/env nextflow
-// hash:sha256:63b5e617a84772b97e7d6173157a9558a8312d78501e3e306ac5bfcdbe8b1a3a
+// hash:sha256:172736a58d81cd91039da589951cd546cee9325d2d84fb533b3755907de255fd
 
 nextflow.enable.dsl = 1
-
-params.whole_dataset_url = 's3://aibs-isilon-bucket-01/allen/programs/celltypes/workgroups/rnaseqanalysis/mFISH/spatial_bioinformatics/production_data/MERSCOPES/mousedev/mouse_702265/sections'
 
 capsule_filtering_11_to_capsule_combine_sections_2_1 = channel.create()
 precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
@@ -20,7 +18,8 @@ capsule_hierarchical_mapping_celltypemapper_3_to_capsule_add_colors_7_12 = chann
 cell_type_colors_to_add_colors_flat_13 = channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 capsule_flatmapping_celltypemapper_4_to_capsule_add_colors_flat_8_14 = channel.create()
 capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_15 = channel.create()
-whole_dataset_to_filtering_16 = channel.fromPath(params.whole_dataset_url + "/*_pre.h5ad", type: 'any')
+capsule_add_cluster_labelsto_cells_by_section_12_to_capsule_filtering_11_16 = channel.create()
+sections_to_add_cluster_labels_to_cells_by_section__17 = channel.fromPath("../data/sections/*", type: 'any', relative: true)
 
 // capsule - Combine Sections
 process capsule_combine_sections_2 {
@@ -53,7 +52,7 @@ process capsule_combine_sections_2 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
-	git -C capsule-repo checkout 797847043bae4cbcc26742c2a206657b886905a4 --quiet
+	git -C capsule-repo checkout c94e874d2e604b53c6cbbeb4242b9d423e4fa27f --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -242,7 +241,7 @@ process capsule_combine_results_save_6 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1792859.git" capsule-repo
-	git -C capsule-repo checkout 1cabf8239cba44c18fd7902c8bf280ae1534ed20 --quiet
+	git -C capsule-repo checkout 2cbddb66129689d8f80f6ea5bf5f8151136de2f4 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -261,7 +260,7 @@ process capsule_add_colors_7 {
 	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2:a335ec6ed7309f1f5da9e768dd5c8dfe"
 
 	cpus 2
-	memory '16 GB'
+	memory '36 GB'
 
 	input:
 	val path11 from cell_type_colors_to_add_colors_hierarchical_11
@@ -277,7 +276,7 @@ process capsule_add_colors_7 {
 
 	export CO_CAPSULE_ID=75566aa0-4659-44a1-83ac-a0139ce461c2
 	export CO_CPUS=2
-	export CO_MEMORY=17179869184
+	export CO_MEMORY=38654705664
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -289,7 +288,7 @@ process capsule_add_colors_7 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-3136666.git" capsule-repo
-	git -C capsule-repo checkout c6254319371d26e821b0c2934307d2dc02fa6f14 --quiet
+	git -C capsule-repo checkout 416acd05cad38e3a0c02b04c661392911b7d3661 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -308,7 +307,7 @@ process capsule_add_colors_flat_8 {
 	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858:a335ec6ed7309f1f5da9e768dd5c8dfe"
 
 	cpus 2
-	memory '16 GB'
+	memory '36 GB'
 
 	input:
 	val path13 from cell_type_colors_to_add_colors_flat_13
@@ -324,7 +323,7 @@ process capsule_add_colors_flat_8 {
 
 	export CO_CAPSULE_ID=542f20f7-8868-45c7-958c-463f954ce858
 	export CO_CPUS=2
-	export CO_MEMORY=17179869184
+	export CO_MEMORY=38654705664
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -336,7 +335,7 @@ process capsule_add_colors_flat_8 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6286069.git" capsule-repo
-	git -C capsule-repo checkout a04c5b53aa139c50a07bb037f469fd00d5c58ea5 --quiet
+	git -C capsule-repo checkout 2f997bfa0646edaf19b93cd3e60b74dff7b42e4a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -403,7 +402,7 @@ process capsule_filtering_11 {
 	label 'gpu'
 
 	input:
-	path 'capsule/data/whole_dataset/' from whole_dataset_to_filtering_16
+	path 'capsule/data/' from capsule_add_cluster_labelsto_cells_by_section_12_to_capsule_filtering_11_16
 
 	output:
 	path 'capsule/results/*' into capsule_filtering_11_to_capsule_combine_sections_2_1
@@ -424,7 +423,7 @@ process capsule_filtering_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout 6743d03141e567f256db552f1d6999ace9584d95 --quiet
+	git -C capsule-repo checkout b66b36eee3cb4950683dab2d1b8aa873b2700938 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -432,6 +431,53 @@ process capsule_filtering_11 {
 	cd capsule/code
 	chmod +x run
 	./run ${params.capsule_filtering_11_args}
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
+// capsule - Add Cluster Labels to Cells (By Section)
+process capsule_add_cluster_labelsto_cells_by_section_12 {
+	tag 'capsule-6665652'
+	container "$REGISTRY_HOST/capsule/f2f3fbb8-4e8d-48af-92d8-930121da39e1:359772d473eff5978d6c65c8759c2f2c"
+
+	cpus 8
+	memory '32 GB'
+
+	input:
+	val path17 from sections_to_add_cluster_labels_to_cells_by_section__17
+
+	output:
+	path 'capsule/results/*' into capsule_add_cluster_labelsto_cells_by_section_12_to_capsule_filtering_11_16
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=f2f3fbb8-4e8d-48af-92d8-930121da39e1
+	export CO_CPUS=8
+	export CO_MEMORY=34359738368
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+	mkdir -p capsule/data/sections
+
+	ln -s "/tmp/data/spatial_domain" "capsule/data/spatial_domain" # id: 246c2c3b-eafd-4397-9802-74f689fda94a
+	ln -s "/tmp/data/sections/$path17" "capsule/data/sections/$path17" # id: 19f98d79-1262-40e0-8d38-e4090350c05d
+
+	echo "[${task.tag}] cloning git repo..."
+	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6665652.git" capsule-repo
+	git -C capsule-repo checkout fea84a84d28ba0e45b66e40d08653168864cfa09 --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run ${params.capsule_add_cluster_labelsto_cells_by_section_12_args}
 
 	echo "[${task.tag}] completed!"
 	"""
