@@ -1,14 +1,14 @@
 #!/usr/bin/env nextflow
-// hash:sha256:172736a58d81cd91039da589951cd546cee9325d2d84fb533b3755907de255fd
+// hash:sha256:563a6ab13a0f100245541b2a3616e8864221e74bb12878a0ebb1be1ef508683f
 
 nextflow.enable.dsl = 1
 
 capsule_filtering_11_to_capsule_combine_sections_2_1 = channel.create()
-precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
-markers_to_hierarchical_mapping_cell_type_mapper_3 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
+markers_to_hierarchical_mapping_cell_type_mapper_2 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
+precomputed_stats_to_hierarchical_mapping_cell_type_mapper_3 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
 capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4 = channel.create()
-precomputed_stats_to_flat_mapping_cell_type_mapper_5 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
-markers_to_flat_mapping_cell_type_mapper_6 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
+markers_to_flat_mapping_cell_type_mapper_5 = channel.fromPath("../data/markers/*", type: 'any', relative: true)
+precomputed_stats_to_flat_mapping_cell_type_mapper_6 = channel.fromPath("../data/precomputed_stats/*", type: 'any', relative: true)
 capsule_combine_sections_2_to_capsule_flatmapping_celltypemapper_4_7 = channel.create()
 capsule_add_colors_7_to_capsule_double_mad_filtering_hierarchical_5_8 = channel.create()
 capsule_double_mad_filtering_hierarchical_5_to_capsule_combine_results_save_6_9 = channel.create()
@@ -19,15 +19,15 @@ cell_type_colors_to_add_colors_flat_13 = channel.fromPath("../data/cell_type_col
 capsule_flatmapping_celltypemapper_4_to_capsule_add_colors_flat_8_14 = channel.create()
 capsule_add_colors_flat_8_to_capsule_double_mad_filtering_flat_10_15 = channel.create()
 capsule_add_cluster_labelsto_cells_by_section_12_to_capsule_filtering_11_16 = channel.create()
-sections_to_add_cluster_labels_to_cells_by_section__17 = channel.fromPath("../data/sections/*", type: 'any', relative: true)
+merscope_720609_mousedev_segmented_rotated_to_add_cluster_labels_to_cells_by_section__17 = channel.fromPath("../data/merscope_720609_mousedev_segmented_rotated/*", type: 'any', relative: true)
 
 // capsule - Combine Sections
 process capsule_combine_sections_2 {
 	tag 'capsule-5790984'
-	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba:56258a32c910287ccd1a4dc7663b71af"
+	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba"
 
 	cpus 2
-	memory '16 GB'
+	memory '52 GB'
 
 	input:
 	path 'capsule/data/' from capsule_filtering_11_to_capsule_combine_sections_2_1.collect()
@@ -43,7 +43,7 @@ process capsule_combine_sections_2 {
 
 	export CO_CAPSULE_ID=56b1d4f6-2a6a-4536-8b35-7c208d62f3ba
 	export CO_CPUS=2
-	export CO_MEMORY=17179869184
+	export CO_MEMORY=55834574848
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -68,14 +68,14 @@ process capsule_combine_sections_2 {
 // capsule - Hierarchical Mapping - cell_type_mapper
 process capsule_hierarchical_mapping_celltypemapper_3 {
 	tag 'capsule-4571712'
-	container "$REGISTRY_HOST/capsule/7cbe36e9-643b-4dd2-83f1-cf7a655bc382:929bfb7b61403f94753ff7e7fcfce9e7"
+	container "$REGISTRY_HOST/capsule/7cbe36e9-643b-4dd2-83f1-cf7a655bc382"
 
 	cpus 34
 	memory '96 GB'
 
 	input:
-	val path2 from precomputed_stats_to_hierarchical_mapping_cell_type_mapper_2
-	val path3 from markers_to_hierarchical_mapping_cell_type_mapper_3
+	val path2 from markers_to_hierarchical_mapping_cell_type_mapper_2
+	val path3 from precomputed_stats_to_hierarchical_mapping_cell_type_mapper_3
 	path 'capsule/data/' from capsule_combine_sections_2_to_capsule_hierarchical_mapping_celltypemapper_3_4
 
 	output:
@@ -94,15 +94,15 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-	mkdir -p capsule/data/precomputed_stats
 	mkdir -p capsule/data/markers
+	mkdir -p capsule/data/precomputed_stats
 
-	ln -s "/tmp/data/precomputed_stats/$path2" "capsule/data/precomputed_stats/$path2" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
-	ln -s "/tmp/data/markers/$path3" "capsule/data/markers/$path3" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
+	ln -s "/tmp/data/markers/$path2" "capsule/data/markers/$path2" # id: 445aa2ae-076f-43aa-a329-6c23a9290c1f
+	ln -s "/tmp/data/precomputed_stats/$path3" "capsule/data/precomputed_stats/$path3" # id: 5f8692be-aeb0-4463-9bfa-3f3f664f807d
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4571712.git" capsule-repo
-	git -C capsule-repo checkout 6a1af0d5e717371a1653d23e48f12316bc2acb4b --quiet
+	git -C capsule-repo checkout 5e33b35a08329c7127fe964c6c9fdd243bfa645a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -118,14 +118,14 @@ process capsule_hierarchical_mapping_celltypemapper_3 {
 // capsule - Flat mapping - cell_type_mapper
 process capsule_flatmapping_celltypemapper_4 {
 	tag 'capsule-7602887'
-	container "$REGISTRY_HOST/capsule/b99e4355-d65b-4348-a287-cde9d6831bc3:35053cecae67686b065bf3e1ce53ad3d"
+	container "$REGISTRY_HOST/capsule/b99e4355-d65b-4348-a287-cde9d6831bc3"
 
 	cpus 36
 	memory '72 GB'
 
 	input:
-	val path5 from precomputed_stats_to_flat_mapping_cell_type_mapper_5
-	val path6 from markers_to_flat_mapping_cell_type_mapper_6
+	val path5 from markers_to_flat_mapping_cell_type_mapper_5
+	val path6 from precomputed_stats_to_flat_mapping_cell_type_mapper_6
 	path 'capsule/data/' from capsule_combine_sections_2_to_capsule_flatmapping_celltypemapper_4_7
 
 	output:
@@ -144,15 +144,15 @@ process capsule_flatmapping_celltypemapper_4 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-	mkdir -p capsule/data/precomputed_stats
 	mkdir -p capsule/data/markers
+	mkdir -p capsule/data/precomputed_stats
 
-	ln -s "/tmp/data/precomputed_stats/$path5" "capsule/data/precomputed_stats/$path5" # id: 0ad8bd39-ca8d-46bb-b99b-87d0683f364e
-	ln -s "/tmp/data/markers/$path6" "capsule/data/markers/$path6" # id: 4f6014eb-2f79-4fff-b523-d6a8b27d1d71
+	ln -s "/tmp/data/markers/$path5" "capsule/data/markers/$path5" # id: 445aa2ae-076f-43aa-a329-6c23a9290c1f
+	ln -s "/tmp/data/precomputed_stats/$path6" "capsule/data/precomputed_stats/$path6" # id: 5f8692be-aeb0-4463-9bfa-3f3f664f807d
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7602887.git" capsule-repo
-	git -C capsule-repo checkout 4abfbc85115cb85b1e8d635cdcd823db742e3522 --quiet
+	git -C capsule-repo checkout 0144828e1b8116823eb5e48a89f36c7b8122fab1 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -168,7 +168,7 @@ process capsule_flatmapping_celltypemapper_4 {
 // capsule - DoubleMAD Filtering - Hierarchical
 process capsule_double_mad_filtering_hierarchical_5 {
 	tag 'capsule-5853172'
-	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf:18538b5e44c59261e2cd9ea6ef4561f9"
+	container "$REGISTRY_HOST/capsule/c12178b9-5294-4420-94fb-43751457c7cf"
 
 	cpus 36
 	memory '72 GB'
@@ -211,7 +211,7 @@ process capsule_double_mad_filtering_hierarchical_5 {
 // capsule - Combine Results + Save
 process capsule_combine_results_save_6 {
 	tag 'capsule-1792859'
-	container "$REGISTRY_HOST/capsule/8eb1cb3b-b081-4b12-8813-10a8c08a1d51:93f4714eb2b3d0469aa1d7033e47b5a9"
+	container "$REGISTRY_HOST/capsule/8eb1cb3b-b081-4b12-8813-10a8c08a1d51"
 
 	cpus 8
 	memory '64 GB'
@@ -257,7 +257,7 @@ process capsule_combine_results_save_6 {
 // capsule - Add Colors - Hierarchical
 process capsule_add_colors_7 {
 	tag 'capsule-3136666'
-	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2:a335ec6ed7309f1f5da9e768dd5c8dfe"
+	container "$REGISTRY_HOST/capsule/75566aa0-4659-44a1-83ac-a0139ce461c2"
 
 	cpus 2
 	memory '36 GB'
@@ -288,7 +288,7 @@ process capsule_add_colors_7 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-3136666.git" capsule-repo
-	git -C capsule-repo checkout 416acd05cad38e3a0c02b04c661392911b7d3661 --quiet
+	git -C capsule-repo checkout 5b7e45c1337ace18642c071633d42fe80c6aade5 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -304,7 +304,7 @@ process capsule_add_colors_7 {
 // capsule - Add Colors - Flat
 process capsule_add_colors_flat_8 {
 	tag 'capsule-6286069'
-	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858:a335ec6ed7309f1f5da9e768dd5c8dfe"
+	container "$REGISTRY_HOST/capsule/542f20f7-8868-45c7-958c-463f954ce858"
 
 	cpus 2
 	memory '36 GB'
@@ -335,7 +335,7 @@ process capsule_add_colors_flat_8 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6286069.git" capsule-repo
-	git -C capsule-repo checkout 2f997bfa0646edaf19b93cd3e60b74dff7b42e4a --quiet
+	git -C capsule-repo checkout 02fb5c09b3d9d8ac7b6ce0a344a910445773d27e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -351,7 +351,7 @@ process capsule_add_colors_flat_8 {
 // capsule - DoubleMAD Filtering - Flat
 process capsule_double_mad_filtering_flat_10 {
 	tag 'capsule-6132720'
-	container "$REGISTRY_HOST/capsule/c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f:18538b5e44c59261e2cd9ea6ef4561f9"
+	container "$REGISTRY_HOST/capsule/c47d2a1e-b426-4f7a-aaa8-d2605f13ee6f"
 
 	cpus 36
 	memory '72 GB'
@@ -378,7 +378,7 @@ process capsule_double_mad_filtering_flat_10 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6132720.git" capsule-repo
-	git -C capsule-repo checkout a0d4fea973afa00779ae115deee782a1e89d2373 --quiet
+	git -C capsule-repo checkout 8699ca6cf514bee60491eac5121844e481c0b00e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -394,7 +394,7 @@ process capsule_double_mad_filtering_flat_10 {
 // capsule - Filtering
 process capsule_filtering_11 {
 	tag 'capsule-8257790'
-	container "$REGISTRY_HOST/capsule/b4b7bdd0-4078-46c8-9f11-34e926e3caf2:b162d832f77e7ae13871d3dc88acad3f"
+	container "$REGISTRY_HOST/capsule/b4b7bdd0-4078-46c8-9f11-34e926e3caf2"
 
 	cpus 4
 	memory '16 GB'
@@ -423,7 +423,7 @@ process capsule_filtering_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout b66b36eee3cb4950683dab2d1b8aa873b2700938 --quiet
+	git -C capsule-repo checkout da48d11328d2bc1c2667dfcdaccb8ac82c3fd1d6 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -439,13 +439,13 @@ process capsule_filtering_11 {
 // capsule - Add Cluster Labels to Cells (By Section)
 process capsule_add_cluster_labelsto_cells_by_section_12 {
 	tag 'capsule-6665652'
-	container "$REGISTRY_HOST/capsule/f2f3fbb8-4e8d-48af-92d8-930121da39e1:359772d473eff5978d6c65c8759c2f2c"
+	container "$REGISTRY_HOST/capsule/f2f3fbb8-4e8d-48af-92d8-930121da39e1"
 
-	cpus 8
-	memory '32 GB'
+	cpus 4
+	memory '16 GB'
 
 	input:
-	val path17 from sections_to_add_cluster_labels_to_cells_by_section__17
+	val path17 from merscope_720609_mousedev_segmented_rotated_to_add_cluster_labels_to_cells_by_section__17
 
 	output:
 	path 'capsule/results/*' into capsule_add_cluster_labelsto_cells_by_section_12_to_capsule_filtering_11_16
@@ -456,8 +456,8 @@ process capsule_add_cluster_labelsto_cells_by_section_12 {
 	set -e
 
 	export CO_CAPSULE_ID=f2f3fbb8-4e8d-48af-92d8-930121da39e1
-	export CO_CPUS=8
-	export CO_MEMORY=34359738368
+	export CO_CPUS=4
+	export CO_MEMORY=17179869184
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -465,12 +465,12 @@ process capsule_add_cluster_labelsto_cells_by_section_12 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 	mkdir -p capsule/data/sections
 
-	ln -s "/tmp/data/spatial_domain" "capsule/data/spatial_domain" # id: 246c2c3b-eafd-4397-9802-74f689fda94a
-	ln -s "/tmp/data/sections/$path17" "capsule/data/sections/$path17" # id: 19f98d79-1262-40e0-8d38-e4090350c05d
+	ln -s "/tmp/data/merscope_720609_mousedev_spatial_domain" "capsule/data/merscope_720609_mousedev_spatial_domain" # id: 76e8c015-0839-4dc9-b620-f723f8961271
+	ln -s "/tmp/data/merscope_720609_mousedev_segmented_rotated/$path17" "capsule/data/sections/$path17" # id: b732051b-46e7-4992-b78a-8b88c52f609a
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6665652.git" capsule-repo
-	git -C capsule-repo checkout fea84a84d28ba0e45b66e40d08653168864cfa09 --quiet
+	git -C capsule-repo checkout 7cb8fa29d54fc58a2f380dca80a000c02d9ac2fd --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
