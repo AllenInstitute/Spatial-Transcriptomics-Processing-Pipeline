@@ -1,5 +1,5 @@
 metadata_version: 1
-name: Mouse Processing Pipeline (map individual sections)
+name: Mouse Processing Pipeline - Data Parameters
 description: Whole-brain mouse processing pipeline. Includes genes, transcripts, blanks,
   and doublet filtering. cell_type_mapper hierarchical & flat mapping. Double-MAD
   average threshold filtering.
