@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:793a8287dc34ca5632069a298d2c0f2f2f023d3cf6c7c7df6eee5c93788b1919
+// hash:sha256:c6a6c2564067a03a66478e4ed879503c97ce4df5dca3ad9123e1c2d8590e6fc0
 
 nextflow.enable.dsl = 1
 
@@ -161,7 +161,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 // capsule - Mapping (Hierarchial + Flat Combined)
 process capsule_mapping_hierarchial_flat_combined_14 {
 	tag 'capsule-1928280'
-	container "$REGISTRY_HOST/capsule/d8f663b8-d522-4ed8-9467-44e8cf0610e2:5038d50b80bc3f7fd0df769ffbc2d959"
+	container "$REGISTRY_HOST/capsule/d8f663b8-d522-4ed8-9467-44e8cf0610e2"
 
 	cpus 8
 	memory '96 GB'
@@ -208,7 +208,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 // capsule - Add Cell Type Colors
 process capsule_add_cell_type_colors_combined_16 {
 	tag 'capsule-9300345'
-	container "$REGISTRY_HOST/capsule/0e2c969f-17f4-4eff-98df-eb3aef50c6b0:a335ec6ed7309f1f5da9e768dd5c8dfe"
+	container "$REGISTRY_HOST/capsule/0e2c969f-17f4-4eff-98df-eb3aef50c6b0"
 
 	cpus 8
 	memory '48 GB'
@@ -299,7 +299,7 @@ process capsule_combine_sections_17 {
 // capsule - Save Processing Results
 process capsule_save_processing_results_18 {
 	tag 'capsule-7456539'
-	container "$REGISTRY_HOST/capsule/41e788a7-6656-4df6-af8e-2bace1c80d2f:93f4714eb2b3d0469aa1d7033e47b5a9"
+	container "$REGISTRY_HOST/capsule/41e788a7-6656-4df6-af8e-2bace1c80d2f"
 
 	cpus 8
 	memory '64 GB'
@@ -329,7 +329,7 @@ process capsule_save_processing_results_18 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
-	git -C capsule-repo checkout 25f796e6208a617675e36cdcc3c2c4457aa5b2df --quiet
+	git -C capsule-repo checkout 39005547c91a6e74f67625a09a600b5867c69c62 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -345,7 +345,7 @@ process capsule_save_processing_results_18 {
 // capsule - DoubleMAD Filtering (Hierarchical + Flat Combined)
 process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 	tag 'capsule-5619897'
-	container "$REGISTRY_HOST/capsule/94c919b2-7a21-4899-a456-f83ab5d1cfe2:18538b5e44c59261e2cd9ea6ef4561f9"
+	container "$REGISTRY_HOST/capsule/94c919b2-7a21-4899-a456-f83ab5d1cfe2"
 
 	cpus 16
 	memory '64 GB'
@@ -355,7 +355,7 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 	path 'capsule/data/' from capsule_add_cell_type_colors_combined_16_to_capsule_double_mad_filtering_hierarchical_flat_combined_20_17
 
 	output:
-	path 'capsule/results/whole_dataset/hrc_CDM*.h5ad' into capsule_double_mad_filtering_hierarchical_flat_combined_20_to_capsule_save_processing_results_18_14
+	path 'capsule/results/whole_dataset/hrc_mmc*.h5ad' into capsule_double_mad_filtering_hierarchical_flat_combined_20_to_capsule_save_processing_results_18_14
 
 	script:
 	"""
@@ -389,7 +389,7 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 // capsule - Create Parameters JSON
 process capsule_create_parameters_json_21 {
 	tag 'capsule-9173047'
-	container "$REGISTRY_HOST/capsule/240b455d-6375-45de-b176-3885d4a9e7f1:4e400a6ae2582d0c909187ea22440309"
+	container "$REGISTRY_HOST/capsule/240b455d-6375-45de-b176-3885d4a9e7f1"
 
 	cpus 2
 	memory '1 GB'
