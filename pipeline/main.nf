@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:5244f4e9da2c631fbef33383b13609265a3805abe3f62159623673b4e157dd94
+// hash:sha256:dc41e281c3712f94307bab8494be909c1dcacf4f667eef8c0d71ed674f151bae
 
 nextflow.enable.dsl = 1
 
@@ -69,8 +69,8 @@ process capsule_filtering_11 {
 
 // capsule - Add Spatial Cluster Labels to Cells
 process capsule_add_cluster_labelsto_cells_by_section_12 {
-	tag 'capsule-6665652'
-	container "$REGISTRY_HOST/capsule/f2f3fbb8-4e8d-48af-92d8-930121da39e1:359772d473eff5978d6c65c8759c2f2c"
+	tag 'capsule-1255110'
+	container "$REGISTRY_HOST/published/dbbbf1ec-3c5d-4c6f-b699-b705b4d926be:v2"
 
 	cpus 4
 	memory '16 GB'
@@ -87,7 +87,7 @@ process capsule_add_cluster_labelsto_cells_by_section_12 {
 	#!/usr/bin/env bash
 	set -e
 
-	export CO_CAPSULE_ID=f2f3fbb8-4e8d-48af-92d8-930121da39e1
+	export CO_CAPSULE_ID=dbbbf1ec-3c5d-4c6f-b699-b705b4d926be
 	export CO_CPUS=4
 	export CO_MEMORY=17179869184
 
@@ -101,8 +101,7 @@ process capsule_add_cluster_labelsto_cells_by_section_12 {
 	ln -s "/tmp/data/merscope_720609_mousedev_spatial_domain" "capsule/data/merscope_720609_mousedev_spatial_domain" # id: 9325bf80-2ed8-40df-8cbf-9b36e0b674ed
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6665652.git" capsule-repo
-	git -C capsule-repo checkout ac5b8ed1643c172d3ce72af0c4f3fe16a73f0919 --quiet
+	git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1255110.git" capsule-repo
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
