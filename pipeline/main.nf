@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:3daf7e4e80e668f0e0055001ce6f1e17df22ad3f8b7dccf7531f5b6d0831ce7a
+// hash:sha256:5244f4e9da2c631fbef33383b13609265a3805abe3f62159623673b4e157dd94
 
 nextflow.enable.dsl = 1
 
@@ -54,7 +54,7 @@ process capsule_filtering_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout 0a19006c4123a7e58b0f759d42cb877225dfced6 --quiet
+	git -C capsule-repo checkout 5c2fe042f3836438927b580e0e84efeda2a88222 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -102,7 +102,7 @@ process capsule_add_cluster_labelsto_cells_by_section_12 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6665652.git" capsule-repo
-	git -C capsule-repo checkout eedd23c762a77b256e9893cacf9ee56bbff24019 --quiet
+	git -C capsule-repo checkout ac5b8ed1643c172d3ce72af0c4f3fe16a73f0919 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -195,7 +195,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
-	git -C capsule-repo checkout 9e3b056013b7661ed4f9d1e077dc5cbf94338468 --quiet
+	git -C capsule-repo checkout c7d6aa7ee7bf692578b4b5bc35ed87414e8affd4 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -243,7 +243,7 @@ process capsule_add_cell_type_colors_combined_16 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
-	git -C capsule-repo checkout 031d2323e843789553ece6e62e1be5fffba8d9a8 --quiet
+	git -C capsule-repo checkout 0bd8c66bc9419912e831367f7d1d4a18353f1b74 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -377,7 +377,7 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5619897.git" capsule-repo
-	git -C capsule-repo checkout cadbecbd0992c1fc67d878001335e0ca3a15968a --quiet
+	git -C capsule-repo checkout 4b6a5226ba4bed39e2b549dfcbb8a57f2667596a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -424,7 +424,7 @@ process capsule_create_parameters_json_21 {
 
 	echo "[${task.tag}] cloning git repo..."
 	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9173047.git" capsule-repo
-	git -C capsule-repo checkout 159f02027244f186182170cb110b6dd401fa7f83 --quiet
+	git -C capsule-repo checkout c55b128522d140deb460fce281350ae3f874855d --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
