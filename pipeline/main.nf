@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:7195b0609b43926dc5c4052200541d961df5ce064f6146eca872cf1a0ed9d4ed
+// hash:sha256:140eebabf771109f290cce4e9865bdac095827403e26d1cd0dd8d9ad2b9a568b
 
 nextflow.enable.dsl = 1
 
@@ -12,8 +12,8 @@ capsule_create_parameters_json_21_to_capsule_mapping_hierarchial_flat_combined_1
 capsule_create_parameters_json_21_to_capsule_add_cell_type_colors_combined_16_7 = channel.create()
 cell_type_colors_to_add_cell_type_colors_8 = channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 capsule_combine_sections_17_to_capsule_add_cell_type_colors_combined_16_9 = channel.create()
-capsule_create_parameters_json_21_to_capsule_combine_sections_17_10 = channel.create()
-capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11 = channel.create()
+capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_10 = channel.create()
+capsule_create_parameters_json_21_to_capsule_combine_sections_17_11 = channel.create()
 capsule_double_mad_filtering_hierarchical_flat_combined_20_to_capsule_save_processing_results_18_12 = channel.create()
 capsule_create_parameters_json_21_to_capsule_save_processing_results_18_13 = channel.create()
 capsule_create_parameters_json_21_to_capsule_double_mad_filtering_hierarchical_flat_combined_20_14 = channel.create()
@@ -25,7 +25,7 @@ process capsule_filtering_11 {
 	container "$REGISTRY_HOST/capsule/b4b7bdd0-4078-46c8-9f11-34e926e3caf2:cc7125c438dc37dbccfad683916ccac2"
 
 	cpus 4
-	memory '16 GB'
+	memory '15 GB'
 	accelerator 1
 	label 'gpu'
 
@@ -43,7 +43,7 @@ process capsule_filtering_11 {
 
 	export CO_CAPSULE_ID=b4b7bdd0-4078-46c8-9f11-34e926e3caf2
 	export CO_CPUS=4
-	export CO_MEMORY=17179869184
+	export CO_MEMORY=16106127360
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -54,8 +54,12 @@ process capsule_filtering_11 {
 	ln -s "/tmp/data/merscope_720609_mousedev_segmented_rotated/$path1" "capsule/data/sections/$path1" # id: c140ab6e-c517-44dc-8b0b-cea727f1a0ee
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
-	git -C capsule-repo checkout 2ae0fcef468732e2e34019055199cc234a9297a5 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 31f8119aa37637cae45814b1a4ca50e4974d86a4 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -74,7 +78,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	container "$REGISTRY_HOST/capsule/fd80a307-aa9f-4506-bac2-1923bb1050ed:c192a9532b0e8c847b9970f447df0953"
 
 	cpus 4
-	memory '16 GB'
+	memory '15 GB'
 
 	input:
 	path 'capsule/data/' from capsule_filtering_11_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3
@@ -90,7 +94,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 
 	export CO_CAPSULE_ID=fd80a307-aa9f-4506-bac2-1923bb1050ed
 	export CO_CPUS=4
-	export CO_MEMORY=17179869184
+	export CO_MEMORY=16106127360
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -100,8 +104,12 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	ln -s "/tmp/data/mouse_dev_incongruous_genes_list" "capsule/data/incongruous_genes" # id: 5e5ee663-c304-46a9-ba39-c4003cd416a5
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
-	git -C capsule-repo checkout 41559c4578eacfc3840bf257a3f7326d1d33dbc1 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 6548bb8a51bae231368c6e303c14f409d14372ae --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -127,7 +135,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	path 'capsule/data/params/' from capsule_create_parameters_json_21_to_capsule_mapping_hierarchial_flat_combined_14_6.collect()
 
 	output:
-	path 'capsule/results/*/*combined*.h5ad' into capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11
+	path 'capsule/results/mapping_results/*.h5ad' into capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_10
 
 	script:
 	"""
@@ -146,8 +154,12 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	ln -s "/tmp/data/merscope_720609_mousedev_p0_markers" "capsule/data/markers" # id: 5ab70028-71e6-4358-9159-32f725029b50
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
-	git -C capsule-repo checkout 2d0b5d49371885085157e7871350d28317fe4021 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 1e7a497557c550b3b7b4a42184999739aa575242 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -194,8 +206,12 @@ process capsule_add_cell_type_colors_combined_16 {
 	ln -s "/tmp/data/cell_type_colors/$path8" "capsule/data/cell_type_colors/$path8" # id: ada9bde4-502c-43e2-8e6d-517d02744905
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
-	git -C capsule-repo checkout aa43cc96118abcf5cb158527f83a7576830f1ee2 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 380b5b29bec4ce5565ebc108b9af9a1697bdd1a8 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -217,8 +233,8 @@ process capsule_combine_sections_17 {
 	memory '96 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_21_to_capsule_combine_sections_17_10.collect()
-	path 'capsule/data/sections/' from capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11.collect()
+	path 'capsule/data/mapping_results/sections/' from capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_10.collect()
+	path 'capsule/data/params/' from capsule_create_parameters_json_21_to_capsule_combine_sections_17_11.collect()
 
 	output:
 	path 'capsule/results/*' into capsule_combine_sections_17_to_capsule_add_cell_type_colors_combined_16_9
@@ -238,8 +254,12 @@ process capsule_combine_sections_17 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
-	git -C capsule-repo checkout 4f886799f690a22829360b5a0903a5b1e31d04a6 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 4ee602bf46dba87c77900996add4373326343669 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -258,7 +278,7 @@ process capsule_save_processing_results_18 {
 	container "$REGISTRY_HOST/capsule/41e788a7-6656-4df6-af8e-2bace1c80d2f:efb94ef89b16c91982f2770b45ba3ce1"
 
 	cpus 8
-	memory '64 GB'
+	memory '96 GB'
 
 	publishDir "$RESULTS_PATH", saveAs: { filename -> new File(filename).getName() }
 
@@ -276,7 +296,7 @@ process capsule_save_processing_results_18 {
 
 	export CO_CAPSULE_ID=41e788a7-6656-4df6-af8e-2bace1c80d2f
 	export CO_CPUS=8
-	export CO_MEMORY=68719476736
+	export CO_MEMORY=103079215104
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -284,8 +304,12 @@ process capsule_save_processing_results_18 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
-	git -C capsule-repo checkout cbfaa994ad94523b7a853865aa26beb0f7aa0428 --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 6ca2c9798abf47a4c65de18f8b84347421db5c37 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -304,14 +328,14 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 	container "$REGISTRY_HOST/capsule/94c919b2-7a21-4899-a456-f83ab5d1cfe2:18538b5e44c59261e2cd9ea6ef4561f9"
 
 	cpus 16
-	memory '128 GB'
+	memory '120 GB'
 
 	input:
 	path 'capsule/data/params/' from capsule_create_parameters_json_21_to_capsule_double_mad_filtering_hierarchical_flat_combined_20_14.collect()
 	path 'capsule/data/' from capsule_add_cell_type_colors_combined_16_to_capsule_double_mad_filtering_hierarchical_flat_combined_20_15
 
 	output:
-	path 'capsule/results/*/hrc_mmc*.h5ad' into capsule_double_mad_filtering_hierarchical_flat_combined_20_to_capsule_save_processing_results_18_12
+	path 'capsule/results/*/*' into capsule_double_mad_filtering_hierarchical_flat_combined_20_to_capsule_save_processing_results_18_12
 
 	script:
 	"""
@@ -320,7 +344,7 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 
 	export CO_CAPSULE_ID=94c919b2-7a21-4899-a456-f83ab5d1cfe2
 	export CO_CPUS=16
-	export CO_MEMORY=137438953472
+	export CO_MEMORY=128849018880
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -328,8 +352,12 @@ process capsule_double_mad_filtering_hierarchical_flat_combined_20 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5619897.git" capsule-repo
-	git -C capsule-repo checkout 1531825c62ad8ea7b83a00ec83b871e01925fecb --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5619897.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5619897.git" capsule-repo
+	fi
+	git -C capsule-repo checkout cabfcfbec91f9aaa7d01fe5980f70fc4aa014c8e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -357,7 +385,7 @@ process capsule_create_parameters_json_21 {
 	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4
 	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_mapping_hierarchial_flat_combined_14_6
 	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_add_cell_type_colors_combined_16_7
-	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_combine_sections_17_10
+	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_combine_sections_17_11
 	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_save_processing_results_18_13
 	path 'capsule/results/*' into capsule_create_parameters_json_21_to_capsule_double_mad_filtering_hierarchical_flat_combined_20_14
 	path 'capsule/results/*'
@@ -377,8 +405,12 @@ process capsule_create_parameters_json_21 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
 	echo "[${task.tag}] cloning git repo..."
-	git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9173047.git" capsule-repo
-	git -C capsule-repo checkout f17a979e18f91940bca8ff11378581b94eb8c49b --quiet
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9173047.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9173047.git" capsule-repo
+	fi
+	git -C capsule-repo checkout cb2ed1f3fa12f6824abd54dc2445529119643399 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
