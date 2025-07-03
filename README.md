@@ -56,10 +56,6 @@ Consolidate cluster assignments to full processed dataset.
 2. **Execution**: Click Run with parameters to run each step sequentially 
 3. **Output**: Each step generates intermediate files for the next step
 
-## Pipeline Options:
-1. Pipeline with Domain Detection
-2. Pipeline without Domain Detection
-
 ## Running the Pipeline
 
 - The pipeline can be executed directly within Code Ocean through the web interface or via the Code Ocean API. All dependencies are pre-installed in the containerized environment, eliminating setup complexity.
