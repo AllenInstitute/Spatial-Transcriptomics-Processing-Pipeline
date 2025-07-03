@@ -6,9 +6,9 @@ This analysis pipeline was built and deployed on Code Ocean, a cloud-based compu
 
 Code Ocean documentation: https://docs.codeocean.com/user-guide 
 
-## QC & Mapping Pipeline Overview
+## QC & Mapping Overview
 
-The processing pipeline consists of the following sequential steps:
+The processing section of pipeline consists of the following sequential steps:
 
 ### [Step 1: QC Filtering & Doublet Detection](./docs/processing_docs/1_qc_filtering.md)
 Quality control filtering and doublet detection using basic thresholding and SOLO (Semi-supervised Outlier Detection).
@@ -31,7 +31,10 @@ Perform quality control on cell type mapping results using Double Median Absolut
 ### [Step 7: Save Results](./docs/processing_docs/7_save_results.md)
 Save final processed results from the pipeline.
 
-## Domain Detection Pipeline Overview
+## Domain Detection Overview
+
+The domain detection section of pipeline consists of the following sequential steps:
+
 ### [Step 1: Downsample Spot Table](./docs/domain_detection_docs/1_downsample_spot_table.md)
 Bin transcript spots and performs QC filtering.
 
