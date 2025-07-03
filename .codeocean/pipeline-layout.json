@@ -238,7 +238,7 @@
 				"x": 463.2833733297785,
 				"y": -253.46929054124692
 			},
-			"selected": true,
+			"selected": false,
 			"type": "dataset"
 		},
 		{
@@ -367,10 +367,10 @@
 			},
 			"id": "capsule_create_parameters_json_full_pipeline_21",
 			"position": {
-				"x": 989.3417709234118,
-				"y": -874.8772227488633
+				"x": 1162.675104256745,
+				"y": -878.2105560821967
 			},
-			"selected": false,
+			"selected": true,
 			"type": "capsule"
 		},
 		{
@@ -407,9 +407,14 @@
 				"x": 888.2078519070608,
 				"y": 814.6055962337922
 			},
-			"selected": true,
+			"selected": false,
 			"type": "capsule"
 		}
 	],
-	"timestamp": 1751558178407
+	"timestamp": 1751566342057,
+	"viewport": {
+		"x": 93.12949169267392,
+		"y": 273.65234718386074,
+		"zoom": 0.3
+	}
 }

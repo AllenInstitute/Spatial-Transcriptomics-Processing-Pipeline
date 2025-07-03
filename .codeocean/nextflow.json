@@ -121,7 +121,7 @@
 				"id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0",
 				"name": "Add Cell Type Colors",
 				"slug": "9300345",
-				"commit": "3de6fdcb6fea7bc81b951fda6c5a2b59716d0ba3",
+				"commit": "bfe5330f199d45a740838b4d3fbe0aab86854772",
 				"image_tag": "a335ec6ed7309f1f5da9e768dd5c8dfe"
 			},
 			"resources": {
@@ -259,12 +259,13 @@
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "8075583",
-				"commit": "af6f18b633fe0f2676dc2c8eee444745c2c441be",
-				"image_tag": "4e400a6ae2582d0c909187ea22440309",
+				"commit": "a400ed971eb2e365f929ac7774c4ce4244b8f55e",
+				"image_tag": "97ca9f5a1beab4ff486f4071e760e08b",
 				"app_panel": true
 			},
 			"resources": {
-				"cpus": 2
+				"cpus": 2,
+				"memory": 2
 			},
 			"results": {
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",

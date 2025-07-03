@@ -1,13 +1,13 @@
 #!/usr/bin/env nextflow
-// hash:sha256:d25c8335e875cb6267ec0d35b87aa93dbf836bca83540b778b00f9270056cb76
+// hash:sha256:cb9e86f73f39e268d9f4008b6382e0fca972bb6e5ba9b0bf84ddb3af56ec23fb
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
 	tag 'capsule-8075583'
-	container "$REGISTRY_HOST/capsule/70bdfeb9-e9e7-4d75-90e9-193537ba4897:4e400a6ae2582d0c909187ea22440309"
+	container "$REGISTRY_HOST/capsule/70bdfeb9-e9e7-4d75-90e9-193537ba4897:97ca9f5a1beab4ff486f4071e760e08b"
 
 	cpus 2
-	memory '0 GB'
+	memory '1.875 GB'
 
 	publishDir "$RESULTS_PATH", saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
 
@@ -36,7 +36,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 
 	export CO_CAPSULE_ID=70bdfeb9-e9e7-4d75-90e9-193537ba4897
 	export CO_CPUS=2
-	export CO_MEMORY=0
+	export CO_MEMORY=2013265920
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -49,7 +49,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
 	fi
-	git -C capsule-repo checkout af6f18b633fe0f2676dc2c8eee444745c2c441be --quiet
+	git -C capsule-repo checkout a400ed971eb2e365f929ac7774c4ce4244b8f55e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -502,7 +502,7 @@ process capsule_add_cell_type_colors_combined_16 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 3de6fdcb6fea7bc81b951fda6c5a2b59716d0ba3 --quiet
+	git -C capsule-repo checkout bfe5330f199d45a740838b4d3fbe0aab86854772 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
