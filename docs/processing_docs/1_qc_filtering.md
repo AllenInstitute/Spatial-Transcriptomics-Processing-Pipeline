@@ -26,7 +26,7 @@ The QC filtering and doublet detection step includes:
 ### Added Metadata Columns:
 
 QC Filter Columns:
-- `{parameter}_qc_passed`: Boolean indicating if cell passes individual parameter threshold (genes, transcripts, and blanks)
+- `{parameter}_qc_passed`: Boolean indicating if cell passes individual parameter threshold (n_genes_by_counts, total_counts, and pct_counts_blank)
 - `basic_qc_passed`: Boolean indicating if cell passes all basic QC filters
 - `doublets_qc_passed`: Boolean indicating if cell is not a doublet
 - `qc_passed`: Boolean indicating if cell passes all QC filters (basic + doublet)
