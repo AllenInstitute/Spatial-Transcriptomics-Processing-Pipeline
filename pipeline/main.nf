@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:cb9e86f73f39e268d9f4008b6382e0fca972bb6e5ba9b0bf84ddb3af56ec23fb
+// hash:sha256:83a0a0c1e376986749d57ad0d2ab9f7f5bbf012dc28fb7858ed6f15d511cb01b
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -18,7 +18,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	path 'capsule/results/params/*', emit: to_capsule_add_cell_type_colors_combined_16_7
 	path 'capsule/results/params/*', emit: to_capsule_combine_sections_17_10
 	path 'capsule/results/params/*', emit: to_capsule_save_processing_results_18_12
-	path 'capsule/results/params/*', emit: to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14
+	path 'capsule/results/params/*', emit: to_capsule_doublemad_filtering_20_14
 	path 'capsule/results/params/*'
 	path 'capsule/results/res_params/*', emit: to_capsule_leiden_clustering_rapids_23_17
 	path 'capsule/results/params/*', emit: to_capsule_leiden_clustering_rapids_23_18
@@ -477,7 +477,7 @@ process capsule_add_cell_type_colors_combined_16 {
 	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/*', emit: to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15
+	path 'capsule/results/*', emit: to_capsule_doublemad_filtering_20_15
 
 	script:
 	"""
@@ -515,10 +515,10 @@ process capsule_add_cell_type_colors_combined_16 {
 	"""
 }
 
-// capsule - DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)
-process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
-	tag 'capsule-4960280'
-	container "$REGISTRY_HOST/capsule/0baeef90-141c-4327-9efa-d73f4c7e02ce:18538b5e44c59261e2cd9ea6ef4561f9"
+// capsule - DoubleMAD Filtering
+process capsule_doublemad_filtering_20 {
+	tag 'capsule-5476114'
+	container "$REGISTRY_HOST/capsule/4cef28c0-6813-4b18-b010-e90860c64bb2"
 
 	cpus 16
 	memory '120 GB'
@@ -535,7 +535,7 @@ process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
 	#!/usr/bin/env bash
 	set -e
 
-	export CO_CAPSULE_ID=0baeef90-141c-4327-9efa-d73f4c7e02ce
+	export CO_CAPSULE_ID=4cef28c0-6813-4b18-b010-e90860c64bb2
 	export CO_CPUS=16
 	export CO_MEMORY=128849018880
 
@@ -546,11 +546,10 @@ process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4960280.git" capsule-repo
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5476114.git" capsule-repo
 	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-4960280.git" capsule-repo
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5476114.git" capsule-repo
 	fi
-	git -C capsule-repo checkout f0cc4cb0a8cd0790bfd9c60c2eeafd3efafe9ece --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -612,7 +611,7 @@ process capsule_save_processing_results_18 {
 	"""
 }
 
-// capsule - Add Spatial Cluster Labels to Cells (multiple resolutions)
+// capsule - Add Cluster Labels to Cells
 process capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24 {
 	tag 'capsule-1276528'
 	container "$REGISTRY_HOST/capsule/552c7050-0249-45ab-9214-c7bde8e869e4:359772d473eff5978d6c65c8759c2f2c"
@@ -729,8 +728,8 @@ workflow {
 	capsule_combine_sections_17(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_combine_sections_17_10.collect(), capsule_mapping_hierarchial_flat_combined_14.out.to_capsule_combine_sections_17_11.collect())
 	capsule_leiden_clustering_rapids_23(capsule_run_staligner_json_26.out.to_capsule_leiden_clustering_rapids_23_16.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_17.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_18.collect())
 	capsule_add_cell_type_colors_combined_16(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_cell_type_colors_combined_16_7.collect(), cell_type_colors_to_add_cell_type_colors_8, capsule_combine_sections_17.out.to_capsule_add_cell_type_colors_combined_16_9)
-	capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14.collect(), capsule_add_cell_type_colors_combined_16.out.to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15)
-	capsule_save_processing_results_18(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_save_processing_results_18_12.collect(), capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20.out.to_capsule_save_processing_results_18_13.collect())
+	capsule_doublemad_filtering_20(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_doublemad_filtering_20_14.collect(), capsule_add_cell_type_colors_combined_16.out.to_capsule_doublemad_filtering_20_15)
+	capsule_save_processing_results_18(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_save_processing_results_18_12.collect(), capsule_doublemad_filtering_20.out.to_capsule_save_processing_results_18_13.collect())
 	capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19.collect(), capsule_save_processing_results_18.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20.collect(), capsule_leiden_clustering_rapids_23.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21)
 	capsule_add_new_cluster_columns_25(capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24.out.to_capsule_add_new_cluster_columns_25_22.collect(), capsule_save_processing_results_18.out.to_capsule_add_new_cluster_columns_25_23.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_new_cluster_columns_25_24.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_new_cluster_columns_25_25.collect())
 }

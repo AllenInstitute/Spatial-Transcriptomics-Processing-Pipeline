@@ -42,13 +42,13 @@
 			"target": "capsule_mapping_hierarchial_flat_combined_14"
 		},
 		{
-			"id": "reactflow__edge-capsule_add_cell_type_colors_combined_16-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"id": "reactflow__edge-capsule_add_cell_type_colors_combined_16-capsule_doublemad_filtering_20",
 			"source": "capsule_add_cell_type_colors_combined_16",
-			"target": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20"
+			"target": "capsule_doublemad_filtering_20"
 		},
 		{
-			"id": "reactflow__edge-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20-capsule_save_processing_results_18",
-			"source": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"id": "reactflow__edge-capsule_doublemad_filtering_20-capsule_save_processing_results_18",
+			"source": "capsule_doublemad_filtering_20",
 			"target": "capsule_save_processing_results_18"
 		},
 		{
@@ -78,9 +78,9 @@
 			"target": "capsule_add_cell_type_colors_combined_16"
 		},
 		{
-			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_doublemad_filtering_20",
 			"source": "capsule_create_parameters_json_full_pipeline_21",
-			"target": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20"
+			"target": "capsule_doublemad_filtering_20"
 		},
 		{
 			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_save_processing_results_18",
@@ -193,10 +193,10 @@
 		{
 			"id": "results",
 			"position": {
-				"x": 1674.7988239395406,
-				"y": 1841.4921520887299
+				"x": 1661.4654906062074,
+				"y": 1898.1588187553966
 			},
-			"selected": false,
+			"selected": true,
 			"type": "results"
 		},
 		{
@@ -367,10 +367,10 @@
 			},
 			"id": "capsule_create_parameters_json_full_pipeline_21",
 			"position": {
-				"x": 1162.675104256745,
-				"y": -878.2105560821967
+				"x": 1259.3417709234118,
+				"y": -842.3772227488633
 			},
-			"selected": true,
+			"selected": false,
 			"type": "capsule"
 		},
 		{
@@ -400,21 +400,16 @@
 		},
 		{
 			"data": {
-				"capsule_id": "0baeef90-141c-4327-9efa-d73f4c7e02ce"
+				"capsule_id": "4cef28c0-6813-4b18-b010-e90860c64bb2"
 			},
-			"id": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"id": "capsule_doublemad_filtering_20",
 			"position": {
 				"x": 888.2078519070608,
 				"y": 814.6055962337922
 			},
-			"selected": false,
+			"selected": true,
 			"type": "capsule"
 		}
 	],
-	"timestamp": 1751566342057,
-	"viewport": {
-		"x": 93.12949169267392,
-		"y": 273.65234718386074,
-		"zoom": 0.3
-	}
+	"timestamp": 1751576969619
 }

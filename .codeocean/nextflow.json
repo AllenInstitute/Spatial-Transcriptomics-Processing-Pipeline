@@ -213,9 +213,9 @@
 				},
 				{
 					"id": "2BM3WC4pXgFwI4vz",
-					"source_id": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+					"source_id": "capsule_doublemad_filtering_20",
 					"type": "capsule",
-					"name": "DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)",
+					"name": "DoubleMAD Filtering",
 					"source_path": "*/*",
 					"target_path": "*/",
 					"collect": true
@@ -223,13 +223,11 @@
 			]
 		},
 		{
-			"name": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"name": "capsule_doublemad_filtering_20",
 			"capsule": {
-				"id": "0baeef90-141c-4327-9efa-d73f4c7e02ce",
-				"name": "DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)",
-				"slug": "4960280",
-				"commit": "f0cc4cb0a8cd0790bfd9c60c2eeafd3efafe9ece",
-				"image_tag": "18538b5e44c59261e2cd9ea6ef4561f9"
+				"id": "4cef28c0-6813-4b18-b010-e90860c64bb2",
+				"name": "DoubleMAD Filtering",
+				"slug": "5476114"
 			},
 			"resources": {
 				"cpus": 16,
@@ -318,7 +316,7 @@
 			"name": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
 			"capsule": {
 				"id": "552c7050-0249-45ab-9214-c7bde8e869e4",
-				"name": "Add Spatial Cluster Labels to Cells (multiple resolutions)",
+				"name": "Add Cluster Labels to Cells",
 				"slug": "1276528",
 				"commit": "0570176bb719ea0764966f6f9983387de88c0edc",
 				"image_tag": "359772d473eff5978d6c65c8759c2f2c"
