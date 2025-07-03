@@ -1,7 +1,7 @@
 metadata_version: 1
 name: Spatial Transcriptomics Processing Pipeline
-description: Whole-brain mouse processing pipeline. Includes genes, transcripts, blanks,
-  and doublet filtering. cell_type_mapper hierarchical & flat mapping. Double-MAD
-  average threshold filtering.
+description: Spatial transcriptomics processing pipeline. Includes QC filtering, MapMyCells
+  hierarchical and/or flat mapping, DoubleMAD mapping filtering, and STAligner domain
+  detection
 authors:
 - name: Lindsey Ching
