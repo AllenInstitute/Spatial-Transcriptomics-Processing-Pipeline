@@ -6,7 +6,7 @@ This module performs quality control filtering and doublet detection on spatial 
 The QC filtering and doublet detection step includes:
 
 - Data Loading & Preparation - Load AnnData and calculate QC metrics
-- Basic QC Filtering - Apply minimum and maximum thresholds to filter low-quality cells
+- Basic QC Filtering - Apply minimum and maximum thresholds to filter low-quality cells for doublet detection
 - Doublet Detection - Train VAE and SOLO models to identify doublet cells
 - Results Saving - Save filtered data with QC annotations
 
