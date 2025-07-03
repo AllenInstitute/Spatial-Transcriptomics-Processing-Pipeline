@@ -53,7 +53,7 @@ Consolidate cluster assignments to full processed dataset.
 ## Quick Start
 
 1. **Configuration**: Update App Panel with your parameters
-2. **Execution**: Click Run with parameters to run each step sequentially 
+2. **Execution**: Click "Run with parameters" to run each step sequentially 
 3. **Output**: Each step generates intermediate files for the next step
 
 ## Running the Pipeline
