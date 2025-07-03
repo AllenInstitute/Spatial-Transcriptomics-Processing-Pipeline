@@ -1,0 +1,63 @@
+{
+    "downsample_params": {
+        "grid_size": 30,
+        "bucket_name": "mfish-merscope-mouse-dev-802451596237-us-west-2",
+        "object_key_template": "merfish_output/{experiment_id}/region_{section_region}/detected_transcripts.csv",
+        "modality": "merscope",
+        "genes_thr": 100,
+        "transcripts_thr": 800,
+        "blanks_thr": 3
+    },
+    "staligner_params": {
+        "specimen": "mouse",
+        "dataset_id": "720609",
+        "n_neighbors": 8,
+        "reverse": "True"
+    },
+    "cluster_params": {
+        "n_neighbors": 8,
+        "cluster_key": "STAligner",
+        "dataset_id": "720609",
+        "specimen": "mouse"
+    },
+    "domain_detection_params": {
+        "grid_size": 30,
+        "n_neighbors": 8,
+        "cluster_key": "STAligner"
+    },
+    "filtering_params": {
+        "min": {
+            "n_genes_by_counts": 6,
+            "total_counts": 30,
+            "volume": null
+        },
+        "max": {
+            "total_counts": null,
+            "pct_counts_blank": 2
+        },
+        "doublets_cutoff": null,
+        "run_incongruous_genes": "True"
+    },
+    "mapping_params": {
+        "normalization": "raw",
+        "drop_level": "supertype",
+        "mapping_type": "both",
+        "bootstrap_iteration": 100,
+        "bootstrap_factor": 0.9,
+        "n_runner_ups": 0,
+        "clobber": true,
+        "mapping_acronym": "mmc",
+        "drop_genes_list": null,
+        "add_cell_type_colors": "True"
+    },
+    "doublemad_params": {
+        "run_doublemad": "True",
+        "doublemad_multiplier": 3
+    },
+    "metadata": {
+        "specimen": "mouse",
+        "dataset_id": "720609",
+        "age": "P0",
+        "sex": "F"
+    }
+}
