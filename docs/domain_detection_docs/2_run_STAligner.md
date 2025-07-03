@@ -34,7 +34,7 @@ The STAligner parameters are listed in `params.json`:
         "specimen": "mouse",
         "dataset_id": "720609",
         "n_neighbors": 8,
-        "reverse": null
+        "reverse": "True"
     }
 
 ## Parameter Descriptions
