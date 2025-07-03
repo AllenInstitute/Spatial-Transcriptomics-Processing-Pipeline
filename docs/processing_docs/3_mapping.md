@@ -35,10 +35,10 @@ Intermediate Files:
 
 ### Added Metadata Columns:
 The mapping adds multiple columns to adata.obs with the format `{mapping_type}_{mapping_acronym}_{column}`:
-- 'label' - MapMyCells labels
-- 'name' - Human-readable MapMyCells names
-- 'bootstrapping_probability' - 
-- 'avg_correlation' - 
+- 'label' - Machine-readable identifier of the taxonomic node assigned to the cell at this level of the taxonomy
+- 'name' - Human-readable name of the assigned node
+- 'bootstrapping_probability' - The fraction of bootstrap iterations that selected the assigned taxonomic node.
+- 'avg_correlation' - The average Pearson's correlation coefficient between the gene profile of the cell and the average gene profile of the chosen taxonomic node in the marker genes appropriate for that node. 
 
 ## Configuration Parameters
 The mapping parameters are specified in mapping_params.json:
