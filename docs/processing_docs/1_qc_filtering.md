@@ -18,7 +18,7 @@ The QC filtering and doublet detection step includes:
 - `center_x` and `center_y`: cell centroid coordinates
 - `volume`: Cell volume (in microns)
 - `section`: Section ID
-- `production_cell_id`: Unique cell ID as index (i.e. {section}_CP_{i}) 
+- `production_cell_id`: Unique cell ID as index (e.g., \{section\}_CP_\{i\}) 
 
 ## Output Files
 `{section}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to results/sections/
