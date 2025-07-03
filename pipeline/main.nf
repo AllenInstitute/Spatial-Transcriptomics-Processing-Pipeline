@@ -1,38 +1,115 @@
 #!/usr/bin/env nextflow
-// hash:sha256:badb78fa2e72c44a3b513cf90012a1b75740f573490b10c827d5d7f6a4e8e2e7
+// hash:sha256:d25c8335e875cb6267ec0d35b87aa93dbf836bca83540b778b00f9270056cb76
 
-nextflow.enable.dsl = 1
+// capsule - Create Parameters JSON Full Pipeline
+process capsule_create_parameters_json_full_pipeline_21 {
+	tag 'capsule-8075583'
+	container "$REGISTRY_HOST/capsule/70bdfeb9-e9e7-4d75-90e9-193537ba4897:4e400a6ae2582d0c909187ea22440309"
 
-capsule_create_parameters_json_full_pipeline_21_to_capsule_filtering_11_1 = channel.create()
-xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2 = channel.fromPath("../data/xenium_726931_mousedev_preprocessed/*", type: 'any', relative: true)
-capsule_create_parameters_json_full_pipeline_21_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3 = channel.create()
-capsule_filtering_11_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_mapping_hierarchial_flat_combined_14_5 = channel.create()
-capsule_calculate_incongruous_genes_cell_pairs_cell_13_to_capsule_mapping_hierarchial_flat_combined_14_6 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_add_cell_type_colors_combined_16_7 = channel.create()
-cell_type_colors_to_add_cell_type_colors_8 = channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
-capsule_combine_sections_17_to_capsule_add_cell_type_colors_combined_16_9 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_combine_sections_17_10 = channel.create()
-capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_save_processing_results_18_12 = channel.create()
-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_to_capsule_save_processing_results_18_13 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14 = channel.create()
-capsule_add_cell_type_colors_combined_16_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15 = channel.create()
-capsule_run_staligner_json_26_to_capsule_leiden_clustering_rapids_23_16 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_17 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_18 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19 = channel.create()
-capsule_save_processing_results_18_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20 = channel.create()
-capsule_leiden_clustering_rapids_23_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21 = channel.create()
-capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_to_capsule_add_new_cluster_columns_25_22 = channel.create()
-capsule_save_processing_results_18_to_capsule_add_new_cluster_columns_25_23 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_24 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_25 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_run_staligner_json_26_26 = channel.create()
-capsule_downsample_spot_table_json_27_to_capsule_run_staligner_json_26_27 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_downsample_spot_table_json_27_28 = channel.create()
-capsule_dispatch_jobs_28_to_capsule_downsample_spot_table_json_27_29 = channel.create()
-capsule_create_parameters_json_full_pipeline_21_to_capsule_dispatch_jobs_28_30 = channel.create()
+	cpus 2
+	memory '0 GB'
+
+	publishDir "$RESULTS_PATH", saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
+
+	output:
+	path 'capsule/results/params/*', emit: to_capsule_filtering_11_1
+	path 'capsule/results/params/*', emit: to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3
+	path 'capsule/results/params/*', emit: to_capsule_mapping_hierarchial_flat_combined_14_5
+	path 'capsule/results/params/*', emit: to_capsule_add_cell_type_colors_combined_16_7
+	path 'capsule/results/params/*', emit: to_capsule_combine_sections_17_10
+	path 'capsule/results/params/*', emit: to_capsule_save_processing_results_18_12
+	path 'capsule/results/params/*', emit: to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14
+	path 'capsule/results/params/*'
+	path 'capsule/results/res_params/*', emit: to_capsule_leiden_clustering_rapids_23_17
+	path 'capsule/results/params/*', emit: to_capsule_leiden_clustering_rapids_23_18
+	path 'capsule/results/params/*', emit: to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19
+	path 'capsule/results/params/*', emit: to_capsule_add_new_cluster_columns_25_24
+	path 'capsule/results/res_params/*', emit: to_capsule_add_new_cluster_columns_25_25
+	path 'capsule/results/params/*', emit: to_capsule_run_staligner_json_26_26
+	path 'capsule/results/params/*', emit: to_capsule_downsample_spot_table_json_27_28
+	path 'capsule/results/params/*', emit: to_capsule_dispatch_jobs_28_30
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=70bdfeb9-e9e7-4d75-90e9-193537ba4897
+	export CO_CPUS=2
+	export CO_MEMORY=0
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
+	fi
+	git -C capsule-repo checkout af6f18b633fe0f2676dc2c8eee444745c2c441be --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run ${params.capsule_create_parameters_json_full_pipeline_21_args}
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
+// capsule - Dispatch Jobs
+process capsule_dispatch_jobs_28 {
+	tag 'capsule-6617820'
+	container "$REGISTRY_HOST/capsule/083774d3-72c4-42d8-96b2-254e81ec52bf:a1c3826b1b55add0a4be63974c46efb9"
+
+	cpus 2
+	memory '1 GB'
+
+	input:
+	path 'capsule/data/params/'
+
+	output:
+	path 'capsule/results/*', emit: to_capsule_downsample_spot_table_json_27_29
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=083774d3-72c4-42d8-96b2-254e81ec52bf
+	export CO_CPUS=2
+	export CO_MEMORY=1073741824
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/xenium_726931_barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 3082796340217c85a51cf7318b8242618a89eb10 --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run
+
+	echo "[${task.tag}] completed!"
+	"""
+}
 
 // capsule - QC Filtering & Doublet Detection
 process capsule_filtering_11 {
@@ -45,11 +122,11 @@ process capsule_filtering_11 {
 	label 'gpu'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_filtering_11_1.collect()
-	val path2 from xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2
+	path 'capsule/data/params/'
+	val path2
 
 	output:
-	path 'capsule/results/*' into capsule_filtering_11_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4
+	path 'capsule/results/*', emit: to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4
 
 	script:
 	"""
@@ -96,11 +173,11 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	memory '15 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3.collect()
-	path 'capsule/data/' from capsule_filtering_11_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4
+	path 'capsule/data/params/'
+	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/*' into capsule_calculate_incongruous_genes_cell_pairs_cell_13_to_capsule_mapping_hierarchial_flat_combined_14_6
+	path 'capsule/results/*', emit: to_capsule_mapping_hierarchial_flat_combined_14_6
 
 	script:
 	"""
@@ -137,6 +214,54 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	"""
 }
 
+// capsule - Downsample Spot Table (JSON)
+process capsule_downsample_spot_table_json_27 {
+	tag 'capsule-9309116'
+	container "$REGISTRY_HOST/capsule/ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40:d0c09da2eb67b14a8a2062e75386d77b"
+
+	cpus 48
+	memory '192 GB'
+
+	input:
+	path 'capsule/data/params/'
+	path 'capsule/data/section_metadata/'
+
+	output:
+	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_json_26_27
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40
+	export CO_CPUS=48
+	export CO_MEMORY=206158430208
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 846dce33c4b4b107bc21132892dfd012575c9397 --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
 // capsule - Cell Type Mapping
 process capsule_mapping_hierarchial_flat_combined_14 {
 	tag 'capsule-1928280'
@@ -146,11 +271,11 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	memory '96 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_mapping_hierarchial_flat_combined_14_5.collect()
-	path 'capsule/data/' from capsule_calculate_incongruous_genes_cell_pairs_cell_13_to_capsule_mapping_hierarchial_flat_combined_14_6
+	path 'capsule/data/params/'
+	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/mapping_results/*.h5ad' into capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11
+	path 'capsule/results/mapping_results/*.h5ad', emit: to_capsule_combine_sections_17_11
 
 	script:
 	"""
@@ -187,6 +312,157 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	"""
 }
 
+// capsule - Run STAligner (JSON)
+process capsule_run_staligner_json_26 {
+	tag 'capsule-1366953'
+	container "$REGISTRY_HOST/capsule/ccde4aeb-172d-4a48-bd2e-ed90c58d2a21:895c09a81261d91221eef4fbdaffe51c"
+
+	cpus 16
+	memory '60 GB'
+	accelerator 1
+	label 'gpu'
+
+	input:
+	path 'capsule/data/params/'
+	path 'capsule/data/downsampled/'
+
+	output:
+	path 'capsule/results/*', emit: to_capsule_leiden_clustering_rapids_23_16
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=ccde4aeb-172d-4a48-bd2e-ed90c58d2a21
+	export CO_CPUS=16
+	export CO_MEMORY=64424509440
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 07359d1a9ef7de8993716b48f6600119339333bf --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
+// capsule - Combine Sections
+process capsule_combine_sections_17 {
+	tag 'capsule-5790984'
+	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba:56258a32c910287ccd1a4dc7663b71af"
+
+	cpus 16
+	memory '96 GB'
+
+	input:
+	path 'capsule/data/params/'
+	path 'capsule/data/mapping_results/sections/'
+
+	output:
+	path 'capsule/results/*', emit: to_capsule_add_cell_type_colors_combined_16_9
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=56b1d4f6-2a6a-4536-8b35-7c208d62f3ba
+	export CO_CPUS=16
+	export CO_MEMORY=103079215104
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
+	fi
+	git -C capsule-repo checkout a2ea9938107817de0871eae380197a5edc008104 --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
+// capsule - Leiden Clustering - RAPIDS
+process capsule_leiden_clustering_rapids_23 {
+	tag 'capsule-5243173'
+	container "$REGISTRY_HOST/capsule/860d5d7c-a602-474f-9697-c1e0991eec3a:a97b569a19f3d1d49aea68113f3d3df4"
+
+	cpus 16
+	memory '60 GB'
+	accelerator 1
+	label 'gpu'
+
+	input:
+	path 'capsule/data/'
+	path 'capsule/data/res_params/'
+	path 'capsule/data/params/'
+
+	output:
+	path 'capsule/results/*', emit: to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21
+
+	script:
+	"""
+	#!/usr/bin/env bash
+	set -e
+
+	export CO_CAPSULE_ID=860d5d7c-a602-474f-9697-c1e0991eec3a
+	export CO_CPUS=16
+	export CO_MEMORY=64424509440
+
+	mkdir -p capsule
+	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
+	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
+	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
+
+	echo "[${task.tag}] cloning git repo..."
+	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
+	else
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
+	fi
+	git -C capsule-repo checkout 0d5d5cdf03d9d2dfb57acfdd57e39e2d30e3f279 --quiet
+	mv capsule-repo/code capsule/code
+	rm -rf capsule-repo
+
+	echo "[${task.tag}] running capsule..."
+	cd capsule/code
+	chmod +x run
+	./run
+
+	echo "[${task.tag}] completed!"
+	"""
+}
+
 // capsule - Add Cell Type Colors
 process capsule_add_cell_type_colors_combined_16 {
 	tag 'capsule-9300345'
@@ -196,12 +472,12 @@ process capsule_add_cell_type_colors_combined_16 {
 	memory '48 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_add_cell_type_colors_combined_16_7.collect()
-	val path8 from cell_type_colors_to_add_cell_type_colors_8
-	path 'capsule/data/' from capsule_combine_sections_17_to_capsule_add_cell_type_colors_combined_16_9
+	path 'capsule/data/params/'
+	val path8
+	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/*' into capsule_add_cell_type_colors_combined_16_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15
+	path 'capsule/results/*', emit: to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15
 
 	script:
 	"""
@@ -239,103 +515,6 @@ process capsule_add_cell_type_colors_combined_16 {
 	"""
 }
 
-// capsule - Combine Sections
-process capsule_combine_sections_17 {
-	tag 'capsule-5790984'
-	container "$REGISTRY_HOST/capsule/56b1d4f6-2a6a-4536-8b35-7c208d62f3ba:56258a32c910287ccd1a4dc7663b71af"
-
-	cpus 16
-	memory '96 GB'
-
-	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_combine_sections_17_10.collect()
-	path 'capsule/data/mapping_results/sections/' from capsule_mapping_hierarchial_flat_combined_14_to_capsule_combine_sections_17_11.collect()
-
-	output:
-	path 'capsule/results/*' into capsule_combine_sections_17_to_capsule_add_cell_type_colors_combined_16_9
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=56b1d4f6-2a6a-4536-8b35-7c208d62f3ba
-	export CO_CPUS=16
-	export CO_MEMORY=103079215104
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
-	fi
-	git -C capsule-repo checkout a2ea9938107817de0871eae380197a5edc008104 --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run
-
-	echo "[${task.tag}] completed!"
-	"""
-}
-
-// capsule - Save Processing Results
-process capsule_save_processing_results_18 {
-	tag 'capsule-7456539'
-	container "$REGISTRY_HOST/capsule/41e788a7-6656-4df6-af8e-2bace1c80d2f:efb94ef89b16c91982f2770b45ba3ce1"
-
-	cpus 8
-	memory '96 GB'
-
-	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_save_processing_results_18_12.collect()
-	path 'capsule/data/*/' from capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_to_capsule_save_processing_results_18_13.collect()
-
-	output:
-	path 'capsule/results/*' into capsule_save_processing_results_18_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20
-	path 'capsule/results/*' into capsule_save_processing_results_18_to_capsule_add_new_cluster_columns_25_23
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=41e788a7-6656-4df6-af8e-2bace1c80d2f
-	export CO_CPUS=8
-	export CO_MEMORY=103079215104
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
-	fi
-	git -C capsule-repo checkout 56b6060131fcc4610e6f4e69b003f63a5d316900 --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run
-
-	echo "[${task.tag}] completed!"
-	"""
-}
-
 // capsule - DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)
 process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
 	tag 'capsule-4960280'
@@ -345,11 +524,11 @@ process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
 	memory '120 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14.collect()
-	path 'capsule/data/' from capsule_add_cell_type_colors_combined_16_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15
+	path 'capsule/data/params/'
+	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/*/*' into capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_to_capsule_save_processing_results_18_13
+	path 'capsule/results/*/*', emit: to_capsule_save_processing_results_18_13
 
 	script:
 	"""
@@ -384,93 +563,30 @@ process capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20 {
 	"""
 }
 
-// capsule - Create Parameters JSON Full Pipeline
-process capsule_create_parameters_json_full_pipeline_21 {
-	tag 'capsule-8075583'
-	container "$REGISTRY_HOST/capsule/70bdfeb9-e9e7-4d75-90e9-193537ba4897:4e400a6ae2582d0c909187ea22440309"
+// capsule - Save Processing Results
+process capsule_save_processing_results_18 {
+	tag 'capsule-7456539'
+	container "$REGISTRY_HOST/capsule/41e788a7-6656-4df6-af8e-2bace1c80d2f:efb94ef89b16c91982f2770b45ba3ce1"
 
-	cpus 2
-	memory '0 GB'
-
-	publishDir "$RESULTS_PATH", saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
-
-	output:
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_filtering_11_1
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_mapping_hierarchial_flat_combined_14_5
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_add_cell_type_colors_combined_16_7
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_combine_sections_17_10
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_save_processing_results_18_12
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14
-	path 'capsule/results/params/*'
-	path 'capsule/results/res_params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_17
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_18
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_24
-	path 'capsule/results/res_params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_25
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_run_staligner_json_26_26
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_downsample_spot_table_json_27_28
-	path 'capsule/results/params/*' into capsule_create_parameters_json_full_pipeline_21_to_capsule_dispatch_jobs_28_30
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=70bdfeb9-e9e7-4d75-90e9-193537ba4897
-	export CO_CPUS=2
-	export CO_MEMORY=0
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
-	fi
-	git -C capsule-repo checkout af6f18b633fe0f2676dc2c8eee444745c2c441be --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run ${params.capsule_create_parameters_json_full_pipeline_21_args}
-
-	echo "[${task.tag}] completed!"
-	"""
-}
-
-// capsule - Leiden Clustering - RAPIDS
-process capsule_leiden_clustering_rapids_23 {
-	tag 'capsule-5243173'
-	container "$REGISTRY_HOST/capsule/860d5d7c-a602-474f-9697-c1e0991eec3a:a97b569a19f3d1d49aea68113f3d3df4"
-
-	cpus 16
-	memory '60 GB'
-	accelerator 1
-	label 'gpu'
+	cpus 8
+	memory '96 GB'
 
 	input:
-	path 'capsule/data/' from capsule_run_staligner_json_26_to_capsule_leiden_clustering_rapids_23_16.collect()
-	path 'capsule/data/res_params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_17.flatten()
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_leiden_clustering_rapids_23_18.collect()
+	path 'capsule/data/params/'
+	path 'capsule/data/*/'
 
 	output:
-	path 'capsule/results/*' into capsule_leiden_clustering_rapids_23_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21
+	path 'capsule/results/*', emit: to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20
+	path 'capsule/results/*', emit: to_capsule_add_new_cluster_columns_25_23
 
 	script:
 	"""
 	#!/usr/bin/env bash
 	set -e
 
-	export CO_CAPSULE_ID=860d5d7c-a602-474f-9697-c1e0991eec3a
-	export CO_CPUS=16
-	export CO_MEMORY=64424509440
+	export CO_CAPSULE_ID=41e788a7-6656-4df6-af8e-2bace1c80d2f
+	export CO_CPUS=8
+	export CO_MEMORY=103079215104
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -479,11 +595,11 @@ process capsule_leiden_clustering_rapids_23 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
+		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
 	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
+		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 0d5d5cdf03d9d2dfb57acfdd57e39e2d30e3f279 --quiet
+	git -C capsule-repo checkout 56b6060131fcc4610e6f4e69b003f63a5d316900 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -505,12 +621,12 @@ process capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24 {
 	memory '15 GB'
 
 	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19.collect()
-	path 'capsule/data/data_dir/' from capsule_save_processing_results_18_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20.collect()
-	path 'capsule/data/' from capsule_leiden_clustering_rapids_23_to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21
+	path 'capsule/data/params/'
+	path 'capsule/data/data_dir/'
+	path 'capsule/data/'
 
 	output:
-	path 'capsule/results/*' into capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_to_capsule_add_new_cluster_columns_25_22
+	path 'capsule/results/*', emit: to_capsule_add_new_cluster_columns_25_22
 
 	script:
 	"""
@@ -556,10 +672,10 @@ process capsule_add_new_cluster_columns_25 {
 	publishDir "$RESULTS_PATH", saveAs: { filename -> new File(filename).getName() }
 
 	input:
-	path 'capsule/data/data_dir/' from capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_to_capsule_add_new_cluster_columns_25_22.collect()
-	path 'capsule/data/data_dir/' from capsule_save_processing_results_18_to_capsule_add_new_cluster_columns_25_23.collect()
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_24.collect()
-	path 'capsule/data/res_params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_add_new_cluster_columns_25_25.collect()
+	path 'capsule/data/data_dir/'
+	path 'capsule/data/data_dir/'
+	path 'capsule/data/params/'
+	path 'capsule/data/res_params/'
 
 	output:
 	path 'capsule/results/*'
@@ -597,151 +713,24 @@ process capsule_add_new_cluster_columns_25 {
 	"""
 }
 
-// capsule - Run STAligner (JSON)
-process capsule_run_staligner_json_26 {
-	tag 'capsule-1366953'
-	container "$REGISTRY_HOST/capsule/ccde4aeb-172d-4a48-bd2e-ed90c58d2a21:895c09a81261d91221eef4fbdaffe51c"
+workflow {
+	// input data
+	xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2 = Channel.fromPath("../data/xenium_726931_mousedev_preprocessed/*", type: 'any', relative: true)
+	cell_type_colors_to_add_cell_type_colors_8 = Channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 
-	cpus 16
-	memory '60 GB'
-	accelerator 1
-	label 'gpu'
-
-	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_run_staligner_json_26_26.collect()
-	path 'capsule/data/downsampled/' from capsule_downsample_spot_table_json_27_to_capsule_run_staligner_json_26_27.collect()
-
-	output:
-	path 'capsule/results/*' into capsule_run_staligner_json_26_to_capsule_leiden_clustering_rapids_23_16
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=ccde4aeb-172d-4a48-bd2e-ed90c58d2a21
-	export CO_CPUS=16
-	export CO_MEMORY=64424509440
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
-	fi
-	git -C capsule-repo checkout 07359d1a9ef7de8993716b48f6600119339333bf --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run
-
-	echo "[${task.tag}] completed!"
-	"""
-}
-
-// capsule - Downsample Spot Table (JSON)
-process capsule_downsample_spot_table_json_27 {
-	tag 'capsule-9309116'
-	container "$REGISTRY_HOST/capsule/ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40:d0c09da2eb67b14a8a2062e75386d77b"
-
-	cpus 48
-	memory '192 GB'
-
-	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_downsample_spot_table_json_27_28.collect()
-	path 'capsule/data/section_metadata/' from capsule_dispatch_jobs_28_to_capsule_downsample_spot_table_json_27_29.flatten()
-
-	output:
-	path 'capsule/results/downsampled/*' into capsule_downsample_spot_table_json_27_to_capsule_run_staligner_json_26_27
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40
-	export CO_CPUS=48
-	export CO_MEMORY=206158430208
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
-	fi
-	git -C capsule-repo checkout 846dce33c4b4b107bc21132892dfd012575c9397 --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run
-
-	echo "[${task.tag}] completed!"
-	"""
-}
-
-// capsule - Dispatch Jobs
-process capsule_dispatch_jobs_28 {
-	tag 'capsule-6617820'
-	container "$REGISTRY_HOST/capsule/083774d3-72c4-42d8-96b2-254e81ec52bf:a1c3826b1b55add0a4be63974c46efb9"
-
-	cpus 2
-	memory '1 GB'
-
-	input:
-	path 'capsule/data/params/' from capsule_create_parameters_json_full_pipeline_21_to_capsule_dispatch_jobs_28_30.collect()
-
-	output:
-	path 'capsule/results/*' into capsule_dispatch_jobs_28_to_capsule_downsample_spot_table_json_27_29
-
-	script:
-	"""
-	#!/usr/bin/env bash
-	set -e
-
-	export CO_CAPSULE_ID=083774d3-72c4-42d8-96b2-254e81ec52bf
-	export CO_CPUS=2
-	export CO_MEMORY=1073741824
-
-	mkdir -p capsule
-	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
-	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
-	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-
-	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/xenium_726931_barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
-
-	echo "[${task.tag}] cloning git repo..."
-	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
-	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
-	fi
-	git -C capsule-repo checkout 3082796340217c85a51cf7318b8242618a89eb10 --quiet
-	mv capsule-repo/code capsule/code
-	rm -rf capsule-repo
-
-	echo "[${task.tag}] running capsule..."
-	cd capsule/code
-	chmod +x run
-	./run
-
-	echo "[${task.tag}] completed!"
-	"""
+	// run processes
+	capsule_create_parameters_json_full_pipeline_21()
+	capsule_dispatch_jobs_28(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_dispatch_jobs_28_30.collect())
+	capsule_filtering_11(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_filtering_11_1.collect(), xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2)
+	capsule_calculate_incongruous_genes_cell_pairs_cell_13(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3.collect(), capsule_filtering_11.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4)
+	capsule_downsample_spot_table_json_27(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_json_27_28.collect(), capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_json_27_29.flatten())
+	capsule_mapping_hierarchial_flat_combined_14(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_mapping_hierarchial_flat_combined_14_5.collect(), capsule_calculate_incongruous_genes_cell_pairs_cell_13.out.to_capsule_mapping_hierarchial_flat_combined_14_6)
+	capsule_run_staligner_json_26(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_run_staligner_json_26_26.collect(), capsule_downsample_spot_table_json_27.out.to_capsule_run_staligner_json_26_27.collect())
+	capsule_combine_sections_17(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_combine_sections_17_10.collect(), capsule_mapping_hierarchial_flat_combined_14.out.to_capsule_combine_sections_17_11.collect())
+	capsule_leiden_clustering_rapids_23(capsule_run_staligner_json_26.out.to_capsule_leiden_clustering_rapids_23_16.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_17.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_18.collect())
+	capsule_add_cell_type_colors_combined_16(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_cell_type_colors_combined_16_7.collect(), cell_type_colors_to_add_cell_type_colors_8, capsule_combine_sections_17.out.to_capsule_add_cell_type_colors_combined_16_9)
+	capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_14.collect(), capsule_add_cell_type_colors_combined_16.out.to_capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20_15)
+	capsule_save_processing_results_18(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_save_processing_results_18_12.collect(), capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20.out.to_capsule_save_processing_results_18_13.collect())
+	capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19.collect(), capsule_save_processing_results_18.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_20.collect(), capsule_leiden_clustering_rapids_23.out.to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_21)
+	capsule_add_new_cluster_columns_25(capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24.out.to_capsule_add_new_cluster_columns_25_22.collect(), capsule_save_processing_results_18.out.to_capsule_add_new_cluster_columns_25_23.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_new_cluster_columns_25_24.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_new_cluster_columns_25_25.collect())
 }
