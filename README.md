@@ -2,7 +2,7 @@
 ---
 This repository contains a comprehensive processing pipeline for spatial transcriptomics data analysis.
 
-This analysis pipeline was built and deployed on Code Ocean, a cloud-based computational research platform. The pipeline leverages Code Ocean's containerized environment to ensure reproducible results across different computing environments.
+This pipeline was built and deployed on Code Ocean, a cloud-based computational research platform. The pipeline leverages Code Ocean's containerized environment to ensure reproducible results across different computing environments.
 
 Code Ocean documentation: https://docs.codeocean.com/user-guide 
 
