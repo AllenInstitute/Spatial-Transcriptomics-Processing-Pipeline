@@ -22,8 +22,6 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--mapping_type` | str | "hrc", "flat", or "both" - type of mapping to run |
 | `--bootstrap_iteration` | int | Number of bootstrapping iterations per taxonomy tree node |
 | `--bootstrap_factor` | float | Factor for downsampling marker gene population |
-| `--n_processors` | int | Number of independent worker processes |
-| `--chunk_size` | int | Number of cells per worker process |
 | `--n_runners_up` | int | Number of runner-ups to generate |
 | `--mapping_acronym` | str | Acronym for mapped column names and file names |
 | `--clobber` | bool | True to overwrite existing results |
@@ -147,8 +145,6 @@ The script generates two types of JSON parameter files:
         "bootstrap_iteration": "int",
         "bootstrap_factor": "float",
         "n_runner_ups": "int",
-        "n_processors": "int",
-        "chunk_size": "int",
         "clobber": "bool",
         "mapping_acronym": "str",
         "drop_genes_list": "str"
