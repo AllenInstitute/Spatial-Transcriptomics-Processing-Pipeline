@@ -42,10 +42,10 @@ Bin transcript spots and performs QC filtering.
 Perform spatial alignment and integration of multiple tissue sections using STAligner.
 
 ### [Step 3: Leiden Clustering](./docs/domain_detection_docs/3_leiden_clustering.md)
-Perform Leiden clustering using RAPIDS single-cell library with STAligner embeddings.
+Perform Leiden clustering with STAligner embeddings.
 
 ### [Step 4: Add Clusters to Cells](./docs/domain_detection_docs/4_add_clusters_cbg.md)
-Map cluster assignments from downsampled STALigner gridded data to cell segmentation data.
+Map cluster assignments from downsampled STAligner gridded data to cell segmentation data.
 
 ### [Step 5: Merge All Clusters](./docs/domain_detection_docs/5_merge_clusters.md)
 Consolidate cluster assignments to full processed dataset.
