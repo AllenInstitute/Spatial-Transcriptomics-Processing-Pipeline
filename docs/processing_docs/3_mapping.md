@@ -13,8 +13,8 @@ The mapping step includes:
 ## Input Files
 
 - `*.h5ad` - Filtered AnnData file from previous processing steps 
-- `*precomputed_stats*.h5` - Precomputed reference statistics file
-- `*marker*.json` - Serialized marker gene lookup table
+- `*precomputed_stats*.h5` - HDF5 file defining your taxonomy and the average gene expression profile for the cell types in your taxonomy
+- `*marker*.json` - JSON file defining the marker genes to be used for mapping given your taxonomy
 - `params.json` - Configuration file with mapping parameters
 
 ## Output Files
