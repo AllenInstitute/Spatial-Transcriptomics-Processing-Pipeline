@@ -34,7 +34,7 @@ Intermediate Files:
 - `basic_results_{mapping_type}.csv` - Summary mapping results saved to results/{mapping_acronym}_output
 
 ### Added Metadata Columns:
-The mapping adds multiple columns to adata.obs with the format `{mapping_type}_{mapping_acronym}_{column}`:
+The mapping step adds multiple columns to adata.obs with the format `{mapping_type}_{mapping_acronym}_{column}`:
 - `label` - Machine-readable identifier of the taxonomic node assigned to the cell at this level of the taxonomy
 - `name` - Human-readable name of the assigned node
 - `bootstrapping_probability` - The fraction of bootstrap iterations that selected the assigned taxonomic node.
