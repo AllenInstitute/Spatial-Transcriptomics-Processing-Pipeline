@@ -1,0 +1,519 @@
+{
+	"version": 1,
+	"processes": [
+		{
+			"name": "capsule_filtering_11",
+			"capsule": {
+				"id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2",
+				"name": "QC Filtering \u0026 Doublet Detection",
+				"slug": "8257790",
+				"commit": "123cbaf444ca1aa047ad1edaa05e03a338fded21",
+				"image_tag": "cc7125c438dc37dbccfad683916ccac2"
+			},
+			"resources": {
+				"cpus": 4,
+				"memory": 16,
+				"gpus": 1
+			},
+			"inputs": [
+				{
+					"id": "0zTIVt84TVjtWmKX",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "GOVWgHtYfGAiECr2",
+					"source_id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
+					"type": "dataset",
+					"name": "xenium_726931_mousedev_preprocessed",
+					"source_path": "xenium_726931_mousedev_preprocessed/",
+					"target_path": "sections/"
+				}
+			]
+		},
+		{
+			"name": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"capsule": {
+				"id": "fd80a307-aa9f-4506-bac2-1923bb1050ed",
+				"name": "Calculate % Incongruous Genes/Cell \u0026 Pairs/Cell",
+				"slug": "2911647",
+				"commit": "1adb60cef86c2944d95ef9f3ecea18e6a8f076be",
+				"image_tag": "c192a9532b0e8c847b9970f447df0953"
+			},
+			"resources": {
+				"cpus": 4,
+				"memory": 16
+			},
+			"inputs": [
+				{
+					"id": "RrRoVEQ0404q00GR",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "BTfDA2AAV6wlIoFN",
+					"source_id": "capsule_filtering_11",
+					"type": "capsule",
+					"name": "Filtering"
+				},
+				{
+					"id": "RiXYbcvoyLmLkhLR",
+					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+					"type": "dataset",
+					"name": "mouse_dev_incongruous_genes_list",
+					"source_path": "mouse_dev_incongruous_genes_list/",
+					"target_path": "incongruous_genes",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_mapping_hierarchial_flat_combined_14",
+			"capsule": {
+				"id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2",
+				"name": "Cell Type Mapping",
+				"slug": "1928280",
+				"commit": "0adf310d5520c07ed8ead828cdf5e3b5bdbbc3f3",
+				"image_tag": "c009f7a4e58492ed2f4a2886ce07b880"
+			},
+			"resources": {
+				"cpus": 8,
+				"memory": 96
+			},
+			"inputs": [
+				{
+					"id": "S6haM7rSqVg5Hg4C",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "NCwYcvsAhL6O8uFb",
+					"source_id": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+					"type": "capsule",
+					"name": "Calculate % Incongruous Genes/Cell \u0026 Pairs/Cell"
+				},
+				{
+					"id": "UErNtRhGnnzCfEQG",
+					"source_id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
+					"type": "dataset",
+					"name": "xenium_p0_DQPQP4_mapping_files",
+					"source_path": "xenium_p0_DQPQP4_mapping_files/",
+					"target_path": "markers",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_add_cell_type_colors_combined_16",
+			"capsule": {
+				"id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0",
+				"name": "Add Cell Type Colors",
+				"slug": "9300345",
+				"commit": "3de6fdcb6fea7bc81b951fda6c5a2b59716d0ba3",
+				"image_tag": "a335ec6ed7309f1f5da9e768dd5c8dfe"
+			},
+			"resources": {
+				"cpus": 8,
+				"memory": 48
+			},
+			"inputs": [
+				{
+					"id": "IQqk00oHJF07f2nX",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "eL6EuA97ewMp2J6F",
+					"source_id": "ada9bde4-502c-43e2-8e6d-517d02744905",
+					"type": "dataset",
+					"name": "cell_type_colors",
+					"source_path": "cell_type_colors/",
+					"target_path": "cell_type_colors/"
+				},
+				{
+					"id": "cjOgg0avlvQQY0rk",
+					"source_id": "capsule_combine_sections_17",
+					"type": "capsule",
+					"name": "Combine Sections"
+				}
+			]
+		},
+		{
+			"name": "capsule_combine_sections_17",
+			"capsule": {
+				"id": "56b1d4f6-2a6a-4536-8b35-7c208d62f3ba",
+				"name": "Combine Sections",
+				"slug": "5790984",
+				"commit": "a2ea9938107817de0871eae380197a5edc008104",
+				"image_tag": "56258a32c910287ccd1a4dc7663b71af"
+			},
+			"resources": {
+				"cpus": 16,
+				"memory": 96
+			},
+			"inputs": [
+				{
+					"id": "RxGPpl27AZYqPT88",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "7covEA6qpcuQPIOy",
+					"source_id": "capsule_mapping_hierarchial_flat_combined_14",
+					"type": "capsule",
+					"name": "Mapping (Hierarchial + Flat Combined)",
+					"source_path": "mapping_results/*.h5ad",
+					"target_path": "mapping_results/sections/",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_save_processing_results_18",
+			"capsule": {
+				"id": "41e788a7-6656-4df6-af8e-2bace1c80d2f",
+				"name": "Save Processing Results",
+				"slug": "7456539",
+				"commit": "56b6060131fcc4610e6f4e69b003f63a5d316900",
+				"image_tag": "efb94ef89b16c91982f2770b45ba3ce1"
+			},
+			"resources": {
+				"cpus": 8,
+				"memory": 96
+			},
+			"inputs": [
+				{
+					"id": "Nqqo2BJ7PkCqqUas",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "2BM3WC4pXgFwI4vz",
+					"source_id": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+					"type": "capsule",
+					"name": "DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)",
+					"source_path": "*/*",
+					"target_path": "*/",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"capsule": {
+				"id": "0baeef90-141c-4327-9efa-d73f4c7e02ce",
+				"name": "DoubleMAD Filtering (Hierarchical + Flat Combined) (No Clusters)",
+				"slug": "4960280",
+				"commit": "f0cc4cb0a8cd0790bfd9c60c2eeafd3efafe9ece",
+				"image_tag": "18538b5e44c59261e2cd9ea6ef4561f9"
+			},
+			"resources": {
+				"cpus": 16,
+				"memory": 128
+			},
+			"inputs": [
+				{
+					"id": "42wr0P1VOxocbXw5",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "LzMOSHjJfx2ZAlTM",
+					"source_id": "capsule_add_cell_type_colors_combined_16",
+					"type": "capsule",
+					"name": "Add Cell Type Colors"
+				}
+			]
+		},
+		{
+			"name": "capsule_create_parameters_json_full_pipeline_21",
+			"capsule": {
+				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
+				"name": "Create Parameters JSON Full Pipeline",
+				"slug": "8075583",
+				"commit": "af6f18b633fe0f2676dc2c8eee444745c2c441be",
+				"image_tag": "4e400a6ae2582d0c909187ea22440309",
+				"app_panel": true
+			},
+			"resources": {
+				"cpus": 2
+			},
+			"results": {
+				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
+				"source_path": "params/*"
+			}
+		},
+		{
+			"name": "capsule_leiden_clustering_rapids_23",
+			"capsule": {
+				"id": "860d5d7c-a602-474f-9697-c1e0991eec3a",
+				"name": "Leiden Clustering - RAPIDS",
+				"slug": "5243173",
+				"commit": "0d5d5cdf03d9d2dfb57acfdd57e39e2d30e3f279",
+				"image_tag": "a97b569a19f3d1d49aea68113f3d3df4"
+			},
+			"resources": {
+				"cpus": 16,
+				"memory": 64,
+				"gpus": 1
+			},
+			"inputs": [
+				{
+					"id": "B0x254zR4yKvKrwi",
+					"source_id": "capsule_run_staligner_json_26",
+					"type": "capsule",
+					"name": "Run STAligner (JSON)",
+					"collect": true
+				},
+				{
+					"id": "BDJUNjv9YrJ35uR8",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "res_params/",
+					"target_path": "res_params/",
+					"flatten": true
+				},
+				{
+					"id": "kMYUCKQa79UrP9dt",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"capsule": {
+				"id": "552c7050-0249-45ab-9214-c7bde8e869e4",
+				"name": "Add Spatial Cluster Labels to Cells (multiple resolutions)",
+				"slug": "1276528",
+				"commit": "0570176bb719ea0764966f6f9983387de88c0edc",
+				"image_tag": "359772d473eff5978d6c65c8759c2f2c"
+			},
+			"resources": {
+				"cpus": 4,
+				"memory": 16
+			},
+			"inputs": [
+				{
+					"id": "qgDGIVjPYiDEiZ6S",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "Zuw1A2tnberblboW",
+					"source_id": "capsule_save_processing_results_18",
+					"type": "capsule",
+					"name": "Save Processing Results",
+					"target_path": "data_dir",
+					"collect": true
+				},
+				{
+					"id": "xrckxAcoHrKdyc2p",
+					"source_id": "capsule_leiden_clustering_rapids_23",
+					"type": "capsule",
+					"name": "Leiden Clustering - RAPIDS"
+				}
+			]
+		},
+		{
+			"name": "capsule_add_new_cluster_columns_25",
+			"capsule": {
+				"id": "265f4a36-3de6-4702-b561-be58cf34487c",
+				"name": "Merge Clusters",
+				"slug": "0283658",
+				"commit": "e6b00f636493984cea5d8c5f9a1a2f8df030aecc",
+				"image_tag": "52eb3bdca7dab6ee15a7d1192d898ba3"
+			},
+			"resources": {
+				"cpus": 32,
+				"memory": 256
+			},
+			"inputs": [
+				{
+					"id": "KLKY3kFRSv35S5So",
+					"source_id": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+					"type": "capsule",
+					"name": "Add Spatial Cluster Labels to Cells (multiple resolutions)",
+					"target_path": "data_dir",
+					"collect": true
+				},
+				{
+					"id": "PWvNN8EYBzpybWCH",
+					"source_id": "capsule_save_processing_results_18",
+					"type": "capsule",
+					"name": "Save Processing Results",
+					"target_path": "data_dir",
+					"collect": true
+				},
+				{
+					"id": "iS1meQ7KuKeQ0zC6",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "vJXL5Pt9eDOlTJVh",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "res_params/",
+					"target_path": "res_params",
+					"collect": true
+				}
+			],
+			"results": {
+				"id": "265f4a36-3de6-4702-b561-be58cf34487c"
+			}
+		},
+		{
+			"name": "capsule_run_staligner_json_26",
+			"capsule": {
+				"id": "ccde4aeb-172d-4a48-bd2e-ed90c58d2a21",
+				"name": "Run STAligner (JSON)",
+				"slug": "1366953",
+				"commit": "07359d1a9ef7de8993716b48f6600119339333bf",
+				"image_tag": "895c09a81261d91221eef4fbdaffe51c"
+			},
+			"resources": {
+				"cpus": 16,
+				"memory": 64,
+				"gpus": 1
+			},
+			"inputs": [
+				{
+					"id": "uFVUklUadpvLXAq9",
+					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+					"type": "dataset",
+					"name": "xenium_726931_barcodes",
+					"source_path": "xenium_726931_barcodes/",
+					"target_path": "barcodes",
+					"collect": true
+				},
+				{
+					"id": "f6lbiQsgjtiUAaEu",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "sR7oOYPeBQyVLFRb",
+					"source_id": "capsule_downsample_spot_table_json_27",
+					"type": "capsule",
+					"name": "Downsample Spot Table (JSON)",
+					"source_path": "downsampled/",
+					"target_path": "downsampled/",
+					"collect": true
+				}
+			]
+		},
+		{
+			"name": "capsule_downsample_spot_table_json_27",
+			"capsule": {
+				"id": "ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40",
+				"name": "Downsample Spot Table (JSON)",
+				"slug": "9309116",
+				"commit": "846dce33c4b4b107bc21132892dfd012575c9397",
+				"image_tag": "d0c09da2eb67b14a8a2062e75386d77b"
+			},
+			"resources": {
+				"cpus": 48,
+				"memory": 192
+			},
+			"inputs": [
+				{
+					"id": "pQ6TqcQXXcnNs7MM",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				},
+				{
+					"id": "20b0yxg3lDGNShAS",
+					"source_id": "capsule_dispatch_jobs_28",
+					"type": "capsule",
+					"name": "Dispatch Jobs",
+					"target_path": "section_metadata/",
+					"flatten": true
+				}
+			]
+		},
+		{
+			"name": "capsule_dispatch_jobs_28",
+			"capsule": {
+				"id": "083774d3-72c4-42d8-96b2-254e81ec52bf",
+				"name": "Dispatch Jobs",
+				"slug": "6617820",
+				"commit": "3082796340217c85a51cf7318b8242618a89eb10",
+				"image_tag": "a1c3826b1b55add0a4be63974c46efb9"
+			},
+			"resources": {
+				"cpus": 2,
+				"memory": 1
+			},
+			"inputs": [
+				{
+					"id": "toZRJ3tWauqy3oBL",
+					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+					"type": "dataset",
+					"name": "xenium_726931_barcodes",
+					"source_path": "xenium_726931_barcodes/",
+					"collect": true
+				},
+				{
+					"id": "ZHq0JDYEFsdYMWnY",
+					"source_id": "capsule_create_parameters_json_full_pipeline_21",
+					"type": "capsule",
+					"name": "Create Parameters JSON Full Pipeline",
+					"source_path": "params/",
+					"target_path": "params",
+					"collect": true
+				}
+			]
+		}
+	]
+}

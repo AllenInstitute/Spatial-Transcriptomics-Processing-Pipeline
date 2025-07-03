@@ -1,0 +1,415 @@
+{
+	"edges": [
+		{
+			"id": "reactflow__edge-capsule_filtering_11-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"selected": false,
+			"source": "capsule_filtering_11",
+			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
+		},
+		{
+			"id": "reactflow__edge-5e5ee663-c304-46a9-ba39-c4003cd416a5-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"selected": false,
+			"source": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
+		},
+		{
+			"id": "reactflow__edge-capsule_calculate_incongruous_genes_cell_pairs_cell_13-capsule_mapping_hierarchial_flat_combined_14",
+			"selected": false,
+			"source": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"target": "capsule_mapping_hierarchial_flat_combined_14"
+		},
+		{
+			"id": "reactflow__edge-ada9bde4-502c-43e2-8e6d-517d02744905-capsule_add_cell_type_colors_combined_16",
+			"selected": false,
+			"source": "ada9bde4-502c-43e2-8e6d-517d02744905",
+			"target": "capsule_add_cell_type_colors_combined_16"
+		},
+		{
+			"id": "reactflow__edge-capsule_mapping_hierarchial_flat_combined_14-capsule_combine_sections_17",
+			"selected": false,
+			"source": "capsule_mapping_hierarchial_flat_combined_14",
+			"target": "capsule_combine_sections_17"
+		},
+		{
+			"id": "reactflow__edge-capsule_combine_sections_17-capsule_add_cell_type_colors_combined_16",
+			"selected": false,
+			"source": "capsule_combine_sections_17",
+			"target": "capsule_add_cell_type_colors_combined_16"
+		},
+		{
+			"id": "reactflow__edge-4940b042-3c8e-4d28-9701-a087f9de1f3e-capsule_mapping_hierarchial_flat_combined_14",
+			"source": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
+			"target": "capsule_mapping_hierarchial_flat_combined_14"
+		},
+		{
+			"id": "reactflow__edge-capsule_add_cell_type_colors_combined_16-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"source": "capsule_add_cell_type_colors_combined_16",
+			"target": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20"
+		},
+		{
+			"id": "reactflow__edge-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20-capsule_save_processing_results_18",
+			"source": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"target": "capsule_save_processing_results_18"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_filtering_11",
+			"selected": false,
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_filtering_11"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_mapping_hierarchial_flat_combined_14",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_mapping_hierarchial_flat_combined_14"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_combine_sections_17",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_combine_sections_17"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_add_cell_type_colors_combined_16",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_add_cell_type_colors_combined_16"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20"
+		},
+		{
+			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_save_processing_results_18",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_save_processing_results_18"
+		},
+		{
+			"id": "reactflow__edge-108f4df3-7e33-4d0a-826c-a613df85d3b9-capsule_filtering_11",
+			"source": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
+			"target": "capsule_filtering_11"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-results",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "results"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_leiden_clustering_rapids_23",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_leiden_clustering_rapids_23"
+		},
+		{
+			"id": "xy-edge__capsule_leiden_clustering_rapids_23-capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"source": "capsule_leiden_clustering_rapids_23",
+			"target": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24"
+		},
+		{
+			"id": "xy-edge__capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24-capsule_add_new_cluster_columns_25",
+			"selected": false,
+			"source": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"target": "capsule_add_new_cluster_columns_25"
+		},
+		{
+			"id": "xy-edge__capsule_add_new_cluster_columns_25-results",
+			"source": "capsule_add_new_cluster_columns_25",
+			"target": "results"
+		},
+		{
+			"id": "xy-edge__capsule_save_processing_results_18-capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"selected": false,
+			"source": "capsule_save_processing_results_18",
+			"target": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_add_new_cluster_columns_25",
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_add_new_cluster_columns_25"
+		},
+		{
+			"id": "xy-edge__capsule_save_processing_results_18-capsule_add_new_cluster_columns_25",
+			"selected": false,
+			"source": "capsule_save_processing_results_18",
+			"target": "capsule_add_new_cluster_columns_25"
+		},
+		{
+			"id": "xy-edge__capsule_run_staligner_json_26-capsule_leiden_clustering_rapids_23",
+			"selected": false,
+			"source": "capsule_run_staligner_json_26",
+			"target": "capsule_leiden_clustering_rapids_23"
+		},
+		{
+			"id": "xy-edge__capsule_downsample_spot_table_json_27-capsule_run_staligner_json_26",
+			"selected": false,
+			"source": "capsule_downsample_spot_table_json_27",
+			"target": "capsule_run_staligner_json_26"
+		},
+		{
+			"id": "xy-edge__capsule_dispatch_jobs_28-capsule_downsample_spot_table_json_27",
+			"source": "capsule_dispatch_jobs_28",
+			"target": "capsule_downsample_spot_table_json_27"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_dispatch_jobs_28",
+			"selected": false,
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_dispatch_jobs_28"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"selected": false,
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_downsample_spot_table_json_27",
+			"selected": false,
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_downsample_spot_table_json_27"
+		},
+		{
+			"id": "xy-edge__capsule_create_parameters_json_full_pipeline_21-capsule_run_staligner_json_26",
+			"selected": false,
+			"source": "capsule_create_parameters_json_full_pipeline_21",
+			"target": "capsule_run_staligner_json_26"
+		},
+		{
+			"id": "xy-edge__361c4975-9e72-41fa-af33-837cf648d2d4-capsule_dispatch_jobs_28",
+			"selected": false,
+			"source": "361c4975-9e72-41fa-af33-837cf648d2d4",
+			"target": "capsule_dispatch_jobs_28"
+		},
+		{
+			"id": "xy-edge__361c4975-9e72-41fa-af33-837cf648d2d4-capsule_run_staligner_json_26",
+			"selected": false,
+			"source": "361c4975-9e72-41fa-af33-837cf648d2d4",
+			"target": "capsule_run_staligner_json_26"
+		}
+	],
+	"nodes": [
+		{
+			"id": "results",
+			"position": {
+				"x": 1674.7988239395406,
+				"y": 1841.4921520887299
+			},
+			"selected": false,
+			"type": "results"
+		},
+		{
+			"data": {
+				"capsule_id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2"
+			},
+			"id": "capsule_filtering_11",
+			"position": {
+				"x": 82.8705268996739,
+				"y": -334.37576799658405
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"id": "ada9bde4-502c-43e2-8e6d-517d02744905",
+			"position": {
+				"x": 817.000341437298,
+				"y": 528.3885986984617
+			},
+			"selected": false,
+			"type": "dataset"
+		},
+		{
+			"data": {
+				"capsule_id": "fd80a307-aa9f-4506-bac2-1923bb1050ed"
+			},
+			"id": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
+			"position": {
+				"x": 211.97537357116994,
+				"y": -91.56890784560204
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"position": {
+				"x": 463.2833733297785,
+				"y": -253.46929054124692
+			},
+			"selected": true,
+			"type": "dataset"
+		},
+		{
+			"data": {
+				"capsule_id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0"
+			},
+			"id": "capsule_add_cell_type_colors_combined_16",
+			"position": {
+				"x": 628.2218566823487,
+				"y": 600.3126159099876
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "56b1d4f6-2a6a-4536-8b35-7c208d62f3ba"
+			},
+			"id": "capsule_combine_sections_17",
+			"position": {
+				"x": 439.4634022660298,
+				"y": 392.4718592708456
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "41e788a7-6656-4df6-af8e-2bace1c80d2f"
+			},
+			"id": "capsule_save_processing_results_18",
+			"position": {
+				"x": 1079.3913702534517,
+				"y": 1087.3350081311396
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2"
+			},
+			"id": "capsule_mapping_hierarchial_flat_combined_14",
+			"position": {
+				"x": 261.3910797528438,
+				"y": 198.42200871381397
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "860d5d7c-a602-474f-9697-c1e0991eec3a"
+			},
+			"id": "capsule_leiden_clustering_rapids_23",
+			"position": {
+				"x": 1719.577684125467,
+				"y": 1067.2172406527363
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "552c7050-0249-45ab-9214-c7bde8e869e4"
+			},
+			"id": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"position": {
+				"x": 1378.5343016052389,
+				"y": 1346.9644003551932
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "265f4a36-3de6-4702-b561-be58cf34487c"
+			},
+			"id": "capsule_add_new_cluster_columns_25",
+			"position": {
+				"x": 1278.2327786191497,
+				"y": 1646.977814335424
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "ccde4aeb-172d-4a48-bd2e-ed90c58d2a21"
+			},
+			"id": "capsule_run_staligner_json_26",
+			"position": {
+				"x": 1840.3754142149144,
+				"y": 722.1766651048999
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40"
+			},
+			"id": "capsule_downsample_spot_table_json_27",
+			"position": {
+				"x": 1975.101185112966,
+				"y": 494.55136188553314
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "083774d3-72c4-42d8-96b2-254e81ec52bf"
+			},
+			"id": "capsule_dispatch_jobs_28",
+			"position": {
+				"x": 2039.9399730420105,
+				"y": 135.65784179173755
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"data": {
+				"capsule_id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897"
+			},
+			"id": "capsule_create_parameters_json_full_pipeline_21",
+			"position": {
+				"x": 989.3417709234118,
+				"y": -874.8772227488633
+			},
+			"selected": false,
+			"type": "capsule"
+		},
+		{
+			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+			"position": {
+				"x": 2420.0000000000005,
+				"y": -84.99999999999997
+			},
+			"selected": false,
+			"type": "dataset"
+		},
+		{
+			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
+			"position": {
+				"x": 571.6489691708965,
+				"y": -9.416736451608443
+			},
+			"type": "dataset"
+		},
+		{
+			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
+			"position": {
+				"x": 6.078483667121645,
+				"y": -542.1656328959571
+			},
+			"type": "dataset"
+		},
+		{
+			"data": {
+				"capsule_id": "0baeef90-141c-4327-9efa-d73f4c7e02ce"
+			},
+			"id": "capsule_doublemad_filtering_hierarchical_flat_combined_no_clusters_20",
+			"position": {
+				"x": 888.2078519070608,
+				"y": 814.6055962337922
+			},
+			"selected": true,
+			"type": "capsule"
+		}
+	],
+	"timestamp": 1751558178407
+}

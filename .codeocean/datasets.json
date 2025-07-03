@@ -1,0 +1,25 @@
+{
+	"version": 1,
+	"attached_datasets": [
+		{
+			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
+			"mount": "xenium_726931_mousedev_preprocessed"
+		},
+		{
+			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+			"mount": "xenium_726931_barcodes"
+		},
+		{
+			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
+			"mount": "xenium_p0_DQPQP4_mapping_files"
+		},
+		{
+			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"mount": "mouse_dev_incongruous_genes_list"
+		},
+		{
+			"id": "ada9bde4-502c-43e2-8e6d-517d02744905",
+			"mount": "cell_type_colors"
+		}
+	]
+}
