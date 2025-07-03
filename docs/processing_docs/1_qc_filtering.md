@@ -1,6 +1,6 @@
 # QC Filtering & Doublet Detection
 ---
-This module performs quality control filtering and doublet detection on spatial transcriptomics data using basic thresholding and SOLO (Semi-supervised Outlier Detection).
+This module performs quality control filtering and doublet detection on spatial transcriptomics data using SOLO (Semi-supervised Outlier Detection).
 
 ## Overview
 The QC filtering and doublet detection step includes:
