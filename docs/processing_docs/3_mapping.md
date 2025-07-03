@@ -50,8 +50,6 @@ The mapping parameters are specified in mapping_params.json:
         "bootstrap_iteration": 100,
         "bootstrap_factor": 0.9,
         "n_runner_ups": 5,
-        "n_processors": 32,
-        "chunk_size": 10000,
         "clobber": true,
         "mapping_acronym": "mmc"
     }
@@ -84,8 +82,6 @@ The mapping parameters are specified in mapping_params.json:
 
 **Performance:**
 
-- `n_processors`: Number of CPU cores to use for parallel processing
-- `chunk_size`: Number of cells to process in each batch
 - `clobber`: Whether to overwrite existing output files ("True" or "False")
 
 
