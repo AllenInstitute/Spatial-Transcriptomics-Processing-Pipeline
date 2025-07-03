@@ -64,7 +64,7 @@ Consolidate cluster assignments to full processed dataset.
   
 ## Configuration
 
-All pipeline parameters are centralized in `params.json`. Key parameter categories include:
+All pipeline parameters are configured in the Create Parameters JSON capsule and centralized in `params.json`. Key parameter categories include:
 
 - **Filtering Parameters**
 - **Mapping Parameters**
