@@ -193,8 +193,8 @@
 		{
 			"id": "results",
 			"position": {
-				"x": 1661.4654906062074,
-				"y": 1898.1588187553966
+				"x": 1448.132157272874,
+				"y": 1788.1588187553964
 			},
 			"selected": true,
 			"type": "results"
@@ -205,8 +205,8 @@
 			},
 			"id": "capsule_filtering_11",
 			"position": {
-				"x": 82.8705268996739,
-				"y": -334.37576799658405
+				"x": 206.20386023300728,
+				"y": -384.37576799658405
 			},
 			"selected": false,
 			"type": "capsule"
@@ -214,8 +214,8 @@
 		{
 			"id": "ada9bde4-502c-43e2-8e6d-517d02744905",
 			"position": {
-				"x": 817.000341437298,
-				"y": 528.3885986984617
+				"x": 467.000341437298,
+				"y": 465.05526536512826
 			},
 			"selected": false,
 			"type": "dataset"
@@ -226,8 +226,8 @@
 			},
 			"id": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
 			"position": {
-				"x": 211.97537357116994,
-				"y": -91.56890784560204
+				"x": 311.97537357116994,
+				"y": -118.23557451226871
 			},
 			"selected": false,
 			"type": "capsule"
@@ -235,8 +235,8 @@
 		{
 			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
 			"position": {
-				"x": 463.2833733297785,
-				"y": -253.46929054124692
+				"x": 66.61670666311178,
+				"y": -206.80262387458023
 			},
 			"selected": false,
 			"type": "dataset"
@@ -247,8 +247,8 @@
 			},
 			"id": "capsule_add_cell_type_colors_combined_16",
 			"position": {
-				"x": 628.2218566823487,
-				"y": 600.3126159099876
+				"x": 754.8885233490154,
+				"y": 566.9792825766542
 			},
 			"selected": false,
 			"type": "capsule"
@@ -259,8 +259,8 @@
 			},
 			"id": "capsule_combine_sections_17",
 			"position": {
-				"x": 439.4634022660298,
-				"y": 392.4718592708456
+				"x": 596.1300689326965,
+				"y": 299.13852593751227
 			},
 			"selected": false,
 			"type": "capsule"
@@ -271,8 +271,8 @@
 			},
 			"id": "capsule_save_processing_results_18",
 			"position": {
-				"x": 1079.3913702534517,
-				"y": 1087.3350081311396
+				"x": 1012.7247035867852,
+				"y": 1054.0016747978061
 			},
 			"selected": false,
 			"type": "capsule"
@@ -283,8 +283,8 @@
 			},
 			"id": "capsule_mapping_hierarchial_flat_combined_14",
 			"position": {
-				"x": 261.3910797528438,
-				"y": 198.42200871381397
+				"x": 418.05774641951047,
+				"y": 111.75534204714728
 			},
 			"selected": false,
 			"type": "capsule"
@@ -295,8 +295,8 @@
 			},
 			"id": "capsule_leiden_clustering_rapids_23",
 			"position": {
-				"x": 1719.577684125467,
-				"y": 1067.2172406527363
+				"x": 1602.9110174588002,
+				"y": 1050.5505739860698
 			},
 			"selected": false,
 			"type": "capsule"
@@ -307,8 +307,8 @@
 			},
 			"id": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
 			"position": {
-				"x": 1378.5343016052389,
-				"y": 1346.9644003551932
+				"x": 1308.5343016052386,
+				"y": 1306.9644003551932
 			},
 			"selected": false,
 			"type": "capsule"
@@ -319,8 +319,8 @@
 			},
 			"id": "capsule_add_new_cluster_columns_25",
 			"position": {
-				"x": 1278.2327786191497,
-				"y": 1646.977814335424
+				"x": 1238.2327786191495,
+				"y": 1566.9778143354238
 			},
 			"selected": false,
 			"type": "capsule"
@@ -331,8 +331,8 @@
 			},
 			"id": "capsule_run_staligner_json_26",
 			"position": {
-				"x": 1840.3754142149144,
-				"y": 722.1766651048999
+				"x": 1677.0420808815811,
+				"y": 752.1766651048999
 			},
 			"selected": false,
 			"type": "capsule"
@@ -343,8 +343,8 @@
 			},
 			"id": "capsule_downsample_spot_table_json_27",
 			"position": {
-				"x": 1975.101185112966,
-				"y": 494.55136188553314
+				"x": 1741.7678517796328,
+				"y": 507.8846952188664
 			},
 			"selected": false,
 			"type": "capsule"
@@ -355,8 +355,8 @@
 			},
 			"id": "capsule_dispatch_jobs_28",
 			"position": {
-				"x": 2039.9399730420105,
-				"y": 135.65784179173755
+				"x": 1793.2733063753437,
+				"y": 238.99117512507087
 			},
 			"selected": false,
 			"type": "capsule"
@@ -367,8 +367,8 @@
 			},
 			"id": "capsule_create_parameters_json_full_pipeline_21",
 			"position": {
-				"x": 1259.3417709234118,
-				"y": -842.3772227488633
+				"x": 1172.675104256745,
+				"y": -688.2105560821966
 			},
 			"selected": false,
 			"type": "capsule"
@@ -376,8 +376,8 @@
 		{
 			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
 			"position": {
-				"x": 2420.0000000000005,
-				"y": -84.99999999999997
+				"x": 2070.0000000000005,
+				"y": 125.00000000000003
 			},
 			"selected": false,
 			"type": "dataset"
@@ -385,17 +385,19 @@
 		{
 			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
 			"position": {
-				"x": 571.6489691708965,
-				"y": -9.416736451608443
+				"x": 134.98230250422984,
+				"y": 3.9165968817248853
 			},
+			"selected": false,
 			"type": "dataset"
 		},
 		{
 			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
 			"position": {
-				"x": 6.078483667121645,
-				"y": -542.1656328959571
+				"x": 22.745150333788324,
+				"y": -508.83229956262375
 			},
+			"selected": false,
 			"type": "dataset"
 		},
 		{
@@ -404,12 +406,17 @@
 			},
 			"id": "capsule_doublemad_filtering_20",
 			"position": {
-				"x": 888.2078519070608,
-				"y": 814.6055962337922
+				"x": 898.2078519070608,
+				"y": 784.6055962337922
 			},
-			"selected": true,
+			"selected": false,
 			"type": "capsule"
 		}
 	],
-	"timestamp": 1751576969619
+	"timestamp": 1751579740651,
+	"viewport": {
+		"x": 157.8067431377532,
+		"y": 240.04313011789935,
+		"zoom": 0.3
+	}
 }
