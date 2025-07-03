@@ -77,7 +77,7 @@ The mapping parameters are specified in mapping_params.json:
 - `drop_level`: A level to drop from the cell type taxonomy before doing the mapping
 - `normalization`: Expression normalization method
   - `"log2CPM"`: Log2 counts per million 
-  - `"raw"`: No normalization 
+  - `"raw"`: No normalization. If "raw", the code will convert it to log2(CPM+1) internally before actually mapping.
 - `bootstrap_iteration`: The number of bootstrapping iterations to run at each node of the taxonomy tree
 - `bootstrap_factor`: The factor by which to downsample the population of marker genes for each bootstrapping iteration
 - `n_runner_ups`: Number of runner-up cell types to report for each assignment
