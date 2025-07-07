@@ -10,10 +10,10 @@ The section metadata generation step includes:
 - File Validation - Ensure all sections have corresponding metadata files
 
 ## Input Files
-- `{dataset}_barcode.csv` - Barcode CSV file containing section metadata with columns:
+- Barcode CSV file containing section metadata with columns:
   - `barcode`: Section barcode identifier
   - `dataset_id`: Dataset identifier
-  - `region`: region folder in S3 bucket if applicable
+  - `region`: Region folder in S3 bucket if applicable
   - `experiment_id`: Experiment ID folder in S3 bucket
   - `s3_bucket` (optional): S3 bucket to read transcripts file. Use if sections have different S3 locations. Otherwise, reads from App Panel S3 bucket parameter.
   - `s3_key` (optional): S3 key to read transcripts file. Use if sections have different S3 locations. Otherwise, reads from App Panel S3 key parameter.
