@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:83a0a0c1e376986749d57ad0d2ab9f7f5bbf012dc28fb7858ed6f15d511cb01b
+// hash:sha256:9d0da3f2bcccac405a1171c54fd89072d4a8c951c9dfdf35f4b28ccf60637f92
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -49,7 +49,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
 	fi
-	git -C capsule-repo checkout a400ed971eb2e365f929ac7774c4ce4244b8f55e --quiet
+	git -C capsule-repo checkout dff18581cb87e61a480f3e708477099c731f5e4f --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -98,7 +98,7 @@ process capsule_dispatch_jobs_28 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 3082796340217c85a51cf7318b8242618a89eb10 --quiet
+	git -C capsule-repo checkout 3513145a3fbc07b7674d30b71ecefb5eddd59c82 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -151,7 +151,7 @@ process capsule_filtering_11 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 123cbaf444ca1aa047ad1edaa05e03a338fded21 --quiet
+	git -C capsule-repo checkout 0061038e8b531b70ce9b5f8259765697b4896383 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -201,7 +201,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 1adb60cef86c2944d95ef9f3ecea18e6a8f076be --quiet
+	git -C capsule-repo checkout c0e044468e4268d4acd6c357002bde923e0b37e7 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -249,7 +249,7 @@ process capsule_downsample_spot_table_json_27 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 846dce33c4b4b107bc21132892dfd012575c9397 --quiet
+	git -C capsule-repo checkout 46e62fbaa5a0f1533cc2e1916147c9ffbd8bba7e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -299,7 +299,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 0adf310d5520c07ed8ead828cdf5e3b5bdbbc3f3 --quiet
+	git -C capsule-repo checkout 920771ef8796a77b412f4354674a5bd065ee4072 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -351,7 +351,7 @@ process capsule_run_staligner_json_26 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 07359d1a9ef7de8993716b48f6600119339333bf --quiet
+	git -C capsule-repo checkout f463f577d00aac1342a916c3908a1b1e1d93361c --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -399,7 +399,7 @@ process capsule_combine_sections_17 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
 	fi
-	git -C capsule-repo checkout a2ea9938107817de0871eae380197a5edc008104 --quiet
+	git -C capsule-repo checkout 16ed35caa3c564ddbc76b2946ed0094de29bd238 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -450,7 +450,7 @@ process capsule_leiden_clustering_rapids_23 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 0d5d5cdf03d9d2dfb57acfdd57e39e2d30e3f279 --quiet
+	git -C capsule-repo checkout bf8cc3c97d249343676b7a141c78da9f4ca3a413 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -502,7 +502,7 @@ process capsule_add_cell_type_colors_combined_16 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
 	fi
-	git -C capsule-repo checkout bfe5330f199d45a740838b4d3fbe0aab86854772 --quiet
+	git -C capsule-repo checkout 6a24bc88abc9932a24eecae902f6f44e546202e8 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -518,7 +518,7 @@ process capsule_add_cell_type_colors_combined_16 {
 // capsule - DoubleMAD Filtering
 process capsule_doublemad_filtering_20 {
 	tag 'capsule-5476114'
-	container "$REGISTRY_HOST/capsule/4cef28c0-6813-4b18-b010-e90860c64bb2"
+	container "$REGISTRY_HOST/capsule/4cef28c0-6813-4b18-b010-e90860c64bb2:18538b5e44c59261e2cd9ea6ef4561f9"
 
 	cpus 16
 	memory '120 GB'
@@ -550,6 +550,7 @@ process capsule_doublemad_filtering_20 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5476114.git" capsule-repo
 	fi
+	git -C capsule-repo checkout 3e67b11476ca8ae889b3a9b669aa7bb10631c248 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -598,7 +599,7 @@ process capsule_save_processing_results_18 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 56b6060131fcc4610e6f4e69b003f63a5d316900 --quiet
+	git -C capsule-repo checkout 7008f91f0cad76e82cb2fae2cbe2e86f83dc85e9 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -647,7 +648,7 @@ process capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1276528.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 0570176bb719ea0764966f6f9983387de88c0edc --quiet
+	git -C capsule-repo checkout 6f73da9e69c8b53a71d5ba55e77d170bab474b4d --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -699,7 +700,7 @@ process capsule_add_new_cluster_columns_25 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0283658.git" capsule-repo
 	fi
-	git -C capsule-repo checkout e6b00f636493984cea5d8c5f9a1a2f8df030aecc --quiet
+	git -C capsule-repo checkout 670e18cf7b018b656f05ab87ef399a8cdeeed40e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 

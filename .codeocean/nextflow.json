@@ -7,7 +7,7 @@
 				"id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "8257790",
-				"commit": "123cbaf444ca1aa047ad1edaa05e03a338fded21",
+				"commit": "0061038e8b531b70ce9b5f8259765697b4896383",
 				"image_tag": "cc7125c438dc37dbccfad683916ccac2"
 			},
 			"resources": {
@@ -41,7 +41,7 @@
 				"id": "fd80a307-aa9f-4506-bac2-1923bb1050ed",
 				"name": "Calculate % Incongruous Genes/Cell \u0026 Pairs/Cell",
 				"slug": "2911647",
-				"commit": "1adb60cef86c2944d95ef9f3ecea18e6a8f076be",
+				"commit": "c0e044468e4268d4acd6c357002bde923e0b37e7",
 				"image_tag": "c192a9532b0e8c847b9970f447df0953"
 			},
 			"resources": {
@@ -81,7 +81,7 @@
 				"id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2",
 				"name": "Cell Type Mapping",
 				"slug": "1928280",
-				"commit": "0adf310d5520c07ed8ead828cdf5e3b5bdbbc3f3",
+				"commit": "920771ef8796a77b412f4354674a5bd065ee4072",
 				"image_tag": "c009f7a4e58492ed2f4a2886ce07b880"
 			},
 			"resources": {
@@ -121,7 +121,7 @@
 				"id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0",
 				"name": "Add Cell Type Colors",
 				"slug": "9300345",
-				"commit": "bfe5330f199d45a740838b4d3fbe0aab86854772",
+				"commit": "6a24bc88abc9932a24eecae902f6f44e546202e8",
 				"image_tag": "a335ec6ed7309f1f5da9e768dd5c8dfe"
 			},
 			"resources": {
@@ -160,7 +160,7 @@
 				"id": "56b1d4f6-2a6a-4536-8b35-7c208d62f3ba",
 				"name": "Combine Sections",
 				"slug": "5790984",
-				"commit": "a2ea9938107817de0871eae380197a5edc008104",
+				"commit": "16ed35caa3c564ddbc76b2946ed0094de29bd238",
 				"image_tag": "56258a32c910287ccd1a4dc7663b71af"
 			},
 			"resources": {
@@ -194,7 +194,7 @@
 				"id": "41e788a7-6656-4df6-af8e-2bace1c80d2f",
 				"name": "Save Processing Results",
 				"slug": "7456539",
-				"commit": "56b6060131fcc4610e6f4e69b003f63a5d316900",
+				"commit": "7008f91f0cad76e82cb2fae2cbe2e86f83dc85e9",
 				"image_tag": "efb94ef89b16c91982f2770b45ba3ce1"
 			},
 			"resources": {
@@ -227,7 +227,9 @@
 			"capsule": {
 				"id": "4cef28c0-6813-4b18-b010-e90860c64bb2",
 				"name": "DoubleMAD Filtering",
-				"slug": "5476114"
+				"slug": "5476114",
+				"commit": "3e67b11476ca8ae889b3a9b669aa7bb10631c248",
+				"image_tag": "18538b5e44c59261e2cd9ea6ef4561f9"
 			},
 			"resources": {
 				"cpus": 16,
@@ -257,7 +259,7 @@
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "8075583",
-				"commit": "a400ed971eb2e365f929ac7774c4ce4244b8f55e",
+				"commit": "dff18581cb87e61a480f3e708477099c731f5e4f",
 				"image_tag": "97ca9f5a1beab4ff486f4071e760e08b",
 				"app_panel": true
 			},
@@ -276,7 +278,7 @@
 				"id": "860d5d7c-a602-474f-9697-c1e0991eec3a",
 				"name": "Leiden Clustering - RAPIDS",
 				"slug": "5243173",
-				"commit": "0d5d5cdf03d9d2dfb57acfdd57e39e2d30e3f279",
+				"commit": "bf8cc3c97d249343676b7a141c78da9f4ca3a413",
 				"image_tag": "a97b569a19f3d1d49aea68113f3d3df4"
 			},
 			"resources": {
@@ -318,7 +320,7 @@
 				"id": "552c7050-0249-45ab-9214-c7bde8e869e4",
 				"name": "Add Cluster Labels to Cells",
 				"slug": "1276528",
-				"commit": "0570176bb719ea0764966f6f9983387de88c0edc",
+				"commit": "6f73da9e69c8b53a71d5ba55e77d170bab474b4d",
 				"image_tag": "359772d473eff5978d6c65c8759c2f2c"
 			},
 			"resources": {
@@ -357,7 +359,7 @@
 				"id": "265f4a36-3de6-4702-b561-be58cf34487c",
 				"name": "Merge Clusters",
 				"slug": "0283658",
-				"commit": "e6b00f636493984cea5d8c5f9a1a2f8df030aecc",
+				"commit": "670e18cf7b018b656f05ab87ef399a8cdeeed40e",
 				"image_tag": "52eb3bdca7dab6ee15a7d1192d898ba3"
 			},
 			"resources": {
@@ -410,7 +412,7 @@
 				"id": "ccde4aeb-172d-4a48-bd2e-ed90c58d2a21",
 				"name": "Run STAligner (JSON)",
 				"slug": "1366953",
-				"commit": "07359d1a9ef7de8993716b48f6600119339333bf",
+				"commit": "f463f577d00aac1342a916c3908a1b1e1d93361c",
 				"image_tag": "895c09a81261d91221eef4fbdaffe51c"
 			},
 			"resources": {
@@ -454,7 +456,7 @@
 				"id": "ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40",
 				"name": "Downsample Spot Table (JSON)",
 				"slug": "9309116",
-				"commit": "846dce33c4b4b107bc21132892dfd012575c9397",
+				"commit": "46e62fbaa5a0f1533cc2e1916147c9ffbd8bba7e",
 				"image_tag": "d0c09da2eb67b14a8a2062e75386d77b"
 			},
 			"resources": {
@@ -487,7 +489,7 @@
 				"id": "083774d3-72c4-42d8-96b2-254e81ec52bf",
 				"name": "Dispatch Jobs",
 				"slug": "6617820",
-				"commit": "3082796340217c85a51cf7318b8242618a89eb10",
+				"commit": "3513145a3fbc07b7674d30b71ecefb5eddd59c82",
 				"image_tag": "a1c3826b1b55add0a4be63974c46efb9"
 			},
 			"resources": {
