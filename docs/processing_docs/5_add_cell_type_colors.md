@@ -34,11 +34,11 @@ The color assignment adds multiple color columns to adata.obs with the format `{
     {
     "mapping_params": {
         "add_cell_type_colors": "True",
-        "mapping_type": "hrc",
+        "mapping_type": "both",
         "mapping_acronym": "mmc"},
     "metadata": {
         "specimen": "mouse",
-        "dataset_id": "638850"}
+        "dataset_id": "720609"}
     }
     
 ### Parameter Descriptions
