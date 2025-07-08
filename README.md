@@ -28,7 +28,7 @@ Add color mappings for cell type classifications to AnnData objects using the AB
 ### [Step 6: DoubleMAD Mapping Filtering](./docs/processing_docs/6_doublemad.md)
 Perform quality control on cell type mapping results using Double Median Absolute Deviation (DoubleMAD) statistics to identify and filter cells with poor mapping confidence scores.
 
-### [Step 7: Save Results](./docs/processing_docs/7_save_results.md)
+### [Step 7: Save Processing Results](./docs/processing_docs/7_save_results.md)
 Save final processed results from the pipeline.
 
 ## Domain Detection Overview
