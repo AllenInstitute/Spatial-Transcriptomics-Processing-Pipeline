@@ -27,7 +27,7 @@ The combine sections step uses parameters from existing configuration file:
     }, 
     "metadata": {
         "specimen": "mouse",
-        "dataset_id": "638850",
+        "dataset_id": "720609",
     }
     }
 
