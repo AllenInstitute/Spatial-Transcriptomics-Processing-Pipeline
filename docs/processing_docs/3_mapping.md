@@ -45,13 +45,14 @@ The mapping parameters are specified in mapping_params.json:
 
     "mapping_params": {
         "normalization": "raw",
-        "drop_level": "supertype",
+        "drop_level": "None",
         "mapping_type": "both",
         "bootstrap_iteration": 100,
         "bootstrap_factor": 0.9,
-        "n_runner_ups": 5,
+        "n_runner_ups": 0,
         "clobber": true,
-        "mapping_acronym": "mmc"
+        "mapping_acronym": "mmc",
+        "drop_genes_list": null
     }
 
 
@@ -67,7 +68,7 @@ The mapping parameters are specified in mapping_params.json:
 **Gene Filtering:**
 
 - `drop_genes_list`: Optional comma-separated string of gene names to exclude from mapping
-  - Format: "'Gene1','Gene2','Gene3'"
+  - Format: "Gene1,Gene2,Gene3"
   - Leave empty to include all genes
   
 **Mapping Algorithm:**
