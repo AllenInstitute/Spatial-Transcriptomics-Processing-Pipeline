@@ -11,7 +11,7 @@ Code Ocean documentation: https://docs.codeocean.com/user-guide
 The processing section of pipeline consists of the following sequential steps:
 
 ### [Step 1: QC Filtering & Doublet Detection](./docs/processing_docs/1_qc_filtering.md)
-Quality control filtering and doublet detection using basic thresholding and SOLO (Semi-supervised Outlier Detection).
+Quality control filtering and doublet detection with SOLO (Semi-supervised Outlier Detection).
 
 ### [Step 2: Calculate Incongruous Genes](./docs/processing_docs/2_calculate_inc_genes.md)
 Analyze co-expression patterns of gene pairs that should not be expressed together in the same cell.
