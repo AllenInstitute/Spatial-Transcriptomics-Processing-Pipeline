@@ -63,7 +63,6 @@ Minimum Thresholds (`min`):
 
 Maximum Thresholds (`max`):
 
-- `n_genes_by_counts`: Maximum number of genes detected per cell (applied to non-blank genes)
 - `total_counts`: Maximum total transcript counts per cell (applied to non-blank genes)
 - `pct_counts_blank`: Maximum percentage of blank/control transcript counts
 
