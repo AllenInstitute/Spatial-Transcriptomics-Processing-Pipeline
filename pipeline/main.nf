@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:9d0da3f2bcccac405a1171c54fd89072d4a8c951c9dfdf35f4b28ccf60637f92
+// hash:sha256:5f8a748b95758ac2e9506b3b732f4171325228cb031fee85a07ab4984cb5d18b
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -25,7 +25,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	path 'capsule/results/params/*', emit: to_capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24_19
 	path 'capsule/results/params/*', emit: to_capsule_add_new_cluster_columns_25_24
 	path 'capsule/results/res_params/*', emit: to_capsule_add_new_cluster_columns_25_25
-	path 'capsule/results/params/*', emit: to_capsule_run_staligner_json_26_26
+	path 'capsule/results/params/*', emit: to_capsule_run_staligner_json_26_27
 	path 'capsule/results/params/*', emit: to_capsule_downsample_spot_table_json_27_28
 	path 'capsule/results/params/*', emit: to_capsule_dispatch_jobs_28_30
 
@@ -49,7 +49,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
 	fi
-	git -C capsule-repo checkout dff18581cb87e61a480f3e708477099c731f5e4f --quiet
+	git -C capsule-repo checkout 5976cb45c37f4c3516b5455fb8cab9bc8f99cc61 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -98,7 +98,7 @@ process capsule_dispatch_jobs_28 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 3513145a3fbc07b7674d30b71ecefb5eddd59c82 --quiet
+	git -C capsule-repo checkout a18660037db7f2280657ef635afe6c2af22cfa49 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -151,7 +151,7 @@ process capsule_filtering_11 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 0061038e8b531b70ce9b5f8259765697b4896383 --quiet
+	git -C capsule-repo checkout a0232cc6dc5045350f8fa54240bb0bc8c7703fb7 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -164,7 +164,7 @@ process capsule_filtering_11 {
 	"""
 }
 
-// capsule - Calculate % Incongruous Genes/Cell & Pairs/Cell
+// capsule - Calculate Incongruous Genes
 process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	tag 'capsule-2911647'
 	container "$REGISTRY_HOST/capsule/fd80a307-aa9f-4506-bac2-1923bb1050ed:c192a9532b0e8c847b9970f447df0953"
@@ -201,7 +201,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
 	fi
-	git -C capsule-repo checkout c0e044468e4268d4acd6c357002bde923e0b37e7 --quiet
+	git -C capsule-repo checkout e6fca894ebd18047addd268e8dbc148d2e3864d4 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -214,7 +214,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	"""
 }
 
-// capsule - Downsample Spot Table (JSON)
+// capsule - Downsample Spot Table
 process capsule_downsample_spot_table_json_27 {
 	tag 'capsule-9309116'
 	container "$REGISTRY_HOST/capsule/ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40:d0c09da2eb67b14a8a2062e75386d77b"
@@ -227,7 +227,7 @@ process capsule_downsample_spot_table_json_27 {
 	path 'capsule/data/section_metadata/'
 
 	output:
-	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_json_26_27
+	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_json_26_26
 
 	script:
 	"""
@@ -249,7 +249,7 @@ process capsule_downsample_spot_table_json_27 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 46e62fbaa5a0f1533cc2e1916147c9ffbd8bba7e --quiet
+	git -C capsule-repo checkout 2b170ee36020e18aff529a4a1c141df7310b625a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -299,7 +299,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 920771ef8796a77b412f4354674a5bd065ee4072 --quiet
+	git -C capsule-repo checkout bd9cff5d7f0c791756eadac97d59c383e075b1e8 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -312,7 +312,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	"""
 }
 
-// capsule - Run STAligner (JSON)
+// capsule - Run STAligner
 process capsule_run_staligner_json_26 {
 	tag 'capsule-1366953'
 	container "$REGISTRY_HOST/capsule/ccde4aeb-172d-4a48-bd2e-ed90c58d2a21:895c09a81261d91221eef4fbdaffe51c"
@@ -323,8 +323,8 @@ process capsule_run_staligner_json_26 {
 	label 'gpu'
 
 	input:
-	path 'capsule/data/params/'
 	path 'capsule/data/downsampled/'
+	path 'capsule/data/params/'
 
 	output:
 	path 'capsule/results/*', emit: to_capsule_leiden_clustering_rapids_23_16
@@ -351,7 +351,7 @@ process capsule_run_staligner_json_26 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
 	fi
-	git -C capsule-repo checkout f463f577d00aac1342a916c3908a1b1e1d93361c --quiet
+	git -C capsule-repo checkout 7073ef3ab98a76e4f7cdeb7ecce4f6cc34f8960e --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -450,7 +450,7 @@ process capsule_leiden_clustering_rapids_23 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
 	fi
-	git -C capsule-repo checkout bf8cc3c97d249343676b7a141c78da9f4ca3a413 --quiet
+	git -C capsule-repo checkout b9245a30c30f9774f555cac071e54e9cf822891a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -502,7 +502,7 @@ process capsule_add_cell_type_colors_combined_16 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 6a24bc88abc9932a24eecae902f6f44e546202e8 --quiet
+	git -C capsule-repo checkout f9ec87d193b42c9eddf9a08027cd1cf544f5af8a --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -515,7 +515,7 @@ process capsule_add_cell_type_colors_combined_16 {
 	"""
 }
 
-// capsule - DoubleMAD Filtering
+// capsule - DoubleMAD Mapping Filtering
 process capsule_doublemad_filtering_20 {
 	tag 'capsule-5476114'
 	container "$REGISTRY_HOST/capsule/4cef28c0-6813-4b18-b010-e90860c64bb2:18538b5e44c59261e2cd9ea6ef4561f9"
@@ -550,7 +550,7 @@ process capsule_doublemad_filtering_20 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5476114.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 3e67b11476ca8ae889b3a9b669aa7bb10631c248 --quiet
+	git -C capsule-repo checkout 690ee97d3f6f33648edff45517ae307e53190142 --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -648,7 +648,7 @@ process capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1276528.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 6f73da9e69c8b53a71d5ba55e77d170bab474b4d --quiet
+	git -C capsule-repo checkout 1389fee02efc3d3fc1ff9d9a478c74abecfe207d --quiet
 	mv capsule-repo/code capsule/code
 	rm -rf capsule-repo
 
@@ -725,7 +725,7 @@ workflow {
 	capsule_calculate_incongruous_genes_cell_pairs_cell_13(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3.collect(), capsule_filtering_11.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4)
 	capsule_downsample_spot_table_json_27(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_json_27_28.collect(), capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_json_27_29.flatten())
 	capsule_mapping_hierarchial_flat_combined_14(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_mapping_hierarchial_flat_combined_14_5.collect(), capsule_calculate_incongruous_genes_cell_pairs_cell_13.out.to_capsule_mapping_hierarchial_flat_combined_14_6)
-	capsule_run_staligner_json_26(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_run_staligner_json_26_26.collect(), capsule_downsample_spot_table_json_27.out.to_capsule_run_staligner_json_26_27.collect())
+	capsule_run_staligner_json_26(capsule_downsample_spot_table_json_27.out.to_capsule_run_staligner_json_26_26.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_run_staligner_json_26_27.collect())
 	capsule_combine_sections_17(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_combine_sections_17_10.collect(), capsule_mapping_hierarchial_flat_combined_14.out.to_capsule_combine_sections_17_11.collect())
 	capsule_leiden_clustering_rapids_23(capsule_run_staligner_json_26.out.to_capsule_leiden_clustering_rapids_23_16.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_17.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_18.collect())
 	capsule_add_cell_type_colors_combined_16(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_cell_type_colors_combined_16_7.collect(), cell_type_colors_to_add_cell_type_colors_8, capsule_combine_sections_17.out.to_capsule_add_cell_type_colors_combined_16_9)
