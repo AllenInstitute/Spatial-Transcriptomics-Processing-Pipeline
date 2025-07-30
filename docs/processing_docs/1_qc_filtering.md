@@ -15,13 +15,13 @@ The QC filtering and doublet detection step includes:
 - `params.json` - Configuration file with filtering parameters
 
 ### Required Metadata Columns:
-- `center_x` and `center_y`: cell centroid coordinates
+- `x` and `y`: cell centroid coordinates
 - `volume`: Cell volume (in microns)
-- `section`: Section ID
-- Index containing unique cell IDs (e.g.,`{section}_CP_{i}`) 
+- `brain_section_barcode`: Section ID
+- Index containing unique cell IDs (e.g.,`{section}_SIS_{i}`) 
 
 ## Output Files
-`{section}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to results/sections/
+`{brain_section_barcode}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to results/sections/
 
 ### Added Metadata Columns:
 
