@@ -20,8 +20,8 @@ The save results step includes:
 
 - `production_cell_id` - Cell IDs for index setting
 - `*qc_passed*` - QC columns from previous pipeline steps
-- `center_x`, `center_y` - Spatial coordinates for cells
-- `section` - Section IDs for splitting data
+- `x`, `y` - Spatial coordinates for cells
+- `brain_section_barcode` - Section IDs for splitting data
 
 ## Output Files
 
@@ -53,7 +53,7 @@ adata.layers:
 - `log2` - Log2-transformed expression: log2(X + 1)
 
 adata.obsm:
-- `spatial` - 2D array of spatial coordinates [`center_x`, `center_y`]
+- `spatial` - 2D array of spatial coordinates [`x`, `y`]
 
 ## Configuration Parameters
 The save results function uses parameters from existing configuration file:
