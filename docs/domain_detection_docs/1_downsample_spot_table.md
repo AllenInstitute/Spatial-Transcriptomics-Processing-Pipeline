@@ -21,7 +21,7 @@ The downsample spot table step includes:
 - `x_coords`: X-coordinate of grid cell center
 - `y_coords`: Y-coordinate of grid cell center
 - `obsm['spatial']`: Spatial coordinates matrix for grids
-- `section`: Section identifier from metadata
+- `brain_section_barcode`: Section ID from metadata
 - `n_genes_by_counts`: Number of genes detected per grid (including blanks)
 - `total_counts`: Total transcript count per grid (including blanks)
 - `pct_counts_blank`: Percentage of counts of blanks
