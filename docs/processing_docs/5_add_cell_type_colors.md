@@ -44,10 +44,10 @@ The color assignment adds multiple color columns to adata.obs with the format `{
 ### Parameter Descriptions
 
 - `add_cell_type_colors`: String boolean ("True" or "False") to add/skip color mappings
-- `mapping_type`: Type of mapping to perform
+- `mapping_type`: Type of mapping performed
   - `"flat"`: Flat mapping only
   - `"hrc"`: Hierarchical mapping only 
-  - `"both"`: Run both flat and hierarchical mapping, combine results
+  - `"both"`: Both flat and hierarchical mapping
 - `mapping_acronym`: Short identifier for metadata columns (e.g., "mmc")
 - `specimen`: Dataset species
 - `dataset_id`: Dataset ID
