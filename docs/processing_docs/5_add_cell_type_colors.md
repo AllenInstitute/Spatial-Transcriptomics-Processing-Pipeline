@@ -26,8 +26,8 @@ The color assignment adds multiple color columns to adata.obs with the format `{
 
 ### Dictionary Storage in adata.uns:
 
-- `{mapping_type}_{mapping_acronym}_class_colors` - Class name to color mapping dictionary
-- `{mapping_type}_{mapping_acronym}_subclass_colors` - Subclass name to color mapping dictionary
+- `class_colors` - Class name to color mapping dictionary
+- `subclass_colors` - Subclass name to color mapping dictionary
 
 ## Configuration Parameters
 
