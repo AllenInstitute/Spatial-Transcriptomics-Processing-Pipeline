@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:3ebe80e87bece50263a8cde9606c6937d4b6706d25d0b5d86192db474fcf0f1d
+// hash:sha256:cd6f6974915ff3204ff2cb40bde9275b25edfa1e334f4fb34d84a5457ada81f4
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -49,8 +49,8 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8075583.git" capsule-repo
 	fi
-	git -C capsule-repo checkout ee7cf3a9c2b990b668908a6bbbc5d1df32b0fa7e --quiet
-	mv capsule-repo/code capsule/code
+	git -C capsule-repo checkout 11785c5f90f89078e8b3d0153fc76e5edb79e9b8 --quiet
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -90,7 +90,7 @@ process capsule_dispatch_jobs_28 {
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
-	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/xenium_726931_barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
+	ln -s "/tmp/data/barcodes_csv" "capsule/data/barcodes_csv" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
@@ -99,7 +99,7 @@ process capsule_dispatch_jobs_28 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6617820.git" capsule-repo
 	fi
 	git -C capsule-repo checkout b7a2eb8e9330cd9698819ed7a201a2cc3c0a23d7 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -143,7 +143,7 @@ process capsule_filtering_11 {
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 	mkdir -p capsule/data/sections
 
-	ln -s "/tmp/data/xenium_726931_mousedev_preprocessed/$path2" "capsule/data/sections/$path2" # id: 108f4df3-7e33-4d0a-826c-a613df85d3b9
+	ln -s "/tmp/data/segmented_data/$path2" "capsule/data/sections/$path2" # id: 108f4df3-7e33-4d0a-826c-a613df85d3b9
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
@@ -151,8 +151,8 @@ process capsule_filtering_11 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8257790.git" capsule-repo
 	fi
-	git -C capsule-repo checkout 2c9a53663afa4aad21474a84d3aadf3fdced4c4a --quiet
-	mv capsule-repo/code capsule/code
+	git -C capsule-repo checkout 0a8c50487605598706e4f63ae160f712f8b009d7 --quiet
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -193,7 +193,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
-	ln -s "/tmp/data/mouse_dev_incongruous_genes_list" "capsule/data/incongruous_genes" # id: 5e5ee663-c304-46a9-ba39-c4003cd416a5
+	ln -s "/tmp/data/incongruous_genes" "capsule/data/incongruous_genes" # id: 5e5ee663-c304-46a9-ba39-c4003cd416a5
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
@@ -202,7 +202,7 @@ process capsule_calculate_incongruous_genes_cell_pairs_cell_13 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2911647.git" capsule-repo
 	fi
 	git -C capsule-repo checkout e32d5d729e10c37c5ef67f57818841e8fef5dbe6 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -250,7 +250,7 @@ process capsule_downsample_spot_table_json_27 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9309116.git" capsule-repo
 	fi
 	git -C capsule-repo checkout 2592b860d481820160a3d15aedee7556b9434812 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -291,7 +291,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
-	ln -s "/tmp/data/xenium_p0_DQPQP4_mapping_files" "capsule/data/markers" # id: 4940b042-3c8e-4d28-9701-a087f9de1f3e
+	ln -s "/tmp/data/mapping_files" "capsule/data/markers" # id: 4940b042-3c8e-4d28-9701-a087f9de1f3e
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
@@ -300,7 +300,7 @@ process capsule_mapping_hierarchial_flat_combined_14 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1928280.git" capsule-repo
 	fi
 	git -C capsule-repo checkout 0fc325e52ccb8534932c5ff2dcc2a5caf5f68442 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -343,7 +343,7 @@ process capsule_run_staligner_json_26 {
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
 
-	ln -s "/tmp/data/xenium_726931_barcodes" "capsule/data/barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
+	ln -s "/tmp/data/barcodes_csv" "capsule/data/barcodes" # id: 361c4975-9e72-41fa-af33-837cf648d2d4
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
@@ -352,7 +352,7 @@ process capsule_run_staligner_json_26 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1366953.git" capsule-repo
 	fi
 	git -C capsule-repo checkout 3112cb0b6657c8fe28300960ba73f33b5f0ad037 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -399,8 +399,8 @@ process capsule_combine_sections_17 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5790984.git" capsule-repo
 	fi
-	git -C capsule-repo checkout e79ce8526ba5b1cbf486db1aeaed88c170bd61a4 --quiet
-	mv capsule-repo/code capsule/code
+	git -C capsule-repo checkout 4b113c26d331c871525bf52cd4b03c05ebe5ea5e --quiet
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -451,7 +451,7 @@ process capsule_leiden_clustering_rapids_23 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5243173.git" capsule-repo
 	fi
 	git -C capsule-repo checkout 456a0d0d2bca28dadac479d756b757b2f7f5f497 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -502,8 +502,8 @@ process capsule_add_cell_type_colors_combined_16 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9300345.git" capsule-repo
 	fi
-	git -C capsule-repo checkout e7ec5d5ded5a804463088a4da349332815d2c92f --quiet
-	mv capsule-repo/code capsule/code
+	git -C capsule-repo checkout f81e53c2ceb60c3bc4da6975e64ff87bd0cd8bbe --quiet
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -550,8 +550,8 @@ process capsule_doublemad_filtering_20 {
 	else
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-5476114.git" capsule-repo
 	fi
-	git -C capsule-repo checkout b13d76e1572a3b78477b3de9121d565fa5cb041d --quiet
-	mv capsule-repo/code capsule/code
+	git -C capsule-repo checkout e7ee8c26d7c47a267ecece60c8b72db7414cdd4c --quiet
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -600,7 +600,7 @@ process capsule_save_processing_results_18 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7456539.git" capsule-repo
 	fi
 	git -C capsule-repo checkout c62c6ed08c7d2c0c9c430a76dfe09b73efcc2507 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -649,7 +649,7 @@ process capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1276528.git" capsule-repo
 	fi
 	git -C capsule-repo checkout e099af3113bb9817129a934705be6f14d00684c3 --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -701,7 +701,7 @@ process capsule_add_new_cluster_columns_25 {
 		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0283658.git" capsule-repo
 	fi
 	git -C capsule-repo checkout 18a52a874bb7e67cdb1871fab02f9254a6f406fa --quiet
-	mv capsule-repo/code capsule/code
+	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
 
 	echo "[${task.tag}] running capsule..."
@@ -715,13 +715,13 @@ process capsule_add_new_cluster_columns_25 {
 
 workflow {
 	// input data
-	xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2 = Channel.fromPath("../data/xenium_726931_mousedev_preprocessed/*", type: 'any', relative: true)
+	segmented_data_to_qc_filtering_doublet_detection_2 = Channel.fromPath("../data/segmented_data/*", type: 'any', relative: true)
 	cell_type_colors_to_add_cell_type_colors_8 = Channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 
 	// run processes
 	capsule_create_parameters_json_full_pipeline_21()
 	capsule_dispatch_jobs_28(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_dispatch_jobs_28_30.collect())
-	capsule_filtering_11(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_filtering_11_1.collect(), xenium_726931_mousedev_preprocessed_to_qc_filtering_doublet_detection_2)
+	capsule_filtering_11(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_filtering_11_1.collect(), segmented_data_to_qc_filtering_doublet_detection_2)
 	capsule_calculate_incongruous_genes_cell_pairs_cell_13(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_3.collect(), capsule_filtering_11.out.to_capsule_calculate_incongruous_genes_cell_pairs_cell_13_4)
 	capsule_downsample_spot_table_json_27(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_json_27_28.collect(), capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_json_27_29.flatten())
 	capsule_mapping_hierarchial_flat_combined_14(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_mapping_hierarchial_flat_combined_14_5.collect(), capsule_calculate_incongruous_genes_cell_pairs_cell_13.out.to_capsule_mapping_hierarchial_flat_combined_14_6)

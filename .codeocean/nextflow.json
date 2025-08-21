@@ -7,7 +7,7 @@
 				"id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "8257790",
-				"commit": "2c9a53663afa4aad21474a84d3aadf3fdced4c4a",
+				"commit": "0a8c50487605598706e4f63ae160f712f8b009d7",
 				"image_tag": "cc7125c438dc37dbccfad683916ccac2"
 			},
 			"resources": {
@@ -29,8 +29,8 @@
 					"id": "GOVWgHtYfGAiECr2",
 					"source_id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
 					"type": "dataset",
-					"name": "xenium_726931_mousedev_preprocessed",
-					"source_path": "xenium_726931_mousedev_preprocessed/",
+					"name": "segmented_data",
+					"source_path": "segmented_data/",
 					"target_path": "sections/"
 				}
 			]
@@ -68,8 +68,8 @@
 					"id": "RiXYbcvoyLmLkhLR",
 					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
 					"type": "dataset",
-					"name": "mouse_dev_incongruous_genes_list",
-					"source_path": "mouse_dev_incongruous_genes_list/",
+					"name": "incongruous_genes",
+					"source_path": "incongruous_genes/",
 					"target_path": "incongruous_genes",
 					"collect": true
 				}
@@ -108,8 +108,8 @@
 					"id": "UErNtRhGnnzCfEQG",
 					"source_id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
 					"type": "dataset",
-					"name": "xenium_p0_DQPQP4_mapping_files",
-					"source_path": "xenium_p0_DQPQP4_mapping_files/",
+					"name": "mapping_files",
+					"source_path": "mapping_files/",
 					"target_path": "markers",
 					"collect": true
 				}
@@ -121,7 +121,7 @@
 				"id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0",
 				"name": "Add Cell Type Colors",
 				"slug": "9300345",
-				"commit": "e7ec5d5ded5a804463088a4da349332815d2c92f",
+				"commit": "f81e53c2ceb60c3bc4da6975e64ff87bd0cd8bbe",
 				"image_tag": "a335ec6ed7309f1f5da9e768dd5c8dfe"
 			},
 			"resources": {
@@ -160,7 +160,7 @@
 				"id": "56b1d4f6-2a6a-4536-8b35-7c208d62f3ba",
 				"name": "Combine Sections",
 				"slug": "5790984",
-				"commit": "e79ce8526ba5b1cbf486db1aeaed88c170bd61a4",
+				"commit": "4b113c26d331c871525bf52cd4b03c05ebe5ea5e",
 				"image_tag": "56258a32c910287ccd1a4dc7663b71af"
 			},
 			"resources": {
@@ -228,7 +228,7 @@
 				"id": "4cef28c0-6813-4b18-b010-e90860c64bb2",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "5476114",
-				"commit": "b13d76e1572a3b78477b3de9121d565fa5cb041d",
+				"commit": "e7ee8c26d7c47a267ecece60c8b72db7414cdd4c",
 				"image_tag": "18538b5e44c59261e2cd9ea6ef4561f9"
 			},
 			"resources": {
@@ -259,7 +259,7 @@
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "8075583",
-				"commit": "ee7cf3a9c2b990b668908a6bbbc5d1df32b0fa7e",
+				"commit": "11785c5f90f89078e8b3d0153fc76e5edb79e9b8",
 				"image_tag": "97ca9f5a1beab4ff486f4071e760e08b",
 				"app_panel": true
 			},
@@ -434,8 +434,8 @@
 					"id": "uFVUklUadpvLXAq9",
 					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
 					"type": "dataset",
-					"name": "xenium_726931_barcodes",
-					"source_path": "xenium_726931_barcodes/",
+					"name": "barcodes_csv",
+					"source_path": "barcodes_csv/",
 					"target_path": "barcodes",
 					"collect": true
 				},
@@ -501,8 +501,8 @@
 					"id": "toZRJ3tWauqy3oBL",
 					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
 					"type": "dataset",
-					"name": "xenium_726931_barcodes",
-					"source_path": "xenium_726931_barcodes/",
+					"name": "barcodes_csv",
+					"source_path": "barcodes_csv/",
 					"collect": true
 				},
 				{
