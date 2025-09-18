@@ -8,10 +8,13 @@ The QC filtering and doublet detection step includes:
 - Data Loading & Preparation - Load AnnData and calculate QC metrics
 - Basic QC Filtering - Apply thresholds and label low-quality cells
 - Doublet Detection - Train VAE and SOLO models to identify doublet cells
+- Incongruous Gene Pair Analysis - Calculate percentage of gene pairs where 2 genes which are not typically found together, co-occur
+- Incongruous Genes Analysis - Compares the expression levels for each gene in an incongruous pair and calculates the perentage of the lower-expressed gene relative to the total number of genes expressed in each cell
 - Results Saving - Save filtered data with QC annotations
 
 ## Input Files
 - `*_pre.h5ad` - Segmented AnnData file
+- `inconguent_gene*.csv` - Reference table of incongruous gene pairs (optional)
 - `params.json` - Configuration file with filtering parameters
 
 ### Required Metadata Columns:
@@ -37,6 +40,10 @@ Doublet Detection Columns:
 - `prediction`: SOLO prediction category ('doublet' or 'singlet')
 - `dif`: Difference between doublet and singlet scores
 - `doublets_thr`: Threshold value used for doublet detection
+
+Incongruous Genes Columns:
+- `incongruous_pairs_pct`: Percentage of gene pairs where 2 genes which are not typically found together, co-occur
+- `incongruous_genes_pct`: Compares expression levels for each gene in an incongruous pair, percentage of the lower-expressed gene relative to total number of genes expressed in cell
   
 ## Configuration Parameters
 The filtering parameters are specified in `params.json`:
@@ -51,7 +58,8 @@ The filtering parameters are specified in `params.json`:
             "total_counts": null,
             "pct_counts_blank": 2
         },
-        "doublets_cutoff": null
+        "doublets_cutoff": null,
+        "run_incongruous_genes": "True"
     }
 
 ### Parameter Descriptions
@@ -65,5 +73,7 @@ Maximum Thresholds (`max`):
 
 - `total_counts`: Maximum total transcript counts per cell (applied to non-blank genes)
 - `pct_counts_blank`: Maximum percentage of blank/control transcript counts
+
+`run_incongruous_genes`: String boolean ("True" or "False") to enable/disable incongruous genes calculation
 
 
