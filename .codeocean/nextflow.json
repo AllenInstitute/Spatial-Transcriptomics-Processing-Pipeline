@@ -7,7 +7,7 @@
 				"id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "8257790",
-				"commit": "0a8c50487605598706e4f63ae160f712f8b009d7",
+				"commit": "aacb6575bb4a0c55b142a502dce4e2473792cb5e",
 				"image_tag": "cc7125c438dc37dbccfad683916ccac2"
 			},
 			"resources": {
@@ -16,6 +16,15 @@
 				"gpus": 1
 			},
 			"inputs": [
+				{
+					"id": "ZK4fieQTqRXf2cTY",
+					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+					"type": "dataset",
+					"name": "incongruous_genes",
+					"source_path": "incongruous_genes/",
+					"target_path": "incongruous_genes",
+					"collect": true
+				},
 				{
 					"id": "0zTIVt84TVjtWmKX",
 					"source_id": "capsule_create_parameters_json_full_pipeline_21",
@@ -36,52 +45,12 @@
 			]
 		},
 		{
-			"name": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"capsule": {
-				"id": "fd80a307-aa9f-4506-bac2-1923bb1050ed",
-				"name": "Calculate Incongruous Genes",
-				"slug": "2911647",
-				"commit": "e32d5d729e10c37c5ef67f57818841e8fef5dbe6",
-				"image_tag": "c192a9532b0e8c847b9970f447df0953"
-			},
-			"resources": {
-				"cpus": 4,
-				"memory": 16
-			},
-			"inputs": [
-				{
-					"id": "RrRoVEQ0404q00GR",
-					"source_id": "capsule_create_parameters_json_full_pipeline_21",
-					"type": "capsule",
-					"name": "Create Parameters JSON Full Pipeline",
-					"source_path": "params/",
-					"target_path": "params",
-					"collect": true
-				},
-				{
-					"id": "BTfDA2AAV6wlIoFN",
-					"source_id": "capsule_filtering_11",
-					"type": "capsule",
-					"name": "Filtering"
-				},
-				{
-					"id": "RiXYbcvoyLmLkhLR",
-					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
-					"type": "dataset",
-					"name": "incongruous_genes",
-					"source_path": "incongruous_genes/",
-					"target_path": "incongruous_genes",
-					"collect": true
-				}
-			]
-		},
-		{
 			"name": "capsule_mapping_hierarchial_flat_combined_14",
 			"capsule": {
 				"id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2",
 				"name": "Cell Type Mapping",
 				"slug": "1928280",
-				"commit": "0fc325e52ccb8534932c5ff2dcc2a5caf5f68442",
+				"commit": "d717e47d6b1cbcfffbd44e84b740ef7d037da690",
 				"image_tag": "c009f7a4e58492ed2f4a2886ce07b880"
 			},
 			"resources": {
@@ -90,6 +59,12 @@
 			},
 			"inputs": [
 				{
+					"id": "azC3QkysG2CHPs7Z",
+					"source_id": "capsule_filtering_11",
+					"type": "capsule",
+					"name": "QC Filtering \u0026 Doublet Detection"
+				},
+				{
 					"id": "S6haM7rSqVg5Hg4C",
 					"source_id": "capsule_create_parameters_json_full_pipeline_21",
 					"type": "capsule",
@@ -97,12 +72,6 @@
 					"source_path": "params/",
 					"target_path": "params",
 					"collect": true
-				},
-				{
-					"id": "NCwYcvsAhL6O8uFb",
-					"source_id": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-					"type": "capsule",
-					"name": "Calculate % Incongruous Genes/Cell \u0026 Pairs/Cell"
 				},
 				{
 					"id": "UErNtRhGnnzCfEQG",
@@ -259,7 +228,7 @@
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "8075583",
-				"commit": "11785c5f90f89078e8b3d0153fc76e5edb79e9b8",
+				"commit": "757fbac94c7751a69ab00dd55b167b0c19d8bb02",
 				"image_tag": "97ca9f5a1beab4ff486f4071e760e08b",
 				"app_panel": true
 			},
@@ -456,7 +425,7 @@
 				"id": "ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40",
 				"name": "Downsample Spot Table",
 				"slug": "9309116",
-				"commit": "2592b860d481820160a3d15aedee7556b9434812",
+				"commit": "d4dd8c2fc1844547b76efbce227ad7df44b65aba",
 				"image_tag": "d0c09da2eb67b14a8a2062e75386d77b"
 			},
 			"resources": {

@@ -1,24 +1,6 @@
 {
 	"edges": [
 		{
-			"id": "reactflow__edge-capsule_filtering_11-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"selected": false,
-			"source": "capsule_filtering_11",
-			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
-		},
-		{
-			"id": "reactflow__edge-5e5ee663-c304-46a9-ba39-c4003cd416a5-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"selected": false,
-			"source": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
-			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
-		},
-		{
-			"id": "reactflow__edge-capsule_calculate_incongruous_genes_cell_pairs_cell_13-capsule_mapping_hierarchial_flat_combined_14",
-			"selected": false,
-			"source": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"target": "capsule_mapping_hierarchial_flat_combined_14"
-		},
-		{
 			"id": "reactflow__edge-ada9bde4-502c-43e2-8e6d-517d02744905-capsule_add_cell_type_colors_combined_16",
 			"selected": false,
 			"source": "ada9bde4-502c-43e2-8e6d-517d02744905",
@@ -58,11 +40,6 @@
 			"target": "capsule_filtering_11"
 		},
 		{
-			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"source": "capsule_create_parameters_json_full_pipeline_21",
-			"target": "capsule_calculate_incongruous_genes_cell_pairs_cell_13"
-		},
-		{
 			"id": "reactflow__edge-capsule_create_parameters_json_full_pipeline_21-capsule_mapping_hierarchial_flat_combined_14",
 			"source": "capsule_create_parameters_json_full_pipeline_21",
 			"target": "capsule_mapping_hierarchial_flat_combined_14"
@@ -89,6 +66,7 @@
 		},
 		{
 			"id": "reactflow__edge-108f4df3-7e33-4d0a-826c-a613df85d3b9-capsule_filtering_11",
+			"selected": false,
 			"source": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
 			"target": "capsule_filtering_11"
 		},
@@ -187,6 +165,18 @@
 			"selected": false,
 			"source": "361c4975-9e72-41fa-af33-837cf648d2d4",
 			"target": "capsule_run_staligner_json_26"
+		},
+		{
+			"id": "xy-edge__5e5ee663-c304-46a9-ba39-c4003cd416a5-capsule_filtering_11",
+			"selected": false,
+			"source": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"target": "capsule_filtering_11"
+		},
+		{
+			"id": "xy-edge__capsule_filtering_11-capsule_mapping_hierarchial_flat_combined_14",
+			"selected": false,
+			"source": "capsule_filtering_11",
+			"target": "capsule_mapping_hierarchial_flat_combined_14"
 		}
 	],
 	"nodes": [
@@ -205,8 +195,8 @@
 			},
 			"id": "capsule_filtering_11",
 			"position": {
-				"x": 206.20386023300728,
-				"y": -384.37576799658405
+				"x": 247.0879072043478,
+				"y": -199.32166065262157
 			},
 			"selected": false,
 			"type": "capsule"
@@ -221,22 +211,10 @@
 			"type": "dataset"
 		},
 		{
-			"data": {
-				"capsule_id": "fd80a307-aa9f-4506-bac2-1923bb1050ed"
-			},
-			"id": "capsule_calculate_incongruous_genes_cell_pairs_cell_13",
-			"position": {
-				"x": 311.97537357116994,
-				"y": -118.23557451226871
-			},
-			"selected": false,
-			"type": "capsule"
-		},
-		{
 			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
 			"position": {
-				"x": 66.61670666311178,
-				"y": -206.80262387458023
+				"x": -145.33480000410103,
+				"y": -376.7941875975225
 			},
 			"selected": false,
 			"type": "dataset"
@@ -343,8 +321,8 @@
 			},
 			"id": "capsule_downsample_spot_table_json_27",
 			"position": {
-				"x": 1741.7678517796328,
-				"y": 507.8846952188664
+				"x": 1709.6307514305288,
+				"y": 504.670985183956
 			},
 			"selected": false,
 			"type": "capsule"
@@ -394,10 +372,10 @@
 		{
 			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
 			"position": {
-				"x": 22.745150333788324,
-				"y": -508.83229956262375
+				"x": 72.23636508856899,
+				"y": -521.7430512377839
 			},
-			"selected": false,
+			"selected": true,
 			"type": "dataset"
 		},
 		{
@@ -413,10 +391,10 @@
 			"type": "capsule"
 		}
 	],
-	"timestamp": 1754593948033,
+	"timestamp": 1758212557977,
 	"viewport": {
-		"x": -203.39302088941452,
-		"y": -96.63952214816572,
-		"zoom": 0.44192389795407905
+		"x": 126.22841060328909,
+		"y": 452.62268748827927,
+		"zoom": 0.46472894460078473
 	}
 }

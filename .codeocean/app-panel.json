@@ -9,7 +9,7 @@
 		{
 			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
 			"name": "Mapping Files",
-			"description": "Folder containing precomputed stats h5 and marker genes json"
+			"description": "Folder containing MapMyCells precomputed stats h5 and marker genes json"
 		},
 		{
 			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
