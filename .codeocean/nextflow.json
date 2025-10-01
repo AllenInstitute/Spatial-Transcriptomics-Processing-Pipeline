@@ -7,7 +7,7 @@
 				"id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "8257790",
-				"commit": "aacb6575bb4a0c55b142a502dce4e2473792cb5e",
+				"commit": "f3a2146843fe43f7de673f608acd28561cb331b9",
 				"image_tag": "cc7125c438dc37dbccfad683916ccac2"
 			},
 			"resources": {
@@ -50,7 +50,7 @@
 				"id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2",
 				"name": "Cell Type Mapping",
 				"slug": "1928280",
-				"commit": "d717e47d6b1cbcfffbd44e84b740ef7d037da690",
+				"commit": "4db4eddad26bb1c2617d78250ceb00a538bc17e0",
 				"image_tag": "c009f7a4e58492ed2f4a2886ce07b880"
 			},
 			"resources": {
@@ -163,7 +163,7 @@
 				"id": "41e788a7-6656-4df6-af8e-2bace1c80d2f",
 				"name": "Save Processing Results",
 				"slug": "7456539",
-				"commit": "c62c6ed08c7d2c0c9c430a76dfe09b73efcc2507",
+				"commit": "8155e159696ca48bf49ad463e5c9f4fc01c988bc",
 				"image_tag": "efb94ef89b16c91982f2770b45ba3ce1"
 			},
 			"resources": {
@@ -197,7 +197,7 @@
 				"id": "4cef28c0-6813-4b18-b010-e90860c64bb2",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "5476114",
-				"commit": "e7ee8c26d7c47a267ecece60c8b72db7414cdd4c",
+				"commit": "daca9e81766ec9925e57da81b7385f93766d70d6",
 				"image_tag": "18538b5e44c59261e2cd9ea6ef4561f9"
 			},
 			"resources": {
@@ -228,7 +228,7 @@
 				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "8075583",
-				"commit": "757fbac94c7751a69ab00dd55b167b0c19d8bb02",
+				"commit": "59d84ec406f6c3e79772aaffddf4f7e0ea41cfed",
 				"image_tag": "97ca9f5a1beab4ff486f4071e760e08b",
 				"app_panel": true
 			},
@@ -328,7 +328,7 @@
 				"id": "265f4a36-3de6-4702-b561-be58cf34487c",
 				"name": "Merge Clusters",
 				"slug": "0283658",
-				"commit": "18a52a874bb7e67cdb1871fab02f9254a6f406fa",
+				"commit": "ca35e3fe9921cc2109c1707b0148706ca0101ed6",
 				"image_tag": "52eb3bdca7dab6ee15a7d1192d898ba3"
 			},
 			"resources": {
@@ -381,7 +381,7 @@
 				"id": "ccde4aeb-172d-4a48-bd2e-ed90c58d2a21",
 				"name": "Run STAligner",
 				"slug": "1366953",
-				"commit": "3112cb0b6657c8fe28300960ba73f33b5f0ad037",
+				"commit": "218888acda6dd72570c3952e4cbe75b8b475b8c2",
 				"image_tag": "895c09a81261d91221eef4fbdaffe51c"
 			},
 			"resources": {

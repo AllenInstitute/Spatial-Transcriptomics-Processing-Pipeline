@@ -1,7 +1,11 @@
 metadata_version: 1
 name: Spatial Transcriptomics Processing Pipeline
-description: Spatial transcriptomics processing pipeline. Includes QC filtering, MapMyCells
-  hierarchical and/or flat mapping, DoubleMAD mapping filtering, and STAligner domain
-  detection
+description: "Spatial transcriptomics processing pipeline. \n\n## Overview\nThis pipeline
+  includes the following steps:\n- [QC filtering](https://codeocean.allenneuraldynamics.org/capsule/8257790/tree)\n-
+  [MapMyCells hierarchical and/or flat mapping](https://codeocean.allenneuraldynamics.org/capsule/1928280/tree)\n-
+  [Cell type color merging](https://codeocean.allenneuraldynamics.org/capsule/9300345/tree)\n-
+  [DoubleMAD mapping filtering](https://codeocean.allenneuraldynamics.org/capsule/5476114/tree)\n-
+  [STAligner domain detection](https://codeocean.allenneuraldynamics.org/capsule/1366953/tree)\n\nMore
+  details about input data, results, and parameters can be found [here](https://github.com/lindsey-ching/Spatial-Transcriptomics-Processing-Pipeline/tree/master/docs)"
 authors:
 - name: Lindsey Ching
