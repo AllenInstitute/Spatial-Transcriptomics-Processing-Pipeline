@@ -33,9 +33,9 @@ The section metadata generation step includes:
 ## Configuration Parameters
 The metadata parameters are configured in `params.json`:
 
-  "metadata": {
-      "dataset_id": "720609"
-  }
+    "metadata": {
+        "dataset_id": "720609"
+    }
 
 ### Parameter Descriptions
 - `dataset_id`: Dataset ID to filter barcode data
