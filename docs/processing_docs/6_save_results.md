@@ -32,7 +32,7 @@ The save results step includes:
 
     results/
     ├── whole_dataset/
-    │   └── {specimen}_{dataset_id}_filtered.h5ad
+    │   ├── {specimen}_{dataset_id}_filtered.h5ad
     |   └── {specimen}_{dataset_id}_filtered.csv
     └── sections/
         ├── {section1}_filtered.h5ad
