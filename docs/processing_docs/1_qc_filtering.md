@@ -32,14 +32,14 @@ QC Filter Columns:
 - `{parameter}_qc_passed`: Boolean indicating if cell passes individual parameter threshold (n_genes_by_counts, total_counts, and pct_counts_blank)
 - `basic_qc_passed`: Boolean indicating if cell passes all basic QC filters
 - `doublets_qc_passed`: Boolean indicating if cell is not a doublet
-- `qc_passed`: Boolean indicating if cell passes all QC filters (basic + doublet)
+- `basic_doublets_qc_passed`: Boolean indicating if cell passes all QC filters (basic + doublet)
 
 Doublet Detection Columns:
 - `doublet`: SOLO doublet prediction score
 - `singlet`: SOLO singlet prediction score
 - `prediction`: SOLO prediction category ('doublet' or 'singlet')
-- `dif`: Difference between doublet and singlet scores
-- `doublets_thr`: Threshold value used for doublet detection
+- `doublet_singlet_score_diff`: Difference between doublet and singlet scores
+- `doublet_diff_threshold`: Threshold value used for doublet detection
 
 Incongruous Genes Columns:
 - `incongruous_pairs_pct`: Percentage of gene pairs where 2 genes which are not typically found together, co-occur
