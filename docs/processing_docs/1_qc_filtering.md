@@ -24,7 +24,7 @@ The QC filtering and doublet detection step includes:
 - Index containing unique cell labels (e.g.,`{section}_SIS_{i}`) 
 
 ## Output Files
-`{brain_section_barcode}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to results/sections/
+`{brain_section_barcode}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to /results/sections/
 
 ### Added Metadata Columns:
 
