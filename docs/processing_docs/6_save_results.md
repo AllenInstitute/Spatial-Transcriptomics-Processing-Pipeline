@@ -33,9 +33,10 @@ The save results step includes:
     results/
     ├── whole_dataset/
     │   └── {specimen}_{dataset_id}_filtered.h5ad
+    |   └── {specimen}_{dataset_id}_filtered.csv
     └── sections/
-        ├── section1_filtered.h5ad
-        ├── section2_filtered.h5ad
+        ├── {section1}_filtered.h5ad
+        ├── {section2}_filtered.h5ad
         └── ...
 
 ### Added Metadata Columns:
