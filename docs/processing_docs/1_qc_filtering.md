@@ -13,7 +13,7 @@ The QC filtering and doublet detection step includes:
 - Results Saving - Save filtered data with QC annotations
 
 ## Input Files
-- `*_pre.h5ad` - Segmented AnnData file
+- `/sections/*.h5ad` - Segmented AnnData file in /data/sections directory
 - `inconguent_gene*.csv` - Reference table of incongruous gene pairs (optional)
 - `params.json` - Configuration file with filtering parameters
 
