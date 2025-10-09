@@ -12,7 +12,7 @@
         "specimen": "mouse",
         "dataset_id": "720609",
         "n_neighbors": 8,
-        "reverse": "True"
+        "reverse": null
     },
     "cluster_params": {
         "n_neighbors": 8,
@@ -21,9 +21,7 @@
         "specimen": "mouse"
     },
     "domain_detection_params": {
-        "grid_size": 30,
-        "n_neighbors": 8,
-        "cluster_key": "STAligner"
+        "run_domain_detection": "1"
     },
     "filtering_params": {
         "min": {
@@ -36,7 +34,7 @@
             "pct_counts_blank": 2
         },
         "doublets_cutoff": null,
-        "run_incongruous_genes": "True"
+        "run_incongruous_genes": "1"
     },
     "mapping_params": {
         "normalization": "raw",
@@ -45,19 +43,19 @@
         "bootstrap_iteration": 100,
         "bootstrap_factor": 0.9,
         "n_runner_ups": 0,
-        "clobber": true,
+        "clobber": "1",
         "mapping_acronym": "mmc",
         "drop_genes_list": null,
-        "add_cell_type_colors": "True"
+        "add_cell_type_colors": "1"
     },
     "doublemad_params": {
-        "run_doublemad": "True",
+        "run_doublemad": "1",
         "doublemad_multiplier": 3
     },
     "metadata": {
         "specimen": "mouse",
         "dataset_id": "720609",
         "age": "P0",
-        "sex": "F"
+        "sex": "M"
     }
 }
