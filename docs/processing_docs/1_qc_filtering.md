@@ -59,7 +59,7 @@ The filtering parameters are specified in `params.json`:
             "pct_counts_blank": 2
         },
         "doublets_cutoff": null,
-        "run_incongruous_genes": "True"
+        "run_incongruous_genes": 1
     }
 
 ### Parameter Descriptions
@@ -74,6 +74,6 @@ Maximum Thresholds (`max`):
 - `total_counts`: Maximum total transcript counts per cell (applied to non-blank genes)
 - `pct_counts_blank`: Maximum percentage of blank/control transcript counts
 
-`run_incongruous_genes`: String boolean ("True" or "False") to enable/disable incongruous genes calculation
+`run_incongruous_genes`: 1/0 to enable/disable incongruous genes calculation
 
 
