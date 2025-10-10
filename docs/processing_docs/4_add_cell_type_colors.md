@@ -33,7 +33,7 @@ The color assignment adds multiple color columns to adata.obs with the format `{
 
     {
     "mapping_params": {
-        "add_cell_type_colors": "True",
+        "add_cell_type_colors": 1,
         "mapping_type": "both",
         "mapping_acronym": "mmc"},
     "metadata": {
@@ -43,7 +43,7 @@ The color assignment adds multiple color columns to adata.obs with the format `{
     
 ### Parameter Descriptions
 
-- `add_cell_type_colors`: String boolean ("True" or "False") to add/skip color mappings
+- `add_cell_type_colors`: 1/0 to add/skip color mappings
 - `mapping_type`: Type of mapping performed
   - `"flat"`: Flat mapping only
   - `"hrc"`: Hierarchical mapping only 
