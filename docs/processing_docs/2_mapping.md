@@ -50,7 +50,7 @@ The mapping parameters are specified in mapping_params.json:
         "bootstrap_iteration": 100,
         "bootstrap_factor": 0.9,
         "n_runner_ups": 0,
-        "clobber": true,
+        "clobber": 1,
         "mapping_acronym": "mmc",
         "drop_genes_list": null
     }
@@ -83,7 +83,7 @@ The mapping parameters are specified in mapping_params.json:
 
 **Performance:**
 
-- `clobber`: Whether to overwrite existing output files ("True" or "False")
+- `clobber`: Whether to overwrite existing output files (1/0)
 
 
 
