@@ -36,11 +36,11 @@ Required Input Columns in AnnData:
 The DoubleMAD calculation is controlled by a parameter in `params.json`:
 
     "doublemad_params": {
-        "run_doublemad": "True",
+        "run_doublemad": 1,
         "doublemad_multiplier": 3
     }
   
 ### Parameter Descriptions
 
-- `run_doublemad`: String boolean ("True" or "False") to enable/disable DoubleMAD calculation
+- `run_doublemad`: 1/0 to enable/disable DoubleMAD calculation
 - `doublemad_multiplier`: Multiplier for DoubleMAD threshold calculation
