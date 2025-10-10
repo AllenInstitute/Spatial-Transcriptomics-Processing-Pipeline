@@ -27,12 +27,6 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--clobber` | bool | True to overwrite existing results |
 | `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping |
 | `--run_add_colors` | str | 1 to add cell type colors, 0 to skip |
-
-
-### DoubleMAD Filtering Parameters
-
-| Argument | Type | Description |
-|----------|------|-------------|
 | `--run_doublemad` | int | 1 to run DoubleMAD step, 0 to skip |
 | `--doublemad_multiplier` | int | Integer multiplier for DoubleMAD threshold |
 
