@@ -34,12 +34,12 @@ The STAligner parameters are listed in `params.json`:
         "specimen": "mouse",
         "dataset_id": "720609",
         "n_neighbors": 8,
-        "reverse": "True"
+        "reverse": 1
     }
 
 ## Parameter Descriptions
 - `specimen`: Species type for output file naming
 - `dataset_id`: Dataset identifier used for output file naming
 - `n_neighbors`: Number of neighbors for KNN spatial network construction
-- `reverse`: Controls section ordering direction. Set to 'True' to reverse numerical ordering of barcodes when no AP_order CSV is provided
+- `reverse`: Controls section ordering direction. Set to 1 to reverse numerical ordering of barcodes when no AP_order CSV is provided
 
