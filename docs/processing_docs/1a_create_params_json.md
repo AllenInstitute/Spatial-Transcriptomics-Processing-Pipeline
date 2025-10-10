@@ -11,7 +11,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--volume_lower_thr` | int | Label cells with < n µm volume |
 | `--pct_blanks_upper_thr` | int | Label cells with > n % blanks |
 | `--doublets_thr` | str | Set doublets cutoff |
-| `--run_incongruous_genes` | str | True to run incongruous genes step, False to skip |
+| `--run_incongruous_genes` | int | True to run incongruous genes step, False to skip |
 
 ### Mapping Parameters
 
@@ -26,14 +26,14 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--mapping_acronym` | str | Acronym for mapped column names and file names |
 | `--clobber` | bool | True to overwrite existing results |
 | `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping |
-| `--run_add_colors` | str | True to add cell type colors, False to skip |
+| `--run_add_colors` | str | 1 to add cell type colors, 0 to skip |
 
 
 ### DoubleMAD Filtering Parameters
 
 | Argument | Type | Description |
 |----------|------|-------------|
-| `--run_doublemad` | str | True to run DoubleMAD step, False to skip |
+| `--run_doublemad` | int | 1 to run DoubleMAD step, 0 to skip |
 | `--doublemad_multiplier` | int | Integer multiplier for DoubleMAD threshold |
 
 ### Metadata Parameters
@@ -71,7 +71,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--specimen` | str | Specimen type (e.g., mouse or human)|
 | `--dataset_id` | str | Dataset ID |
 | `--n_neighbors` | int | Number of neighbors for graph construction |
-| `--reverse` | bool | Reverse orientation flag |
+| `--reverse` | int | Reverse orientation flag |
 
 ### Cluster Parameters
 | Parameter | Type | Description |
