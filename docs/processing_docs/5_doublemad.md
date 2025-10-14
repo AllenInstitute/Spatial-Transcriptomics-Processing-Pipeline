@@ -13,8 +13,8 @@ The DoubleMAD quality control step includes:
 
 ## Input Files
 
-- `*.h5ad` - Cell type mapped AnnData file with correlation scores from previous mapping step
-- `params.json` - Configuration file with DoubleMAD parameters
+- `../data/*/*{mapping_type}*combined.h5ad` - Cell type mapped AnnData file with correlation scores from previous mapping step
+- `../data/*params.json` - Configuration file with DoubleMAD parameters
 
 Required Input Columns in AnnData:
 
@@ -22,7 +22,7 @@ Required Input Columns in AnnData:
 -  MapMyCells results for each taxonomy level
 
 ## Output File
-`{specimen}_{dataset_id}_{mapping_type}_{mapping_acronym}_combined_doublemad.h5ad` - Updated AnnData file with DoubleMAD metrics saved to results/whole_dataset/
+`../results/whole_dataset/{specimen}_{dataset_id}_{mapping_type}_{mapping_acronym}_combined_doublemad.h5ad` - Updated AnnData file with DoubleMAD metrics saved to results/whole_dataset/
 
 ### Added Metadata Columns:
 
