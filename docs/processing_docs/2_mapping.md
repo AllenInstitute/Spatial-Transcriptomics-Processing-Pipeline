@@ -12,26 +12,25 @@ The mapping step includes:
 
 ## Input Files
 
-- `*.h5ad` - Filtered AnnData file from previous processing steps 
-- `*precomputed_stats*.h5` - HDF5 file defining your taxonomy and the average gene expression profile for the cell types in your taxonomy
-- `*marker*.json` - JSON file defining the marker genes to be used for mapping given your taxonomy
-- `params.json` - Configuration file with mapping parameters
+- `../data/*/*.h5ad` - Filtered AnnData file from previous processing steps 
+- `../data/*/*precomputed_stats*.h5` - HDF5 file defining your taxonomy and the average gene expression profile for the cell types in your taxonomy
+- `../data/*/*marker*.json` - JSON file defining the marker genes to be used for mapping given your taxonomy
+- `../data/*/params.json` - Configuration file with mapping parameters
 
 ## Output Files
 Single Mapping Mode (`flat` or `hrc`):
 
-- `{section}_{mapping_acronym}_{mapping_type}.h5ad` - Mapped data saved to results/mapping_results/
+- `../results/mapping_results/{section}_{mapping_acronym}_flat.h5ad` - Flat mapping results
+- `../results/mapping_results/{section}_{mapping_acronym}_hrc.h5ad` - Hierarchical mapping results
 
 Both Mapping Mode (`both`):
 
-- `{section}_{mapping_acronym}_flat.h5ad` - Flat mapping results
-- `{section}_{mapping_acronym}_hrc.h5ad` - Hierarchical mapping results
-- `{section}_{mapping_acronym}_both.h5ad` - Combined flat and hierarchical results
+- `../results/mapping_results/{section}_{mapping_acronym}_both.h5ad` - Combined flat and hierarchical results
 
 Intermediate Files:
 
-- `extended_results_{mapping_type}.json` - Detailed mapping results saved to results/{mapping_acronym}_output
-- `basic_results_{mapping_type}.csv` - Summary mapping results saved to results/{mapping_acronym}_output
+- `../results/mmc_output/extended_results_{mapping_type}.json` - Detailed mapping results 
+- `../results/mmc_output/basic_results_{mapping_type}.csv` - Summary mapping results
 
 ### Added Metadata Columns:
 The mapping step adds multiple columns to adata.obs with the format `{mapping_type}_{mapping_acronym}_{column}`:
