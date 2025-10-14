@@ -16,7 +16,7 @@ The STAligner step includes:
 - `../data/*/*barcodes*.csv` - Optional CSV file with section ordering information (columns: dataset_id, barcode, AP_order)
 
 ## Output Files
-`{specimen}_{dataset_id}_staligner_knn_{n_neighbors}.h5ad` - Integrated AnnData file with STAligner embeddings and alignments saved to `results/domain_detection/`
+`../results/domain_detection/{specimen}_{dataset_id}_staligner_knn_{n_neighbors}.h5ad` - Integrated AnnData file with STAligner embeddings and alignments saved to `results/domain_detection/`
 
 ### Added Metadata Columns:
 
