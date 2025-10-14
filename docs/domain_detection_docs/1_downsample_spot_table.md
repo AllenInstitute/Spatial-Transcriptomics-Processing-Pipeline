@@ -14,7 +14,7 @@ The downsample spot table step includes:
 - `../data/*/{section}_section_metadata.json` - Section metadata JSON file containing barcode, region, and experiment_id
 
 ## Output Files
-- `{section}_gridded.h5ad` - Gridded AnnData file with QC annotations
+- `../results/downsampled/{section}_gridded.h5ad` - Gridded AnnData file with QC annotations
 
 ### Added Metadata Columns:
 
