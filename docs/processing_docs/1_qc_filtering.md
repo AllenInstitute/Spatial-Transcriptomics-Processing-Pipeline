@@ -13,9 +13,9 @@ The QC filtering and doublet detection step includes:
 - Results Saving - Save filtered data with QC annotations
 
 ## Input Files
-- `/sections/*.h5ad` - Segmented AnnData file in /data/sections directory
-- `inconguent_gene*.csv` - Reference table of incongruous gene pairs (optional)
-- `params.json` - Configuration file with filtering parameters
+- `../data/sections/*.h5ad` - Segmented AnnData file in /data/sections directory
+- `../data/*/*inc*.csv` - Reference table of incongruous gene pairs (optional)
+- `../data/*/params.json` - Configuration file with filtering parameters
 
 ### Required Metadata Columns:
 - `x` and `y`: cell centroid coordinates
@@ -24,7 +24,7 @@ The QC filtering and doublet detection step includes:
 - Index containing unique cell labels (e.g.,`{section}_SIS_{i}`) 
 
 ## Output Files
-`{brain_section_barcode}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to /results/sections/
+`../results/sections/{section}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to /results/sections/
 
 ### Added Metadata Columns:
 
