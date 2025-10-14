@@ -13,13 +13,13 @@ The Leiden clustering step includes:
 
 ## Input Files
 
-- `*staligner*.h5ad` - AnnData file with STAligner embeddings 
-- `params.json` - Configuration file with clustering parameters
-- `res_params/params_{resolution}.json` - Resolution-specific parameter file
+- `../data/domain_detection/*staligner*.h5ad` - AnnData file with STAligner embeddings 
+- `../data/*/params.json` - Configuration file with clustering parameters
+- `../data/res_params/params_{resolution}.json` - Resolution-specific parameter file
 
 ## Output Files
 
-- `{specimen}_{dataset_id}_res_{resolution}_clustered.h5ad` - Clustered AnnData file saved to `results/clustered/`
+- `../data/clustered/{specimen}_{dataset_id}_res_{resolution}_clustered.h5ad` - Clustered AnnData file saved to `results/clustered/`
 
 ### Added Metadata Columns
 
