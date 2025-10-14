@@ -11,11 +11,11 @@ The combine sections step includes:
 
 ## Input Files
 
-- `*{mapping_type}.h5ad` - Section-level AnnData files from mapping step
-- `params.json` - Configuration file with specimen and mapping information
+- `../data/*/*/*{mapping_type}.h5ad` - Section-level AnnData files from mapping step
+- `../data/*/params.json` - Configuration file with specimen and mapping information
 
 ## Output File
-- `{specimen}_{dataset_id}_{mapping_acronym}_{mapping_type}_combined.h5ad` - Combined dataset saved to results/whole_dataset/
+- `../results/whole_dataset/{specimen}_{dataset_id}_{mapping_acronym}_{mapping_type}_combined.h5ad` - Combined dataset 
 - Ex: `mouse_638850_mmc_both_combined.h5ad`
 
 ## Configuration Parameters
