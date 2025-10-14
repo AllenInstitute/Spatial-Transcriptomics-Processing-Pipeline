@@ -13,20 +13,20 @@ The save results step includes:
 
 ## Input Files
 
-- `*{mapping_type}*.h5ad` - Processed AnnData file from previous pipeline steps
-- `params.json` - Configuration file with metadata information
+- `../data/*/*{mapping_type}*.h5ad` - Processed AnnData file from previous pipeline steps
+- `../data/*params.json` - Configuration file with metadata information
 
 ### Required Input Columns in AnnData:
 
-- `production_cell_id` - Cell IDs for index setting
+- `cell_label` - Cell IDs for index setting
 - `*qc_passed*` - QC columns from previous pipeline steps
 - `x`, `y` - Spatial coordinates for cells
 - `brain_section_barcode` - Section IDs for splitting data
 
 ## Output Files
 
-- `whole_dataset/{specimen}_{dataset_id}_filtered.h5ad` - Complete filtered dataset
-- `sections/{section}_filtered.h5ad` - Individual section files
+- `../results/whole_dataset/{specimen}_{dataset_id}_filtered.h5ad` - Complete filtered dataset
+- `../results/sections/{section}_filtered.h5ad` - Individual section files
 
 ### Directory Structure:
 
