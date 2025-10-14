@@ -12,13 +12,13 @@ The color assignment step includes:
 
 ## Input Files
 
-- `*{mapping_type}_combined.h5ad` - Combined mapping results from previous processing steps 
-- `*annotation.csv` - Contains standardized ABC color mappings for all taxonomic levels
-- `params.json` - Configuration file with specimen and mapping parameters
+- `../data/*/*{mapping_type}_combined.h5ad` - Combined mapping results from previous processing steps 
+- `../data/*/*annotation.csv` - Contains standardized ABC color mappings for all taxonomic levels
+- `../data/*/params.json` - Configuration file with specimen and mapping parameters
   
 ## Output Files
 
-- `{specimen}_{dataset_id}_{mapping_acronym}_{mapping_type}_combined.h5ad` - Data with color assignments saved to results/whole_dataset/
+- `../results/whole_dataset/{specimen}_{dataset_id}_{mapping_acronym}_{mapping_type}_combined.h5ad` - Data with color assignments saved to results/whole_dataset/
 - Ex: `mouse_638850_mmc_both_combined.h5ad`
   
 ### Added Metadata Columns
