@@ -88,7 +88,7 @@ The script generates two types of JSON parameter files:
 - **Purpose**: Enables job splitting by resolution
 
 ## JSON Structure
-
+***params.json***
 ```json
 {
     "downsample_params": {
@@ -150,5 +150,11 @@ The script generates two types of JSON parameter files:
         "age": "str",
         "sex": "str"
     }
+}
+```
+***params_{resolution}.json***
+```json
+{
+    "resolution": "float"
 }
 ```
