@@ -13,22 +13,19 @@ The processing section of pipeline consists of the following sequential steps:
 ### [Step 1: QC Filtering & Doublet Detection](./docs/processing_docs/1_qc_filtering.md)
 Quality control filtering and doublet detection with SOLO (Semi-supervised Outlier Detection).
 
-### [Step 2: Calculate Incongruous Genes](./docs/processing_docs/2_calculate_inc_genes.md)
-Analyze co-expression patterns of gene pairs that should not be expressed together in the same cell.
-
-### [Step 3: Cell Type Mapping](./docs/processing_docs/3_mapping.md)
+### [Step 2: Cell Type Mapping](./docs/processing_docs/2_mapping.md)
 Perform MapMyCells cell type mapping. 
 
-### [Step 4: Combine Sections](./docs/processing_docs/4_combine_sections.md)
+### [Step 3: Combine Sections](./docs/processing_docs/3_combine_sections.md)
 Aggregate individual section-level AnnData files into a single combined dataset for whole-dataset analysis.
 
-### [Step 5: Add Cell Type Colors](./docs/processing_docs/5_add_cell_type_colors.md)
+### [Step 4: Add Cell Type Colors](./docs/processing_docs/4_add_cell_type_colors.md)
 Add color mappings for cell type classifications to AnnData objects using the ABC atlas color scheme.
 
-### [Step 6: DoubleMAD Mapping Filtering](./docs/processing_docs/6_doublemad.md)
+### [Step 5: DoubleMAD Mapping Filtering](./docs/processing_docs/5_doublemad.md)
 Perform quality control on cell type mapping results using Double Median Absolute Deviation (DoubleMAD) statistics to identify and filter cells with poor mapping confidence scores.
 
-### [Step 7: Save Processing Results](./docs/processing_docs/7_save_results.md)
+### [Step 6: Save Processing Results](./docs/processing_docs/6_save_results.md)
 Save final processed results from the pipeline.
 
 ## Domain Detection Overview
