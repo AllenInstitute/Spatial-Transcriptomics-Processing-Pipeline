@@ -22,4 +22,4 @@ This module maps cluster assignments from downsampled STALigner gridded data to 
 
 ### Parameter Descriptions
 
-- `grid_size`: Size of the grid squares used for spatial binning for STAligner. Defines the spatial resolution for cluster assignment - cells within grid_size/2 distance from a grid center in both x and y directions will be assigned to that grid's cluster. Must match the grid size used in the original STALigner clustering step.
+- `grid_size`: Size of the grid squares used for spatial binning for STAligner. Defines the spatial resolution for cluster assignment - cells within grid_size/2 distance from a grid center in both x and y directions will be assigned to that grid's cluster. 
