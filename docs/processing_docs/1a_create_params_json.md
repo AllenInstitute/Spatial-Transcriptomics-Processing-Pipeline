@@ -24,11 +24,12 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--bootstrap_factor` | float | Factor for downsampling marker gene population |
 | `--n_runners_up` | int | Number of runner-ups to generate |
 | `--mapping_acronym` | str | Acronym for mapped column names and file names |
-| `--clobber` | bool | True to overwrite existing results |
+| `--clobber` | int | 1 to overwrite existing results |
 | `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping |
 | `--run_add_colors` | str | 1 to add cell type colors, 0 to skip |
 | `--run_doublemad` | int | 1 to run DoubleMAD step, 0 to skip |
 | `--doublemad_multiplier` | int | Integer multiplier for DoubleMAD threshold |
+| `--add_cell_type_colors` | int | 1 to add cell type colors, 0 to skip |
 
 ### Metadata Parameters
 
@@ -43,10 +44,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 
 | Argument | Type | Description |
 |----------|------|-------------|
-| `--grid_size` | int | Grid size for adding spatial clusters to cells |
-| `--n_neighbors` | int | Number of neighbors for STAligner graph training |
-| `--cluster_key` | str | Clustering key name (e.g., STAligner or STAGATE) |
-| `--resolutions` | str | Comma-separated list of resolutions |
+| `--run_domain_detection` | int | 1 to run domain detection, 0 to skip domain detection |
 
 ### Downsample Parameters
 | Parameter | Type | Description |
@@ -106,7 +104,7 @@ The script generates two types of JSON parameter files:
         "specimen": "str",
         "dataset_id": "str",
         "n_neighbors": "int",
-        "reverse": "bool"
+        "reverse": "int"
     },
     "cluster_params": {
         "n_neighbors": "int",
@@ -115,9 +113,7 @@ The script generates two types of JSON parameter files:
         "specimen": "str"
     },
     "domain_detection_params": {
-        "grid_size": "int",
-        "n_neighbors": "int",
-        "cluster_key": "str"
+        "run_domain_detection": "int"
     },
     "filtering_params": {
         "min": {
@@ -130,7 +126,7 @@ The script generates two types of JSON parameter files:
             "pct_counts_blank": "int"
         },
         "doublets_cutoff": "str",
-        "run_incongruous_genes": "str"
+        "run_incongruous_genes": "int"
     },
     "mapping_params": {
         "normalization": "str",
@@ -139,12 +135,13 @@ The script generates two types of JSON parameter files:
         "bootstrap_iteration": "int",
         "bootstrap_factor": "float",
         "n_runner_ups": "int",
-        "clobber": "bool",
+        "clobber": "int",
         "mapping_acronym": "str",
-        "drop_genes_list": "str"
+        "drop_genes_list": "str",
+        "add_cell_type_colors": "int"
     },
     "doublemad_params": {
-        "run_doublemad": "str",
+        "run_doublemad": "int",
         "doublemad_multiplier": "int"
     },
     "metadata": {
