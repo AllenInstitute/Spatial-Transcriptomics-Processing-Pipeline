@@ -2,14 +2,12 @@
 This module maps cluster assignments from downsampled STALigner gridded data to cell segmentation data.
 
 ## Input Files
-- `*/*clustered.h5ad` - Downsampled STAligner dataset with spatial clustering results
-- `*/sections/*.h5ad` - Individual section datasets from processing
-- `params.json` - Configuration file with grid_size parameter
+- `../data/*/*clustered.h5ad` - Downsampled STAligner dataset with spatial clustering results
+- `../data/*/sections/*.h5ad` - Individual section datasets from processing
+- `../data/*/params.json` - Configuration file with grid_size parameter
 
 ## Output Files
-- `sections_{resolution}/{section}_clust.h5ad` - Section datasets with added cluster labels, where:
-  - `{resolution}` is the clustering resolution extracted from STALigner results
-  - `{section}` is the individual section ID
+- `../results/sections_{resolution}/{section}_clust.h5ad` - Section datasets with added cluster labels, where:
 
 ## Added Metadata Columns
 - `leiden_res_{resolution}_knn_{n_neighbors}` - Leiden clustering labels at specified resolution
