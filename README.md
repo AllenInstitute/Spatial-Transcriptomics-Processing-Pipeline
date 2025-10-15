@@ -47,18 +47,19 @@ Map cluster assignments from downsampled STAligner gridded data to cell segmenta
 ### [Step 5: Merge All Clusters](./docs/domain_detection_docs/5_merge_clusters.md)
 Consolidate cluster assignments to full processed dataset.
 
-## Quick Start
+## Setup
 
-1. **Configuration**: Update App Panel with your parameters
-2. **Execution**: Click "Run with parameters" to run each step sequentially 
-3. **Output**: Each step generates intermediate files for the next step
+Running via Code Ocean UI:
+1. Fork/clone this Code Ocean pipeline
+2. Replace Data Parameters
+3. Configure App Panel with your dataset-specific parameters
+4. Verify data format matches expected input structure
+5. Click "Run with parameters" to run pipeline
 
-## Running the Pipeline
+Running on your local machine:
+1. Click Pipeline -> Export
+2. Follow the instructions in REPRODUCING.md
 
-- The pipeline can be executed directly within Code Ocean through the web interface or via the Code Ocean API. All dependencies are pre-installed in the containerized environment, eliminating setup complexity.
-- Each step can be run independently if intermediate files are available.
-- This workflow can be run on one or more sections.
-  
 ## Configuration
 
 All pipeline parameters are configured in the Create Parameters JSON capsule and centralized in `params.json`. Key parameter categories include:
@@ -69,6 +70,36 @@ All pipeline parameters are configured in the Create Parameters JSON capsule and
 - **Metadata Parameters**
 - **Domain Detection Parameters**
 
+## Input Data Format
+```
+data/
+├── section_001.h5ad
+├── section_002.h5ad
+├── section_003.h5ad
+...
+```
+Required columns:
+- `x` and `y`: cell centroid coordinates
+- `brain_section_barcode`: Section ID
+- Index containing unique cell labels (e.g.,`{brain_section_barcode}_SIS_{i}`)
+
+## Output Files
+The pipeline generates the following key outputs:
+```
+results/
+├── whole_dataset
+│   ├── mouse_ID_filtered.h5ad
+│   └── mouse_ID_filtered.csv
+└── sections
+    ├── section_001_filtered.h5ad
+    ├── section_002_filtered.h5ad
+    ├── section_003_filtered.h5ad
+    └──...
+```
+Key output files:
+- `mouse_ID_filtered.h5ad`: Combined, QC-filtered data
+- `section_i_filtered.h5ad`: QC-filtered data split by brain_section_barcode
+  
 ## Support
 
 For detailed information about each step, refer to the individual markdown files linked above. Each file contains:
