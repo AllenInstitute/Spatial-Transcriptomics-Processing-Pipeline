@@ -19,9 +19,8 @@ The QC filtering and doublet detection step includes:
 
 ### Required Metadata Columns:
 - `x` and `y`: cell centroid coordinates
-- `volume`: Cell volume (µm³)
 - `brain_section_barcode`: Section ID
-- Index containing unique cell labels (e.g.,`{section}_SIS_{i}`) 
+- Index containing unique cell labels (e.g.,`{brain_section_barcode}_SIS_{i}`) 
 
 ## Output Files
 `../results/sections/{section}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to /results/sections/
