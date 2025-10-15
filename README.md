@@ -97,7 +97,7 @@ results/
 ```
 Key output files:
 - `mouse_ID_filtered.h5ad`: Combined, QC-filtered data
-- `section_i_filtered.h5ad`: QC-filtered data split by brain_section_barcode
+- `section_i_filtered.h5ad`: QC-filtered data split by `brain_section_barcode`
   
 ## Support
 
