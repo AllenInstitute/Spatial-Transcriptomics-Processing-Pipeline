@@ -72,9 +72,9 @@ All pipeline parameters are configured in the Create Parameters JSON capsule and
 ## Input Data Format
 ```
 data/
-├── section_001.h5ad
-├── section_002.h5ad
-├── section_003.h5ad
+├── section1.h5ad
+├── section2.h5ad
+├── section3.h5ad
 ...
 ```
 Required columns:
@@ -86,14 +86,13 @@ Required columns:
 The pipeline generates the following key outputs:
 ```
 results/
-├── whole_dataset
-│   ├── mouse_ID_filtered.h5ad
-│   └── mouse_ID_filtered.csv
-└── sections
-    ├── section_001_filtered.h5ad
-    ├── section_002_filtered.h5ad
-    ├── section_003_filtered.h5ad
-    └──...
+├── whole_dataset/
+│   ├── {specimen}_{dataset_id}_filtered.h5ad
+|   └── {specimen}_{dataset_id}_filtered.csv
+└── sections/
+    ├── section1_filtered.h5ad
+    ├── section2_filtered.h5ad
+    └── ...
 ```
 Key output files:
 - `mouse_ID_filtered.h5ad`: Combined, QC-filtered data
