@@ -64,9 +64,8 @@ Running on your local machine:
 
 All pipeline parameters are configured in the Create Parameters JSON capsule and centralized in `params.json`. Key parameter categories include:
 
-- **Filtering Parameters**
+- **QC Filtering Parameters**
 - **Mapping Parameters**
-- **DoubleMAD Parameters**
 - **Metadata Parameters**
 - **Domain Detection Parameters**
 
