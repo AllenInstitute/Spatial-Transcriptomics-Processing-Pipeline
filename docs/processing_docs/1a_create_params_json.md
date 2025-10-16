@@ -60,19 +60,14 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 ### STAligner Parameters
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `--specimen` | str | Specimen type (e.g., mouse or human)|
-| `--dataset_id` | str | Dataset ID |
 | `--n_neighbors` | int | Number of neighbors for graph construction |
-| `--reverse` | int | Reverse orientation flag |
+| `--reverse` | int | Controls section ordering direction |
 
 ### Cluster Parameters
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `--n_neighbors` | int | Number of neighbors for clustering |
 | `--cluster_key` | str | Key for cluster identification |
-| `--dataset_id` | str | Dataset ID |
-| `--specimen` | str | Specimen type (e.g., mouse or human) |
-
+| `--resolutions` | str | Resolutions separated by a comma |
 
 ## Output Files
 
@@ -83,7 +78,7 @@ The script generates two types of JSON parameter files:
 - **Content**: Complete parameter configuration organized by category
 
 ### 2. Resolution-Specific Files
-- **Location**: `../results/res_params/params_{resolution}.json`
+- **Location**: `../results/res_params/params_{resolution}.json` for each resolution provided in `resolutions` parameter
 - **Content**: Individual parameter files for each resolution specified
 - **Purpose**: Enables job splitting by resolution
 
@@ -101,16 +96,12 @@ The script generates two types of JSON parameter files:
         "blanks_thr": "int"
     },
     "staligner_params": {
-        "specimen": "str",
-        "dataset_id": "str",
         "n_neighbors": "int",
         "reverse": "int"
     },
     "cluster_params": {
         "n_neighbors": "int",
-        "cluster_key": "str",
-        "dataset_id": "str",
-        "specimen": "str"
+        "cluster_key": "str"
     },
     "domain_detection_params": {
         "run_domain_detection": "int"
