@@ -18,7 +18,7 @@ The DoubleMAD quality control step includes:
 
 Required Input Columns in AnnData:
 
-- `qc_passed` - Boolean column indicating cells that passed initial QC (added during QC Filtering step)
+- `basic_doublets_qc_passed` - Boolean column indicating cells that passed initial QC (added during QC Filtering step)
 -  MapMyCells results for each taxonomy level
 
 ## Output File
