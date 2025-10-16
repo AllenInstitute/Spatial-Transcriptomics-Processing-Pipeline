@@ -40,7 +40,7 @@ The mapping step adds multiple columns to adata.obs with the format `{mapping_ty
 - `avg_correlation` - The average Pearson's correlation coefficient between the gene profile of the cell and the average gene profile of the chosen taxonomic node in the marker genes appropriate for that node. 
 
 ## Configuration Parameters
-The mapping parameters are specified in mapping_params.json:
+The mapping parameters are specified in `params.json`:
 
     "mapping_params": {
         "normalization": "raw",
