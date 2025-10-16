@@ -28,14 +28,18 @@ The STAligner step includes:
 - `var['highly_variable']`: Boolean indicating highly variable genes used for integration
 
 ## Configuration Parameters
-The STAligner parameters are listed in `params.json`:
+The STAligner parameters are specified in `params.json`:
 
-    "staligner_params": {
+{
+    "metadata": {
         "specimen": "mouse",
-        "dataset_id": "720609",
+        "dataset_id": "720609"
+    },
+    "staligner_params": {
         "n_neighbors": 8,
         "reverse": 1
     }
+}
 
 ## Parameter Descriptions
 - `specimen`: Species type for output file naming
