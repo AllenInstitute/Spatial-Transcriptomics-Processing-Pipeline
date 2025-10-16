@@ -35,7 +35,7 @@ QC Filter Columns:
 - `qc_passed`: Boolean indicating if all QC filters passed
 
 ## Configuration Parameters
-The downsampling parameters are listed in `params.json`:
+The downsampling parameters are specified in `params.json`:
 
     "downsample_params": {
          "grid_size": 30,
