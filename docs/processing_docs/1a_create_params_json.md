@@ -51,7 +51,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 |-----------|------|-------------|
 | `--grid_size` | int | Grid size for downsampling |
 | `--bucket_name` | str | S3 bucket name for data storage |
-| `--object_key_template` | str | Template for S3 object key naming |
+| `--object_key_template` | str | Template for S3 transcripts file object |
 | `--modality` | str | Data modality type (e.g., xenium or merscope |
 | `--genes_thr` | int | Threshold for downsampled gene filtering |
 | `--transcripts_thr` | int | Threshold for donwsampled transcript filtering |
