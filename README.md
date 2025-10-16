@@ -41,7 +41,7 @@ Perform spatial alignment and integration of multiple tissue sections using STAl
 ### [Step 3: Leiden Clustering](./docs/domain_detection_docs/3_leiden_clustering.md)
 Perform Leiden clustering with STAligner embeddings.
 
-### [Step 4: Add Clusters to Cells](./docs/domain_detection_docs/4_add_clusters_cbg.md)
+### [Step 4: Add Clusters to Cell-By-Gene](./docs/domain_detection_docs/4_add_clusters_cbg.md)
 Map cluster assignments from downsampled STAligner gridded data to cell segmentation data.
 
 ### [Step 5: Merge All Clusters](./docs/domain_detection_docs/5_merge_clusters.md)
