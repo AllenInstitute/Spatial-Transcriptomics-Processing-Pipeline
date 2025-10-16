@@ -30,7 +30,7 @@ The color assignment adds multiple color columns to adata.obs with the format `{
 - `subclass_colors` - Subclass name to color mapping dictionary
 
 ## Configuration Parameters
-
+The parameters are specified in `params.json`:
     {
     "mapping_params": {
         "add_cell_type_colors": 1,
