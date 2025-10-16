@@ -1,5 +1,5 @@
-# Add Clusters CBG Pipeline Step
-This module maps cluster assignments from downsampled STALigner gridded data to cell segmentation data.
+# Add Clusters to Cell-By-Gene Pipeline Step
+This module maps cluster assignments from downsampled STALigner gridded data to cell-by-gene.
 
 ## Input Files
 - `../data/*/*clustered.h5ad` - Downsampled STAligner dataset with spatial clustering results
@@ -13,6 +13,8 @@ This module maps cluster assignments from downsampled STALigner gridded data to 
 - `leiden_res_{resolution}_knn_{n_neighbors}` - Leiden clustering labels at specified resolution
 
 ## Configuration Parameters
+
+The parameters are specified in `params.json`:
 
     "domain_detection_params": {
         "grid_size": 30
