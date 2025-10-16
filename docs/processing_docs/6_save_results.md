@@ -57,7 +57,7 @@ adata.obsm:
 - `spatial` - 2D array of spatial coordinates [`x`, `y`]
 
 ## Configuration Parameters
-The save results function uses parameters from existing configuration file:
+The parameters are specified in `params.json`:
 
     {
     "mapping_params": {
