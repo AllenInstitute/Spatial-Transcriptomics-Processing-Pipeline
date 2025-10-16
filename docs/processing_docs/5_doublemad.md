@@ -33,7 +33,7 @@ Required Input Columns in AnnData:
 
 
 ## Configuration Parameters
-The DoubleMAD calculation is controlled by a parameter in `params.json`:
+The DoubleMAD parameters are specified in `params.json`:
 
     "doublemad_params": {
         "run_doublemad": 1,
