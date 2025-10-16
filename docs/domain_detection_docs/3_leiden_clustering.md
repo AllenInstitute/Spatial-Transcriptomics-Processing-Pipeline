@@ -29,7 +29,7 @@ The Leiden clustering step includes:
 
 ## Configuration Parameters
 
-The clustering parameters are specified in configuration files:
+The clustering parameters are specified in `params.json`:
 
     {
     "domain_detection_params": {
@@ -42,6 +42,7 @@ The clustering parameters are specified in configuration files:
     }
 
 **Resolution Parameters:**
+The resolution parameters are specified in `params_{resolution}.json`:
 
     {
         "resolution": "1.2"
