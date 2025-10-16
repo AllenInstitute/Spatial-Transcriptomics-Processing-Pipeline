@@ -26,7 +26,7 @@ This module consolidates cluster assignments to full processed dataset.
 
 ## Configuration Parameters
 
-From params/params.json:
+The parameters are specified in `params.json`:
 
     {
     "metadata": {
@@ -34,7 +34,7 @@ From params/params.json:
         "dataset_id": "720609"}
     }
 
-From res_params/{resolution}_params.json:
+The resolution parameters are specified in `params_{resolution}.json`:
 
 {
     "resolution": "0.8"
