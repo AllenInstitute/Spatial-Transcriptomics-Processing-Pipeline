@@ -50,7 +50,7 @@ Consolidate cluster assignments to full processed dataset.
 ## Setup
 
 Running via Code Ocean UI:
-1. Fork/clone this Code Ocean pipeline
+1. Create a new Pipeline by cloning this repository 
 2. Replace Data Parameters
 3. Configure App Panel with your dataset-specific parameters
 4. Verify data format matches expected input structure
