@@ -1,10 +1,10 @@
 #!/usr/bin/env nextflow
-// hash:sha256:416a036cb3bb3dea7c0a55c995b0d673eeba8d6cd41be1b688a5886d03140cd2
+// hash:sha256:b8a72bea5165057e9f32b64e517b7dc867679875d853e52ce353bb64d1df19b2
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
 	tag 'capsule-0934608'
-	container "$REGISTRY_HOST/published/c60dee66-6e1f-4221-ac34-60e3b4a4f869:v5"
+	container "$REGISTRY_HOST/published/c60dee66-6e1f-4221-ac34-60e3b4a4f869:v6"
 
 	cpus 2
 	memory '0 GB'
@@ -44,9 +44,9 @@ process capsule_create_parameters_json_full_pipeline_21 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
+		git clone --filter=tree:0 --branch v6.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
 	else
-		git clone --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
+		git clone --branch v6.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -459,7 +459,7 @@ process capsule_leiden_clustering_rapids_23 {
 // capsule - DoubleMAD Mapping Filtering
 process capsule_doublemad_filtering_20 {
 	tag 'capsule-0020400'
-	container "$REGISTRY_HOST/published/c3fa0840-df74-4c65-86a8-700f7a4d1c6f:v4"
+	container "$REGISTRY_HOST/published/c3fa0840-df74-4c65-86a8-700f7a4d1c6f:v5"
 
 	cpus 16
 	memory '120 GB'
@@ -487,9 +487,9 @@ process capsule_doublemad_filtering_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0020400.git" capsule-repo
+		git clone --filter=tree:0 --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0020400.git" capsule-repo
 	else
-		git clone --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0020400.git" capsule-repo
+		git clone --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0020400.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo

@@ -192,7 +192,7 @@
 				"id": "c3fa0840-df74-4c65-86a8-700f7a4d1c6f",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "0020400",
-				"version": 4
+				"version": 5
 			},
 			"resources": {
 				"cpus": 16,
@@ -222,7 +222,7 @@
 				"id": "c60dee66-6e1f-4221-ac34-60e3b4a4f869",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "0934608",
-				"version": 5,
+				"version": 6,
 				"app_panel": true
 			},
 			"resources": {
