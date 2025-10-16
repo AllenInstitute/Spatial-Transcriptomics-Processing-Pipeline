@@ -65,9 +65,8 @@
 			"target": "capsule_save_processing_results_18"
 		},
 		{
-			"id": "reactflow__edge-108f4df3-7e33-4d0a-826c-a613df85d3b9-capsule_filtering_11",
-			"selected": false,
-			"source": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
+			"id": "reactflow__edge-51ca67b7-1e9b-4dab-8972-6f001bc6cd6c-capsule_filtering_11",
+			"source": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
 			"target": "capsule_filtering_11"
 		},
 		{
@@ -191,7 +190,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "b4b7bdd0-4078-46c8-9f11-34e926e3caf2"
+				"capsule_id": "b252f053-0776-4db0-882f-45121c541aaf"
 			},
 			"id": "capsule_filtering_11",
 			"position": {
@@ -221,19 +220,19 @@
 		},
 		{
 			"data": {
-				"capsule_id": "0e2c969f-17f4-4eff-98df-eb3aef50c6b0"
+				"capsule_id": "1aa84bff-d09e-4bd0-b857-46da3ebf5724"
 			},
 			"id": "capsule_add_cell_type_colors_combined_16",
 			"position": {
-				"x": 754.8885233490154,
-				"y": 566.9792825766542
+				"x": 761.555190015682,
+				"y": 576.9792825766542
 			},
-			"selected": false,
+			"selected": true,
 			"type": "capsule"
 		},
 		{
 			"data": {
-				"capsule_id": "56b1d4f6-2a6a-4536-8b35-7c208d62f3ba"
+				"capsule_id": "63183105-cbc9-4372-bbd8-a138ac1b9b16"
 			},
 			"id": "capsule_combine_sections_17",
 			"position": {
@@ -245,7 +244,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "41e788a7-6656-4df6-af8e-2bace1c80d2f"
+				"capsule_id": "2fcfa1ba-40ec-44fa-ba32-49b9dbc22853"
 			},
 			"id": "capsule_save_processing_results_18",
 			"position": {
@@ -257,7 +256,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "d8f663b8-d522-4ed8-9467-44e8cf0610e2"
+				"capsule_id": "4651fd22-b43c-4a49-aad3-128959f6014a"
 			},
 			"id": "capsule_mapping_hierarchial_flat_combined_14",
 			"position": {
@@ -269,7 +268,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "860d5d7c-a602-474f-9697-c1e0991eec3a"
+				"capsule_id": "9a985a2c-9ebc-47f0-a7db-2535471ea2c9"
 			},
 			"id": "capsule_leiden_clustering_rapids_23",
 			"position": {
@@ -281,7 +280,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "552c7050-0249-45ab-9214-c7bde8e869e4"
+				"capsule_id": "bd61be7f-e31e-4875-b793-5f50a546ba6d"
 			},
 			"id": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
 			"position": {
@@ -293,7 +292,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "265f4a36-3de6-4702-b561-be58cf34487c"
+				"capsule_id": "b0565eb5-d16d-44a6-bf67-ea2de5362d82"
 			},
 			"id": "capsule_add_new_cluster_columns_25",
 			"position": {
@@ -305,7 +304,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "ccde4aeb-172d-4a48-bd2e-ed90c58d2a21"
+				"capsule_id": "bf53e893-314f-46d9-90a3-725dc8500e96"
 			},
 			"id": "capsule_run_staligner_json_26",
 			"position": {
@@ -317,7 +316,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "ab5cdc0d-022c-4bf0-b4c5-4d04ed1b2e40"
+				"capsule_id": "728c54e1-a487-4376-8814-c700c57b5506"
 			},
 			"id": "capsule_downsample_spot_table_json_27",
 			"position": {
@@ -329,7 +328,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "083774d3-72c4-42d8-96b2-254e81ec52bf"
+				"capsule_id": "79ab76f4-d06c-4b4b-8a6b-f0e2d3e24755"
 			},
 			"id": "capsule_dispatch_jobs_28",
 			"position": {
@@ -341,7 +340,7 @@
 		},
 		{
 			"data": {
-				"capsule_id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897"
+				"capsule_id": "c60dee66-6e1f-4221-ac34-60e3b4a4f869"
 			},
 			"id": "capsule_create_parameters_json_full_pipeline_21",
 			"position": {
@@ -357,7 +356,7 @@
 				"x": 2097.567247856026,
 				"y": 114.3972123630671
 			},
-			"selected": true,
+			"selected": false,
 			"type": "dataset"
 		},
 		{
@@ -370,17 +369,8 @@
 			"type": "dataset"
 		},
 		{
-			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
-			"position": {
-				"x": 72.23636508856899,
-				"y": -521.7430512377839
-			},
-			"selected": false,
-			"type": "dataset"
-		},
-		{
 			"data": {
-				"capsule_id": "4cef28c0-6813-4b18-b010-e90860c64bb2"
+				"capsule_id": "c3fa0840-df74-4c65-86a8-700f7a4d1c6f"
 			},
 			"id": "capsule_doublemad_filtering_20",
 			"position": {
@@ -389,12 +379,21 @@
 			},
 			"selected": false,
 			"type": "capsule"
+		},
+		{
+			"id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
+			"position": {
+				"x": 72.23636508856899,
+				"y": -521.7430512377839
+			},
+			"selected": false,
+			"type": "dataset"
 		}
 	],
-	"timestamp": 1758752227399,
+	"timestamp": 1760476792784,
 	"viewport": {
-		"x": -259.3811665447612,
-		"y": 139.49774657873445,
-		"zoom": 0.47157409647472215
+		"x": 60.265132822211285,
+		"y": 181.17813849766333,
+		"zoom": 0.3
 	}
 }

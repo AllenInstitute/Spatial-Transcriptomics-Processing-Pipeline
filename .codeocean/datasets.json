@@ -2,16 +2,16 @@
 	"version": 1,
 	"attached_datasets": [
 		{
-			"id": "108f4df3-7e33-4d0a-826c-a613df85d3b9",
-			"mount": "segmented_data"
-		},
-		{
 			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
 			"mount": "barcodes_csv"
 		},
 		{
 			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
 			"mount": "mapping_files"
+		},
+		{
+			"id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
+			"mount": "segmented_data"
 		},
 		{
 			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
