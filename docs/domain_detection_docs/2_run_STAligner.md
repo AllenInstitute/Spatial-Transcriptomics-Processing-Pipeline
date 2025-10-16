@@ -33,12 +33,10 @@ The STAligner parameters are specified in `params.json`:
     {
     "metadata": {
         "specimen": "mouse",
-        "dataset_id": "720609"
-    },
+        "dataset_id": "720609"},
     "staligner_params": {
         "n_neighbors": 8,
-        "reverse": 1
-    }
+        "reverse": 1}
     }
 
 ## Parameter Descriptions
