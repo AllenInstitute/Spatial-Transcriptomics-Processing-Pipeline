@@ -1,10 +1,10 @@
 #!/usr/bin/env nextflow
-// hash:sha256:d6642a9d5f5e93e85ec8c3157d6ba2ca01ad8db0067601c0ab3c9402f8bf1e5e
+// hash:sha256:416a036cb3bb3dea7c0a55c995b0d673eeba8d6cd41be1b688a5886d03140cd2
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
 	tag 'capsule-0934608'
-	container "$REGISTRY_HOST/published/c60dee66-6e1f-4221-ac34-60e3b4a4f869:v4"
+	container "$REGISTRY_HOST/published/c60dee66-6e1f-4221-ac34-60e3b4a4f869:v5"
 
 	cpus 2
 	memory '0 GB'
@@ -44,9 +44,9 @@ process capsule_create_parameters_json_full_pipeline_21 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
+		git clone --filter=tree:0 --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
 	else
-		git clone --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
+		git clone --branch v5.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0934608.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo

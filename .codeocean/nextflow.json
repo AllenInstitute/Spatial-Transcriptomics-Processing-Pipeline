@@ -222,7 +222,7 @@
 				"id": "c60dee66-6e1f-4221-ac34-60e3b4a4f869",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "0934608",
-				"version": 4,
+				"version": 5,
 				"app_panel": true
 			},
 			"resources": {
