@@ -19,7 +19,7 @@ The combine sections step includes:
 - Ex: `mouse_638850_mmc_both_combined.h5ad`
 
 ## Configuration Parameters
-The combine sections step uses parameters from existing configuration file:
+The parameters are specified in `params.json`:
 
     {
     "mapping_params": {
