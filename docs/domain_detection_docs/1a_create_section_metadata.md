@@ -15,7 +15,7 @@ The section metadata generation step includes:
   - `dataset_id`: Dataset identifier
   - `region`: Region folder in S3 bucket if applicable
   - `experiment_id`: Experiment ID folder in S3 bucket
-  - `s3_bucket` (optional): S3 bucket to read transcripts file. Use if sections have different S3 locations. Otherwise, reads from App Panel S3 bucket parameter.
+  - `s3_bucket` (optional): S3 bucket to read transcripts file. Use if sections are stored across different S3 buckets. Otherwise, reads from the App Panel S3 bucket parameter which applies to all sections.
   - `s3_key` (optional): S3 key to read transcripts file. Use if S3 locations for each section follow different naming patterns or directory structures. Otherwise, reads from the App Panel S3 key parameter which applies a uniform template to all sections.
 
 ## Output Files
