@@ -18,8 +18,8 @@ The downsample spot table step includes:
 
 ### Added Metadata Columns:
 
-- `x_coords`: X-coordinate of grid cell center
-- `y_coords`: Y-coordinate of grid cell center
+- `x_coords`: X-coordinate of grid center
+- `y_coords`: Y-coordinate of grid center
 - `obsm['spatial']`: Spatial coordinates matrix for grids
 - `brain_section_barcode`: Section ID from metadata
 - `n_genes_by_counts`: Number of genes detected per grid (including blanks)
@@ -48,7 +48,7 @@ The downsampling parameters are specified in `params.json`:
     }
     
 ### Parameter Descriptions
-- `grid_size`: Grid cell size in micrometers
+- `grid_size`: Grid size in micrometers
 - `bucket_name`: S3 bucket name containing transcript data
 - `object_key_template`: S3 object key template to transcripts file
 - `modality` - Imaging modality to read in transcripts file (e.g., "xenium" or "merscope")
