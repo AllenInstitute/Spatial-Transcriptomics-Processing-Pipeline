@@ -22,8 +22,8 @@ The STAligner step includes:
 
 - `slice_name`: Section ID 
 - `batch_name`: Categorical batch identifier (same as slice_name)
-- `obsm['STAligner']`: Low-dimensional embeddings from STAligner integration
-- `obsm['STAGATE']`: 
+- `obsm['STAligner']`: Low-dimensional aligned embeddings from STAligner integration across multiple slices
+- `obsm['STAGATE']`: Low-dimensional spatially-aware embeddings for each slice
 - `uns['adj']`: Spatial adjacency matrices for each section
 - `var['highly_variable']`: Boolean indicating highly variable genes used for integration
 
