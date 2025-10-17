@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:a8ab1ee41d533a73ff58856d7e6cad5516c0e808a755f59a5d77d227feafdfbe
+// hash:sha256:88c43ab81c0016b95866427f6ded2732fb2f8f53a0c612d966d2165214600684
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -218,15 +218,12 @@ process capsule_downsample_spot_table_27 {
 	cpus 16
 	memory '120 GB'
 
-	publishDir "$RESULTS_PATH", saveAs: { filename -> new File(filename).getName() }
-
 	input:
 	path 'capsule/data/params/'
 	path 'capsule/data/section_metadata/'
 
 	output:
 	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_26_24
-	path 'capsule/results/*'
 
 	script:
 	"""
@@ -309,11 +306,11 @@ process capsule_combine_sections_17 {
 
 // capsule - Run STAligner
 process capsule_run_staligner_26 {
-	tag 'capsule-1119633'
-	container "$REGISTRY_HOST/capsule/2b328547-9191-4267-86a1-ddea4bdc3b64"
+	tag 'capsule-9167853'
+	container "$REGISTRY_HOST/published/827e81af-5645-42b8-af98-36c4f453fcf3:v1"
 
 	cpus 16
-	memory '60 GB'
+	memory '61 GB'
 	accelerator 1
 	label 'gpu'
 
@@ -329,9 +326,9 @@ process capsule_run_staligner_26 {
 	#!/usr/bin/env bash
 	set -e
 
-	export CO_CAPSULE_ID=2b328547-9191-4267-86a1-ddea4bdc3b64
+	export CO_CAPSULE_ID=827e81af-5645-42b8-af98-36c4f453fcf3
 	export CO_CPUS=16
-	export CO_MEMORY=64424509440
+	export CO_MEMORY=65498251264
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -342,9 +339,9 @@ process capsule_run_staligner_26 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1119633.git" capsule-repo
+		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
 	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1119633.git" capsule-repo
+		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -411,8 +408,8 @@ process capsule_add_cell_type_colors_16 {
 
 // capsule - Leiden Clustering - RAPIDS
 process capsule_leiden_clustering_rapids_23 {
-	tag 'capsule-2261825'
-	container "$REGISTRY_HOST/capsule/6ba94664-d259-4ec2-b0d7-1177b73f481c"
+	tag 'capsule-2535964'
+	container "$REGISTRY_HOST/published/41eb134b-3949-48a2-949b-18b016715656:v1"
 
 	cpus 16
 	memory '61 GB'
@@ -432,7 +429,7 @@ process capsule_leiden_clustering_rapids_23 {
 	#!/usr/bin/env bash
 	set -e
 
-	export CO_CAPSULE_ID=6ba94664-d259-4ec2-b0d7-1177b73f481c
+	export CO_CAPSULE_ID=41eb134b-3949-48a2-949b-18b016715656
 	export CO_CPUS=16
 	export CO_MEMORY=65498251264
 
@@ -443,9 +440,9 @@ process capsule_leiden_clustering_rapids_23 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2261825.git" capsule-repo
+		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
 	else
-		git clone "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2261825.git" capsule-repo
+		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo

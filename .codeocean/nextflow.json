@@ -236,9 +236,10 @@
 		{
 			"name": "capsule_leiden_clustering_rapids_23",
 			"capsule": {
-				"id": "6ba94664-d259-4ec2-b0d7-1177b73f481c",
+				"id": "41eb134b-3949-48a2-949b-18b016715656",
 				"name": "Leiden Clustering - RAPIDS",
-				"slug": "2261825"
+				"slug": "2535964",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 16,
@@ -366,13 +367,14 @@
 		{
 			"name": "capsule_run_staligner_26",
 			"capsule": {
-				"id": "2b328547-9191-4267-86a1-ddea4bdc3b64",
+				"id": "827e81af-5645-42b8-af98-36c4f453fcf3",
 				"name": "Run STAligner",
-				"slug": "1119633"
+				"slug": "9167853",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 16,
-				"memory": 64,
+				"memory": 61,
 				"gpus": 1
 			},
 			"inputs": [
@@ -435,10 +437,7 @@
 					"target_path": "section_metadata/",
 					"flatten": true
 				}
-			],
-			"results": {
-				"id": "9c628256-6ea3-4d87-8fa1-6af470477a5b"
-			}
+			]
 		},
 		{
 			"name": "capsule_dispatch_jobs_28",
