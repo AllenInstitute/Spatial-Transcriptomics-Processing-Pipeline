@@ -2,12 +2,12 @@
 	"version": 2,
 	"processes": [
 		{
-			"name": "capsule_filtering_11",
+			"name": "capsule_qc_filtering_doublet_detection_11",
 			"capsule": {
-				"id": "b252f053-0776-4db0-882f-45121c541aaf",
+				"id": "1e4a1b6e-a690-4c20-809a-f5def0dbaac2",
 				"name": "QC Filtering \u0026 Doublet Detection",
-				"slug": "0717009",
-				"version": 7
+				"slug": "0022544",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 16,
@@ -44,21 +44,21 @@
 			]
 		},
 		{
-			"name": "capsule_mapping_hierarchial_flat_combined_14",
+			"name": "capsule_cell_type_mapping_14",
 			"capsule": {
-				"id": "4651fd22-b43c-4a49-aad3-128959f6014a",
+				"id": "55150af8-b031-419d-aa7c-84a0fcc17136",
 				"name": "Cell Type Mapping",
-				"slug": "8617293",
-				"version": 4
+				"slug": "2601578",
+				"version": 1
 			},
 			"resources": {
-				"cpus": 16,
-				"memory": 128
+				"cpus": 4,
+				"memory": 32
 			},
 			"inputs": [
 				{
 					"id": "azC3QkysG2CHPs7Z",
-					"source_id": "capsule_filtering_11",
+					"source_id": "capsule_qc_filtering_doublet_detection_11",
 					"type": "capsule",
 					"name": "QC Filtering \u0026 Doublet Detection"
 				},
@@ -83,12 +83,12 @@
 			]
 		},
 		{
-			"name": "capsule_add_cell_type_colors_combined_16",
+			"name": "capsule_add_cell_type_colors_16",
 			"capsule": {
-				"id": "1aa84bff-d09e-4bd0-b857-46da3ebf5724",
+				"id": "d0406dbe-3873-4f8a-be1d-e7d2bc67a65c",
 				"name": "Add Cell Type Colors",
-				"slug": "5374498",
-				"version": 4
+				"slug": "9455197",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 2,
@@ -123,10 +123,10 @@
 		{
 			"name": "capsule_combine_sections_17",
 			"capsule": {
-				"id": "63183105-cbc9-4372-bbd8-a138ac1b9b16",
+				"id": "15ad4435-978d-459b-a609-a07c13363adb",
 				"name": "Combine Sections",
-				"slug": "6755013",
-				"version": 4
+				"slug": "2475763",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 16,
@@ -144,9 +144,9 @@
 				},
 				{
 					"id": "7covEA6qpcuQPIOy",
-					"source_id": "capsule_mapping_hierarchial_flat_combined_14",
+					"source_id": "capsule_cell_type_mapping_14",
 					"type": "capsule",
-					"name": "Mapping (Hierarchial + Flat Combined)",
+					"name": "Cell Type Mapping",
 					"source_path": "mapping_results/*.h5ad",
 					"target_path": "mapping_results/sections/",
 					"collect": true
@@ -156,10 +156,10 @@
 		{
 			"name": "capsule_save_processing_results_18",
 			"capsule": {
-				"id": "2fcfa1ba-40ec-44fa-ba32-49b9dbc22853",
+				"id": "014e682e-513f-4a62-a139-d6563efccdf9",
 				"name": "Save Processing Results",
-				"slug": "2472895",
-				"version": 5
+				"slug": "1191238",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 4,
@@ -177,9 +177,9 @@
 				},
 				{
 					"id": "2BM3WC4pXgFwI4vz",
-					"source_id": "capsule_doublemad_filtering_20",
+					"source_id": "capsule_doublemad_mapping_filtering_20",
 					"type": "capsule",
-					"name": "DoubleMAD Filtering",
+					"name": "DoubleMAD Mapping Filtering",
 					"source_path": "*/*",
 					"target_path": "*/",
 					"collect": true
@@ -187,12 +187,12 @@
 			]
 		},
 		{
-			"name": "capsule_doublemad_filtering_20",
+			"name": "capsule_doublemad_mapping_filtering_20",
 			"capsule": {
-				"id": "c3fa0840-df74-4c65-86a8-700f7a4d1c6f",
+				"id": "b832ab1b-afd8-4e50-974e-49a8373054e0",
 				"name": "DoubleMAD Mapping Filtering",
-				"slug": "0020400",
-				"version": 5
+				"slug": "7462997",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 16,
@@ -210,7 +210,7 @@
 				},
 				{
 					"id": "LzMOSHjJfx2ZAlTM",
-					"source_id": "capsule_add_cell_type_colors_combined_16",
+					"source_id": "capsule_add_cell_type_colors_16",
 					"type": "capsule",
 					"name": "Add Cell Type Colors"
 				}
@@ -219,27 +219,26 @@
 		{
 			"name": "capsule_create_parameters_json_full_pipeline_21",
 			"capsule": {
-				"id": "c60dee66-6e1f-4221-ac34-60e3b4a4f869",
+				"id": "e4dec6b2-35fc-43ea-b344-a9994fba770d",
 				"name": "Create Parameters JSON Full Pipeline",
-				"slug": "0934608",
-				"version": 6,
+				"slug": "1710219",
+				"version": 1,
 				"app_panel": true
 			},
 			"resources": {
 				"cpus": 2
 			},
 			"results": {
-				"id": "70bdfeb9-e9e7-4d75-90e9-193537ba4897",
+				"id": "339c7e20-a61b-4fba-b996-7341b935ad19",
 				"source_path": "params/*"
 			}
 		},
 		{
 			"name": "capsule_leiden_clustering_rapids_23",
 			"capsule": {
-				"id": "9a985a2c-9ebc-47f0-a7db-2535471ea2c9",
+				"id": "6ba94664-d259-4ec2-b0d7-1177b73f481c",
 				"name": "Leiden Clustering - RAPIDS",
-				"slug": "4428961",
-				"version": 4
+				"slug": "2261825"
 			},
 			"resources": {
 				"cpus": 16,
@@ -249,9 +248,9 @@
 			"inputs": [
 				{
 					"id": "B0x254zR4yKvKrwi",
-					"source_id": "capsule_run_staligner_json_26",
+					"source_id": "capsule_run_staligner_26",
 					"type": "capsule",
-					"name": "Run STAligner (JSON)",
+					"name": "Run STAligner",
 					"collect": true
 				},
 				{
@@ -275,16 +274,16 @@
 			]
 		},
 		{
-			"name": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+			"name": "capsule_add_cluster_labels_to_cells_24",
 			"capsule": {
-				"id": "bd61be7f-e31e-4875-b793-5f50a546ba6d",
+				"id": "9df4783c-c9fb-4705-859e-26d24fd784f4",
 				"name": "Add Cluster Labels to Cells",
-				"slug": "9960820",
-				"version": 3
+				"slug": "7143267",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 4,
-				"memory": 16
+				"memory": 32
 			},
 			"inputs": [
 				{
@@ -313,12 +312,12 @@
 			]
 		},
 		{
-			"name": "capsule_add_new_cluster_columns_25",
+			"name": "capsule_merge_clusters_25",
 			"capsule": {
-				"id": "b0565eb5-d16d-44a6-bf67-ea2de5362d82",
+				"id": "f976ba49-9d0f-4769-aec1-693173e2e571",
 				"name": "Merge Clusters",
-				"slug": "0713522",
-				"version": 3
+				"slug": "7874811",
+				"version": 1
 			},
 			"resources": {
 				"cpus": 32,
@@ -327,9 +326,9 @@
 			"inputs": [
 				{
 					"id": "KLKY3kFRSv35S5So",
-					"source_id": "capsule_add_spatial_cluster_labels_to_cells_multiple_resolutions_24",
+					"source_id": "capsule_add_cluster_labels_to_cells_24",
 					"type": "capsule",
-					"name": "Add Spatial Cluster Labels to Cells (multiple resolutions)",
+					"name": "Add Cluster Labels to Cells",
 					"target_path": "data_dir",
 					"collect": true
 				},
@@ -361,16 +360,15 @@
 				}
 			],
 			"results": {
-				"id": "265f4a36-3de6-4702-b561-be58cf34487c"
+				"id": "3bc517fd-7f8f-4942-82ff-dda5e63fc5ae"
 			}
 		},
 		{
-			"name": "capsule_run_staligner_json_26",
+			"name": "capsule_run_staligner_26",
 			"capsule": {
-				"id": "bf53e893-314f-46d9-90a3-725dc8500e96",
+				"id": "2b328547-9191-4267-86a1-ddea4bdc3b64",
 				"name": "Run STAligner",
-				"slug": "0346501",
-				"version": 2
+				"slug": "1119633"
 			},
 			"resources": {
 				"cpus": 16,
@@ -380,9 +378,9 @@
 			"inputs": [
 				{
 					"id": "sR7oOYPeBQyVLFRb",
-					"source_id": "capsule_downsample_spot_table_json_27",
+					"source_id": "capsule_downsample_spot_table_27",
 					"type": "capsule",
-					"name": "Downsample Spot Table (JSON)",
+					"name": "Downsample Spot Table",
 					"source_path": "downsampled/",
 					"target_path": "downsampled/",
 					"collect": true
@@ -408,16 +406,16 @@
 			]
 		},
 		{
-			"name": "capsule_downsample_spot_table_json_27",
+			"name": "capsule_downsample_spot_table_27",
 			"capsule": {
-				"id": "728c54e1-a487-4376-8814-c700c57b5506",
+				"id": "32dae177-f153-4aa3-aad8-aecec7c8c0a5",
 				"name": "Downsample Spot Table",
-				"slug": "0343207",
-				"version": 2
+				"slug": "6366717",
+				"version": 1
 			},
 			"resources": {
-				"cpus": 48,
-				"memory": 192
+				"cpus": 16,
+				"memory": 128
 			},
 			"inputs": [
 				{
@@ -437,19 +435,22 @@
 					"target_path": "section_metadata/",
 					"flatten": true
 				}
-			]
+			],
+			"results": {
+				"id": "9c628256-6ea3-4d87-8fa1-6af470477a5b"
+			}
 		},
 		{
 			"name": "capsule_dispatch_jobs_28",
 			"capsule": {
-				"id": "79ab76f4-d06c-4b4b-8a6b-f0e2d3e24755",
+				"id": "a81edc3a-4e8b-487a-80ec-8c3b3fca92a7",
 				"name": "Dispatch Jobs",
-				"slug": "2783986",
-				"version": 2
+				"slug": "8473949",
+				"version": 1
 			},
 			"resources": {
-				"cpus": 2,
-				"memory": 1
+				"cpus": 1,
+				"memory": 8
 			},
 			"inputs": [
 				{
