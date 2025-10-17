@@ -36,7 +36,7 @@ The parameters are specified in `params.json`:
 
 The resolution parameters are specified in `params_{resolution}.json`:
 
-{
+  {
     "resolution": "0.8"
-}
+  }
 
