@@ -7,7 +7,7 @@ This module maps cluster assignments from downsampled STALigner gridded data to 
 - `../data/*/params.json` - Configuration file with grid_size parameter
 
 ## Output Files
-- `../results/sections_{resolution}/{section}_clust.h5ad` - Section datasets with added cluster labels, where:
+- `../results/sections_{resolution}/{section}_clust.h5ad` - Section datasets with added cluster labels
 
 ## Added Metadata Columns
 - `leiden_res_{resolution}_knn_{n_neighbors}` - Leiden clustering labels at specified resolution
