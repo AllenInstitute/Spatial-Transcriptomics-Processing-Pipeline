@@ -1,9 +1,9 @@
 # Merge All Cluster Columns
 
-This module consolidates cluster assignments to full processed dataset. 
+This module consolidates cluster assignments to full processed AnnData. 
 
 ## Overview
-- Merges cluster labels from processed sections back into the complete filtered dataset
+- Merges cluster labels from sections back into the complete filtered dataset
 - Dynamically loads clustering results from multiple resolution parameters
 - Outputs both consolidated whole dataset and individual section files
 
@@ -19,10 +19,7 @@ This module consolidates cluster assignments to full processed dataset.
 - `../results/sections/{section}_filtered.h5ad` - Individual section files with cluster annotations
 
 ## Added Metadata Columns
-- `leiden_res_{resolution}_knn_{n_neighbors}` - Leiden clustering labels for each resolution
-  - Multiple columns added based on available resolution parameters
-- `AP_order` - Anatomical position ordering (integer values in ascending order)
-  - Only added if not already present in the dataset
+- `leiden_res_{resolution}_knn_{n_neighbors}` - Leiden clustering labels for each resolution provided
 
 ## Configuration Parameters
 
@@ -39,4 +36,3 @@ The resolution parameters are specified in `params_{resolution}.json`:
     {
     "resolution": "0.8"
     }
-
