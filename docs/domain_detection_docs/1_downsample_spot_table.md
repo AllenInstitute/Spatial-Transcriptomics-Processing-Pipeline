@@ -32,7 +32,7 @@ QC Filter Columns:
 - `n_genes_by_counts_qc_passed`: Boolean indicating if gene count threshold passed
 - `total_counts_qc_passed`: Boolean indicating if transcript count threshold passed
 - `pct_counts_blank_qc_passed`: Boolean indicating if blank percentage threshold passed
-- `qc_passed`: Boolean indicating if all QC filters passed
+- `basic_qc_passed`: Boolean indicating if all QC filters passed
 
 ## Configuration Parameters
 The downsampling parameters are specified in `params.json`:
