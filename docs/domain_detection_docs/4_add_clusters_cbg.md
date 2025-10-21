@@ -1,4 +1,4 @@
-# Add Clusters to Cell-By-Gene Pipeline Step
+# Add Clusters to Cell-By-Gene
 This module maps cluster assignments from downsampled STALigner gridded data to cell-by-gene.
 
 ## Input Files
@@ -22,4 +22,4 @@ The parameters are specified in `params.json`:
 
 ### Parameter Descriptions
 
-- `grid_size`: Size of the grid squares used for spatial binning for STAligner. Defines the spatial resolution for cluster assignment - cells within grid_size/2 distance from a grid center in both x and y directions will be assigned to that grid's cluster. 
+- `grid_size`: Size of the grid squares used for spatial binning for STAligner. Defines the spatial resolution for cluster assignment; cells within grid_size/2 distance from a grid center in both x and y directions will be assigned to that grid's cluster. 
