@@ -23,15 +23,15 @@ The QC filtering and doublet detection step includes:
 - Index containing unique cell labels (e.g.,`{brain_section_barcode}_SIS_{i}`) 
 
 ## Output Files
-`../results/sections/{section}_filtered.h5ad` - Filtered AnnData file with QC annotations saved to /results/sections/
+`../results/sections/{section}_filtered.h5ad` - Filtered AnnData file with QC annotations
 
 ### Added Metadata Columns:
 
-QC Filter Columns:
-- `{parameter}_qc_passed`: Boolean indicating if cell passes individual parameter threshold (n_genes_by_counts, total_counts, and pct_counts_blank)
+QC Columns:
+- `{metric}_qc_passed`: Boolean indicating if cell passes individual metric threshold (n_genes_by_counts, total_counts, and pct_counts_blank)
 - `basic_qc_passed`: Boolean indicating if cell passes all basic QC filters
-- `doublets_qc_passed`: Boolean indicating if cell is not a doublet
-- `basic_doublets_qc_passed`: Boolean indicating if cell passes all QC filters (basic + doublet)
+- `doublets_qc_passed`: Boolean indicating if cell passed doublet QC
+- `basic_doublets_qc_passed`: Boolean indicating if cell passes all of the above QC filters (basic + doublet)
 
 Doublet Detection Columns:
 - `doublet`: SOLO doublet prediction score
