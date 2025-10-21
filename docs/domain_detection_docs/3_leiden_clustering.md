@@ -1,6 +1,6 @@
 # Leiden Clustering
 ---
-This module performs Leiden clustering using RAPIDS single-cell library with STAligner embeddings for neighbor graph construction.
+This module performs Leiden clustering using RAPIDS single-cell library with STAligner embeddings.
 
 ## Overview
 
@@ -8,7 +8,6 @@ The Leiden clustering step includes:
 
 - Neighbor Graph Construction - Build k-nearest neighbor graph using spatial embeddings
 - Leiden Clustering - Apply Leiden algorithm with one or more specified resolution(s)
-- UMAP Generation - Create 2D embedding for visualization
 - Results Saving - Save data with cluster assignments
 
 ## Input Files
@@ -19,7 +18,7 @@ The Leiden clustering step includes:
 
 ## Output Files
 
-- `../data/clustered/{specimen}_{dataset_id}_res_{resolution}_clustered.h5ad` - Clustered AnnData file saved to `results/clustered/`
+- `../data/clustered/{specimen}_{dataset_id}_res_{resolution}_clustered.h5ad` - Clustered AnnData file
 
 ### Added Metadata Columns
 
@@ -59,4 +58,4 @@ The resolution parameters are specified in `params_{resolution}.json`:
 
 **Metadata Parameters:**
 - `specimen`: Species name for output filename
-- `dataset_id`: Dataset identifier for output filename
+- `dataset_id`: Dataset ID for output filename
