@@ -1,6 +1,6 @@
 # Add Cell Type Colors
 ---
-This module provides functionality to add standardized color mappings for cell type classifications to AnnData objects using the ABC atlas color scheme. It supports both flat and hierarchical mapping types and assigns consistent colors across different taxonomic levels.
+This module provides functionality to add standardized color mappings for cell type classifications to AnnData objects using the ABC atlas color scheme.
 
 ## Overview
 The color assignment step includes:
@@ -8,7 +8,7 @@ The color assignment step includes:
 - Data Validation - Validate required cell type columns exist in AnnData object
 - Color Mapping - Map ABC atlas colors to class, subclass, supertype, and cluster levels
 - Dictionary Storage - Store color mappings in AnnData.uns
-- Output Generation - Save annotated data with complete color information
+- Output Generation - Save annotated data with color columns merged
 
 ## Input Files
 
@@ -44,13 +44,14 @@ The parameters are specified in `params.json`:
     
 ### Parameter Descriptions
 
-- `add_cell_type_colors`: 1/0 to add/skip color mappings
+- `add_cell_type_colors`: Set to 1 to include cell type color mappings; set to 0 to skip adding colors.
 - `mapping_type`: Type of mapping performed
   - `"flat"`: Flat mapping only
   - `"hrc"`: Hierarchical mapping only 
   - `"both"`: Both flat and hierarchical mapping
-- `mapping_acronym`: Short identifier for metadata columns (e.g., "mmc")
+- `mapping_acronym`: Acronym for metadata columns (e.g., "mmc")
 - `specimen`: Dataset species
 - `dataset_id`: Dataset ID
+
 
 
