@@ -6,12 +6,12 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | Argument | Type | Description |
 |----------|------|-------------|
 | `--n_genes_lower_thr` | int | Label cells with < n genes |
-| `--n_spots_lower_thr` | int | Label cells with < n spots |
-| `--n_spots_upper_thr` | int | Label cells with > n spots |
-| `--volume_lower_thr` | int | Label cells with < n µm volume |
+| `--n_spots_lower_thr` | int | Label cells with < n transcripts |
+| `--n_spots_upper_thr` | int | Label cells with > n transcripts |
+| `--volume_lower_thr` | int | Label cells with < n µm<sup>3</sup> volume |
 | `--pct_blanks_upper_thr` | int | Label cells with > n % blanks |
 | `--doublets_thr` | str | Set doublets cutoff |
-| `--run_incongruous_genes` | int | True to run incongruous genes step, False to skip |
+| `--run_incongruous_genes` | int | 1 to run incongruous genes step, 0 to skip |
 
 ### Mapping Parameters
 
@@ -22,12 +22,12 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--mapping_type` | str | "hrc", "flat", or "both" - type of mapping to run |
 | `--bootstrap_iteration` | int | Number of bootstrapping iterations per taxonomy tree node |
 | `--bootstrap_factor` | float | Factor for downsampling marker gene population |
-| `--n_runners_up` | int | Number of runner-ups to generate |
+| `--n_runner_ups` | int | Number of runner-up cell types to generate |
 | `--mapping_acronym` | str | Acronym for mapped column names and file names |
 | `--clobber` | int | 1 to overwrite existing results |
 | `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping |
 | `--add_cell_type_colors` | int | 1 to add cell type colors, 0 to skip |
-| `--run_doublemad` | int | 1 to run DoubleMAD step, 0 to skip |
+| `--run_doublemad` | int | 1 to perform DoubleMAD calculation, 0 to skip |
 | `--doublemad_multiplier` | int | Integer multiplier for DoubleMAD threshold |
 
 
@@ -44,7 +44,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 
 | Argument | Type | Description |
 |----------|------|-------------|
-| `--run_domain_detection` | int | 1 to run domain detection, 0 to skip domain detection |
+| `--run_domain_detection` | int | 1 to run domain detection steps, 0 to skip |
 
 ### Downsample Parameters
 | Parameter | Type | Description |
@@ -52,7 +52,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--grid_size` | int | Grid size for downsampling |
 | `--bucket_name` | str | S3 bucket name for data storage |
 | `--object_key_template` | str | Template for S3 transcripts file object |
-| `--modality` | str | Data modality type (e.g., xenium or merscope |
+| `--modality` | str | Data modality type (e.g., xenium or merscope) |
 | `--genes_thr` | int | Threshold for downsampled gene filtering |
 | `--transcripts_thr` | int | Threshold for donwsampled transcript filtering |
 | `--blanks_thr` | int | Threshold for downsampled blanks filtering |
@@ -60,14 +60,14 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 ### STAligner Parameters
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `--n_neighbors` | int | Number of neighbors for graph construction |
-| `--reverse` | int | Controls section ordering direction |
+| `--n_neighbors` | int | Number of neighbors for STAligner graph construction |
+| `--reverse` | int | Controls section ordering direction for STAligner graph. Set to 1 to sort barcodes in descending order, or 0 for ascending order, when no AP_order CSV is available. |
 
 ### Cluster Parameters
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `--cluster_key` | str | Key for cluster identification |
-| `--resolutions` | str | Resolutions separated by a comma |
+| `--cluster_key` | str | Name of key to use for clustering (e.g., STAligner or STAGATE). |
+| `--resolutions` | str | Resolutions separated by a comma (e.g., "1.2,1.4,1.6")|
 
 ## Output Files
 
@@ -79,7 +79,7 @@ The script generates two types of JSON parameter files:
 
 ### 2. Resolution-Specific Files
 - **Location**: `../results/res_params/params_{resolution}.json` for each resolution provided in `resolutions` parameter
-- **Content**: Individual parameter files for each resolution specified
+- **Content**: Individual parameter files for each resolution specified in Resolutions parameter
 - **Purpose**: Enables job splitting by resolution
 
 ## JSON Structure
