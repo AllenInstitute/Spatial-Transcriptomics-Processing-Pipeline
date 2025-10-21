@@ -43,9 +43,9 @@ The save results step includes:
 
 adata.obs:
 - `final_qc_passed` - Boolean indicating cells passing all QC criteria (genes, transcripts, blanks, doublets, & DoubleMAD)
-- `production_cell_id` - Cell IDs (used as index)
+- `cell_label` - Cell IDs (also used as index)
 - `specimen` - Species name
-- `dataset_id` - Dataset identifier
+- `dataset_id` - Dataset ID
 - `age` - Age information (if provided)
 - `sex` - Sex information (if provided)
 
