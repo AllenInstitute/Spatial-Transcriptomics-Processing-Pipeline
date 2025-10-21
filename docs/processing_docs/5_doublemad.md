@@ -22,13 +22,13 @@ Required Input Columns in AnnData:
 -  MapMyCells results for each taxonomy level
 
 ## Output File
-`../results/whole_dataset/{specimen}_{dataset_id}_{mapping_type}_{mapping_acronym}_combined_doublemad.h5ad` - Updated AnnData file with DoubleMAD metrics saved to results/whole_dataset/
+`../results/whole_dataset/{specimen}_{dataset_id}_{mapping_type}_{mapping_acronym}_combined_doublemad.h5ad` - Updated AnnData file with DoubleMAD metrics
 
 ### Added Metadata Columns:
 
 - `{mapping_type}_{mapping_acronym}_{level}_thr` - DoubleMAD threshold for cluster and supertype level
-- `{mapping_type}_{mapping_acronym}_{level}_thr_criteria` - Pass/fail criteria based on threshold comparison for cluster and supertype level
-- `is_bimodal_supertype`, `is_bimodal_cluster` - Boolean indicating whether supertype/cluster average correlation distribution is bimodal
+- `{mapping_type}_{mapping_acronym}_{level}_thr_criteria` - `Passed` or `Failed` based on threshold comparison for cluster and supertype level
+- `{mapping_type}_{mapping_acronym}_is_bimodal_supertype`, `{mapping_type}_{mapping_acronym}_is_bimodal_cluster` - Boolean indicating whether supertype/cluster average correlation distribution is bimodal
 - `{mapping_type}_{mapping_acronym}_qc_passed` - Boolean indicating if cell passes DoubleMAD threshold
 
 
@@ -42,5 +42,5 @@ The DoubleMAD parameters are specified in `params.json`:
   
 ### Parameter Descriptions
 
-- `run_doublemad`: 1/0 to enable/disable DoubleMAD calculation
+- `run_doublemad`: Set to 1 to perform DoubleMAD calculation, or 0 to skip this step. 
 - `doublemad_multiplier`: Multiplier for DoubleMAD threshold calculation
