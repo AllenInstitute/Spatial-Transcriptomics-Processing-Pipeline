@@ -12,7 +12,7 @@ The mapping step includes:
 
 ## Input Files
 
-- `../data/*/*.h5ad` - Filtered AnnData file from previous processing steps 
+- `../data/*/*.h5ad` - Filtered AnnData file  
 - `../data/*/*precomputed_stats*.h5` - HDF5 file defining your taxonomy and the average gene expression profile for the cell types in your taxonomy
 - `../data/*/*marker*.json` - JSON file defining the marker genes to be used for mapping given your taxonomy
 - `../data/*/params.json` - Configuration file with mapping parameters
@@ -61,7 +61,7 @@ The mapping parameters are specified in `params.json`:
 - `mapping_type`: Type of mapping to perform
   - `"flat"`: Flat mapping only
   - `"hrc"`: Hierarchical mapping only 
-  - `"both"`: Run both flat and hierarchical mapping, combine results
+  - `"both"`: Run both flat and hierarchical mapping and combine results
 - `mapping_acronym`: Short identifier for metadata columns (e.g., "mmc")
 
 **Gene Filtering:**
@@ -79,10 +79,9 @@ The mapping parameters are specified in `params.json`:
 - `bootstrap_iteration`: The number of bootstrapping iterations to run at each node of the taxonomy tree
 - `bootstrap_factor`: The factor by which to downsample the population of marker genes for each bootstrapping iteration
 - `n_runner_ups`: Number of runner-up cell types to report for each assignment
+- `clobber`: Set to 1 to overwrite existing output files; set to 0 to fail and prevent replacement of existing files.
 
-**Performance:**
 
-- `clobber`: Whether to overwrite existing output files (1/0)
 
 
 
