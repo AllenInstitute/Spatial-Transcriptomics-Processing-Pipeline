@@ -27,6 +27,16 @@ The QC filtering and doublet detection step includes:
 
 ### Added Metadata Columns:
 
+Metric Columns:
+- `n_genes_by_counts`: Number of genes detected per cell
+- `total_counts`: Number of transcripts 
+- `total_counts_blank`: Number of blank transcripts
+- `pct_counts_blank`: Percent of transcripts that are blanks
+- `total_counts_per_cell_volume`: Total transcripts normalized by cell volume
+- `total_counts_blank_per_cell_volume`: Blank transcripts normalized by cell volume
+- `n_genes_by_counts_no_blanks`: Number of genes excluding blanks
+- `total_counts_genes`: Number of transcripts excluding blanks
+
 QC Columns:
 - `{metric}_qc_passed`: Boolean indicating if cell passes individual metric threshold (n_genes_by_counts, total_counts, and pct_counts_blank)
 - `basic_qc_passed`: Boolean indicating if cell passes all basic QC filters
@@ -73,7 +83,8 @@ Maximum Thresholds (`max`):
 - `total_counts`: Maximum total transcript counts per cell (applied to non-blank genes)
 - `pct_counts_blank`: Maximum percentage of blank/control transcript counts
 
-`doublets_cutoff`: Leave empty to use section-dependent quantile cutoff; else, set to doublet score cutoff.
-`run_incongruous_genes`: 1/0 to enable/disable incongruous genes calculation
+&nbsp;
 
+- `doublets_cutoff`: Leave empty to use section-dependent quantile cutoff; else, set to doublet score cutoff.
+- `run_incongruous_genes`: 1/0 to enable/disable incongruous genes calculation
 
