@@ -72,9 +72,11 @@ All pipeline parameters are configured in the Create Parameters JSON capsule and
 ## Input Data Format
 ```
 data/
-├── section1.h5ad
-├── section2.h5ad
-├── section3.h5ad
+└── section_dir/
+    ├── section1.h5ad
+    ├── section2.h5ad
+    ├── section3.h5ad
+    └── ...
 ...
 ```
 Required columns:
