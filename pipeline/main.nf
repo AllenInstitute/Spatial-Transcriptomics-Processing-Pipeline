@@ -1,10 +1,10 @@
 #!/usr/bin/env nextflow
-// hash:sha256:88c43ab81c0016b95866427f6ded2732fb2f8f53a0c612d966d2165214600684
+// hash:sha256:12790511229c11fd9774ebd95384e52e0fd36e62be3fe99e7b438e31c8d44be9
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
 	tag 'capsule-1710219'
-	container "$REGISTRY_HOST/published/e4dec6b2-35fc-43ea-b344-a9994fba770d:v1"
+	container "$REGISTRY_HOST/published/e4dec6b2-35fc-43ea-b344-a9994fba770d:v2"
 
 	cpus 2
 	memory '0 GB'
@@ -44,9 +44,9 @@ process capsule_create_parameters_json_full_pipeline_21 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1710219.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1710219.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1710219.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1710219.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -63,7 +63,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 // capsule - Dispatch Jobs
 process capsule_dispatch_jobs_28 {
 	tag 'capsule-8473949'
-	container "$REGISTRY_HOST/published/a81edc3a-4e8b-487a-80ec-8c3b3fca92a7:v1"
+	container "$REGISTRY_HOST/published/a81edc3a-4e8b-487a-80ec-8c3b3fca92a7:v2"
 
 	cpus 1
 	memory '7.5 GB'
@@ -92,9 +92,9 @@ process capsule_dispatch_jobs_28 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8473949.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8473949.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8473949.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-8473949.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -111,7 +111,7 @@ process capsule_dispatch_jobs_28 {
 // capsule - QC Filtering & Doublet Detection
 process capsule_qc_filtering_doublet_detection_11 {
 	tag 'capsule-0022544'
-	container "$REGISTRY_HOST/published/1e4a1b6e-a690-4c20-809a-f5def0dbaac2:v1"
+	container "$REGISTRY_HOST/published/1e4a1b6e-a690-4c20-809a-f5def0dbaac2:v2"
 
 	cpus 16
 	memory '61 GB'
@@ -145,9 +145,9 @@ process capsule_qc_filtering_doublet_detection_11 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -164,7 +164,7 @@ process capsule_qc_filtering_doublet_detection_11 {
 // capsule - Cell Type Mapping
 process capsule_cell_type_mapping_14 {
 	tag 'capsule-2601578'
-	container "$REGISTRY_HOST/published/55150af8-b031-419d-aa7c-84a0fcc17136:v1"
+	container "$REGISTRY_HOST/published/55150af8-b031-419d-aa7c-84a0fcc17136:v2"
 
 	cpus 4
 	memory '30 GB'
@@ -194,9 +194,9 @@ process capsule_cell_type_mapping_14 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -213,7 +213,7 @@ process capsule_cell_type_mapping_14 {
 // capsule - Downsample Spot Table
 process capsule_downsample_spot_table_27 {
 	tag 'capsule-6366717'
-	container "$REGISTRY_HOST/published/32dae177-f153-4aa3-aad8-aecec7c8c0a5:v1"
+	container "$REGISTRY_HOST/published/32dae177-f153-4aa3-aad8-aecec7c8c0a5:v2"
 
 	cpus 16
 	memory '120 GB'
@@ -241,9 +241,9 @@ process capsule_downsample_spot_table_27 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6366717.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6366717.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6366717.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-6366717.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -307,7 +307,7 @@ process capsule_combine_sections_17 {
 // capsule - Run STAligner
 process capsule_run_staligner_26 {
 	tag 'capsule-9167853'
-	container "$REGISTRY_HOST/published/827e81af-5645-42b8-af98-36c4f453fcf3:v1"
+	container "$REGISTRY_HOST/published/827e81af-5645-42b8-af98-36c4f453fcf3:v2"
 
 	cpus 16
 	memory '61 GB'
@@ -339,9 +339,9 @@ process capsule_run_staligner_26 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9167853.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -358,10 +358,10 @@ process capsule_run_staligner_26 {
 // capsule - Add Cell Type Colors
 process capsule_add_cell_type_colors_16 {
 	tag 'capsule-9455197'
-	container "$REGISTRY_HOST/published/d0406dbe-3873-4f8a-be1d-e7d2bc67a65c:v1"
+	container "$REGISTRY_HOST/published/d0406dbe-3873-4f8a-be1d-e7d2bc67a65c:v2"
 
-	cpus 2
-	memory '15 GB'
+	cpus 1
+	memory '7.5 GB'
 
 	input:
 	path 'capsule/data/params/'
@@ -377,8 +377,8 @@ process capsule_add_cell_type_colors_16 {
 	set -e
 
 	export CO_CAPSULE_ID=d0406dbe-3873-4f8a-be1d-e7d2bc67a65c
-	export CO_CPUS=2
-	export CO_MEMORY=16106127360
+	export CO_CPUS=1
+	export CO_MEMORY=8053063680
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -390,9 +390,9 @@ process capsule_add_cell_type_colors_16 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9455197.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9455197.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9455197.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-9455197.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -409,7 +409,7 @@ process capsule_add_cell_type_colors_16 {
 // capsule - Leiden Clustering - RAPIDS
 process capsule_leiden_clustering_rapids_23 {
 	tag 'capsule-2535964'
-	container "$REGISTRY_HOST/published/41eb134b-3949-48a2-949b-18b016715656:v1"
+	container "$REGISTRY_HOST/published/41eb134b-3949-48a2-949b-18b016715656:v2"
 
 	cpus 16
 	memory '61 GB'
@@ -440,9 +440,9 @@ process capsule_leiden_clustering_rapids_23 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2535964.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -459,7 +459,7 @@ process capsule_leiden_clustering_rapids_23 {
 // capsule - DoubleMAD Mapping Filtering
 process capsule_doublemad_mapping_filtering_20 {
 	tag 'capsule-7462997'
-	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v1"
+	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v2"
 
 	cpus 16
 	memory '120 GB'
@@ -487,9 +487,9 @@ process capsule_doublemad_mapping_filtering_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -506,7 +506,7 @@ process capsule_doublemad_mapping_filtering_20 {
 // capsule - Save Processing Results
 process capsule_save_processing_results_18 {
 	tag 'capsule-1191238'
-	container "$REGISTRY_HOST/published/014e682e-513f-4a62-a139-d6563efccdf9:v1"
+	container "$REGISTRY_HOST/published/014e682e-513f-4a62-a139-d6563efccdf9:v2"
 
 	cpus 4
 	memory '30 GB'
@@ -535,9 +535,9 @@ process capsule_save_processing_results_18 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1191238.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1191238.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1191238.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-1191238.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -554,7 +554,7 @@ process capsule_save_processing_results_18 {
 // capsule - Add Cluster Labels to Cells
 process capsule_add_cluster_labels_to_cells_24 {
 	tag 'capsule-7143267'
-	container "$REGISTRY_HOST/published/9df4783c-c9fb-4705-859e-26d24fd784f4:v1"
+	container "$REGISTRY_HOST/published/9df4783c-c9fb-4705-859e-26d24fd784f4:v2"
 
 	cpus 4
 	memory '30 GB'
@@ -583,9 +583,9 @@ process capsule_add_cluster_labels_to_cells_24 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7143267.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7143267.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7143267.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7143267.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -602,7 +602,7 @@ process capsule_add_cluster_labels_to_cells_24 {
 // capsule - Merge Clusters
 process capsule_merge_clusters_25 {
 	tag 'capsule-7874811'
-	container "$REGISTRY_HOST/published/f976ba49-9d0f-4769-aec1-693173e2e571:v1"
+	container "$REGISTRY_HOST/published/f976ba49-9d0f-4769-aec1-693173e2e571:v2"
 
 	cpus 32
 	memory '240 GB'
@@ -634,9 +634,9 @@ process capsule_merge_clusters_25 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7874811.git" capsule-repo
+		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7874811.git" capsule-repo
 	else
-		git clone --branch v1.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7874811.git" capsule-repo
+		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7874811.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo

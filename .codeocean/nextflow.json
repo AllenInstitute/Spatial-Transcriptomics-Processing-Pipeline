@@ -7,7 +7,7 @@
 				"id": "1e4a1b6e-a690-4c20-809a-f5def0dbaac2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "0022544",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 16,
@@ -49,7 +49,7 @@
 				"id": "55150af8-b031-419d-aa7c-84a0fcc17136",
 				"name": "Cell Type Mapping",
 				"slug": "2601578",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 4,
@@ -88,11 +88,11 @@
 				"id": "d0406dbe-3873-4f8a-be1d-e7d2bc67a65c",
 				"name": "Add Cell Type Colors",
 				"slug": "9455197",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
-				"cpus": 2,
-				"memory": 16
+				"cpus": 1,
+				"memory": 8
 			},
 			"inputs": [
 				{
@@ -159,7 +159,7 @@
 				"id": "014e682e-513f-4a62-a139-d6563efccdf9",
 				"name": "Save Processing Results",
 				"slug": "1191238",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 4,
@@ -192,7 +192,7 @@
 				"id": "b832ab1b-afd8-4e50-974e-49a8373054e0",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "7462997",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 16,
@@ -222,7 +222,7 @@
 				"id": "e4dec6b2-35fc-43ea-b344-a9994fba770d",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "1710219",
-				"version": 1,
+				"version": 2,
 				"app_panel": true
 			},
 			"resources": {
@@ -239,7 +239,7 @@
 				"id": "41eb134b-3949-48a2-949b-18b016715656",
 				"name": "Leiden Clustering - RAPIDS",
 				"slug": "2535964",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 16,
@@ -280,7 +280,7 @@
 				"id": "9df4783c-c9fb-4705-859e-26d24fd784f4",
 				"name": "Add Cluster Labels to Cells",
 				"slug": "7143267",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 4,
@@ -318,7 +318,7 @@
 				"id": "f976ba49-9d0f-4769-aec1-693173e2e571",
 				"name": "Merge Clusters",
 				"slug": "7874811",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 32,
@@ -370,7 +370,7 @@
 				"id": "827e81af-5645-42b8-af98-36c4f453fcf3",
 				"name": "Run STAligner",
 				"slug": "9167853",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 16,
@@ -413,7 +413,7 @@
 				"id": "32dae177-f153-4aa3-aad8-aecec7c8c0a5",
 				"name": "Downsample Spot Table",
 				"slug": "6366717",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 16,
@@ -445,7 +445,7 @@
 				"id": "a81edc3a-4e8b-487a-80ec-8c3b3fca92a7",
 				"name": "Dispatch Jobs",
 				"slug": "8473949",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
 				"cpus": 1,
