@@ -25,7 +25,7 @@ This module creates a JSON parameter file for the spatial transcriptomics proces
 | `--n_runner_ups` | int | Number of runner-up cell types to generate |
 | `--mapping_acronym` | str | Acronym for mapped column names and file names |
 | `--clobber` | int | 1 to overwrite existing results |
-| `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping |
+| `--drop_genes_list` | str | Comma-separated list of genes to drop from mapping without spaces|
 | `--add_cell_type_colors` | int | 1 to add cell type colors, 0 to skip |
 | `--run_doublemad` | int | 1 to perform DoubleMAD calculation, 0 to skip |
 | `--doublemad_multiplier` | int | Integer multiplier for DoubleMAD threshold |
