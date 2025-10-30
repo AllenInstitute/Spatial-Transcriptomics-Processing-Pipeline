@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:12790511229c11fd9774ebd95384e52e0fd36e62be3fe99e7b438e31c8d44be9
+// hash:sha256:66df652f3f51cdb4404c1b08fb76d35743f84d265189179cb30a583a1e44f601
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -167,7 +167,7 @@ process capsule_cell_type_mapping_14 {
 	container "$REGISTRY_HOST/published/55150af8-b031-419d-aa7c-84a0fcc17136:v2"
 
 	cpus 4
-	memory '30 GB'
+	memory '120 GB'
 
 	input:
 	path 'capsule/data/'
@@ -183,7 +183,7 @@ process capsule_cell_type_mapping_14 {
 
 	export CO_CAPSULE_ID=55150af8-b031-419d-aa7c-84a0fcc17136
 	export CO_CPUS=4
-	export CO_MEMORY=32212254720
+	export CO_MEMORY=128849018880
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -360,8 +360,8 @@ process capsule_add_cell_type_colors_16 {
 	tag 'capsule-9455197'
 	container "$REGISTRY_HOST/published/d0406dbe-3873-4f8a-be1d-e7d2bc67a65c:v2"
 
-	cpus 1
-	memory '7.5 GB'
+	cpus 8
+	memory '60 GB'
 
 	input:
 	path 'capsule/data/params/'
@@ -377,8 +377,8 @@ process capsule_add_cell_type_colors_16 {
 	set -e
 
 	export CO_CAPSULE_ID=d0406dbe-3873-4f8a-be1d-e7d2bc67a65c
-	export CO_CPUS=1
-	export CO_MEMORY=8053063680
+	export CO_CPUS=8
+	export CO_MEMORY=64424509440
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
@@ -459,7 +459,7 @@ process capsule_leiden_clustering_rapids_23 {
 // capsule - DoubleMAD Mapping Filtering
 process capsule_doublemad_mapping_filtering_20 {
 	tag 'capsule-7462997'
-	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v2"
+	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v3"
 
 	cpus 16
 	memory '120 GB'
@@ -487,9 +487,9 @@ process capsule_doublemad_mapping_filtering_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --filter=tree:0 --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	else
-		git clone --branch v2.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -508,8 +508,8 @@ process capsule_save_processing_results_18 {
 	tag 'capsule-1191238'
 	container "$REGISTRY_HOST/published/014e682e-513f-4a62-a139-d6563efccdf9:v2"
 
-	cpus 4
-	memory '30 GB'
+	cpus 16
+	memory '120 GB'
 
 	input:
 	path 'capsule/data/params/'
@@ -525,8 +525,8 @@ process capsule_save_processing_results_18 {
 	set -e
 
 	export CO_CAPSULE_ID=014e682e-513f-4a62-a139-d6563efccdf9
-	export CO_CPUS=4
-	export CO_MEMORY=32212254720
+	export CO_CPUS=16
+	export CO_MEMORY=128849018880
 
 	mkdir -p capsule
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data

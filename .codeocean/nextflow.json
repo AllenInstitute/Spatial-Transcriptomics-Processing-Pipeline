@@ -53,7 +53,7 @@
 			},
 			"resources": {
 				"cpus": 4,
-				"memory": 32
+				"memory": 128
 			},
 			"inputs": [
 				{
@@ -91,8 +91,8 @@
 				"version": 2
 			},
 			"resources": {
-				"cpus": 1,
-				"memory": 8
+				"cpus": 8,
+				"memory": 64
 			},
 			"inputs": [
 				{
@@ -162,8 +162,8 @@
 				"version": 2
 			},
 			"resources": {
-				"cpus": 4,
-				"memory": 32
+				"cpus": 16,
+				"memory": 128
 			},
 			"inputs": [
 				{
@@ -192,7 +192,7 @@
 				"id": "b832ab1b-afd8-4e50-974e-49a8373054e0",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "7462997",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 16,
