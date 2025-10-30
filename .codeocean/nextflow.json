@@ -192,7 +192,7 @@
 				"id": "b832ab1b-afd8-4e50-974e-49a8373054e0",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "7462997",
-				"version": 3
+				"version": 4
 			},
 			"resources": {
 				"cpus": 16,

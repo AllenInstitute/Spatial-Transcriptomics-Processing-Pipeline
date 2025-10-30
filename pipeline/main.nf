@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:66df652f3f51cdb4404c1b08fb76d35743f84d265189179cb30a583a1e44f601
+// hash:sha256:9f1f77e06ed024d1128d120cc4b0f397f0c504f5eb913815363c6e04cff4e968
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -459,7 +459,7 @@ process capsule_leiden_clustering_rapids_23 {
 // capsule - DoubleMAD Mapping Filtering
 process capsule_doublemad_mapping_filtering_20 {
 	tag 'capsule-7462997'
-	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v3"
+	container "$REGISTRY_HOST/published/b832ab1b-afd8-4e50-974e-49a8373054e0:v4"
 
 	cpus 16
 	memory '120 GB'
@@ -487,9 +487,9 @@ process capsule_doublemad_mapping_filtering_20 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git clone --filter=tree:0 --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --filter=tree:0 --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	else
-		git clone --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
+		git clone --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-7462997.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
