@@ -16,6 +16,11 @@
 			"name": "Barcodes CSV",
 			"description": "Folder containing csv with barcodes.",
 			"help_text": "This csv is required if running domain detection (used to dispatch jobs and load detected transcripts from S3 bucket). Required columns are \"barcode\", \"dataset_id\", \"experiment_id\", \"region\" (if modality is MERSCOPE) "
+		},
+		{
+			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"name": "Incongruous Genes CSV",
+			"description": "CSV file containing two columns: Gene1 and Gene2, representing pairs of genes that are not expected to be expressed in the same cell."
 		}
 	],
 	"processes": [

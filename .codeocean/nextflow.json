@@ -7,7 +7,7 @@
 				"id": "1e4a1b6e-a690-4c20-809a-f5def0dbaac2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "0022544",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 16,
