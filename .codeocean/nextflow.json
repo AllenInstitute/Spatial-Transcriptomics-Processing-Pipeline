@@ -421,6 +421,14 @@
 			},
 			"inputs": [
 				{
+					"id": "20b0yxg3lDGNShAS",
+					"source_id": "capsule_dispatch_jobs_28",
+					"type": "capsule",
+					"name": "Dispatch Jobs",
+					"target_path": "section_metadata/",
+					"flatten": true
+				},
+				{
 					"id": "pQ6TqcQXXcnNs7MM",
 					"source_id": "capsule_create_parameters_json_full_pipeline_21",
 					"type": "capsule",
@@ -428,14 +436,6 @@
 					"source_path": "params/",
 					"target_path": "params",
 					"collect": true
-				},
-				{
-					"id": "20b0yxg3lDGNShAS",
-					"source_id": "capsule_dispatch_jobs_28",
-					"type": "capsule",
-					"name": "Dispatch Jobs",
-					"target_path": "section_metadata/",
-					"flatten": true
 				}
 			]
 		},
