@@ -107,3 +107,5 @@ For detailed information about each step, refer to the individual markdown files
 - Input/output file specifications
 - Configuration parameter explanations
 - Expected results and metadata columns
+
+We are planning on occasional updating this tool with no fixed schedule. Community involvement is encouraged through both issues and pull requests.
