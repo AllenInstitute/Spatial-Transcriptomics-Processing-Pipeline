@@ -7,7 +7,7 @@
 				"id": "1e4a1b6e-a690-4c20-809a-f5def0dbaac2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "0022544",
-				"version": 3
+				"version": 4
 			},
 			"resources": {
 				"cpus": 16,
@@ -15,6 +15,14 @@
 				"gpus": 1
 			},
 			"inputs": [
+				{
+					"id": "GOVWgHtYfGAiECr2",
+					"source_id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
+					"type": "dataset",
+					"name": "segmented_data",
+					"source_path": "segmented_data/",
+					"target_path": "segmented_data/"
+				},
 				{
 					"id": "ZK4fieQTqRXf2cTY",
 					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
@@ -32,14 +40,6 @@
 					"source_path": "params/",
 					"target_path": "params",
 					"collect": true
-				},
-				{
-					"id": "GOVWgHtYfGAiECr2",
-					"source_id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
-					"type": "dataset",
-					"name": "segmented_data",
-					"source_path": "segmented_data/",
-					"target_path": "sections/"
 				}
 			]
 		},

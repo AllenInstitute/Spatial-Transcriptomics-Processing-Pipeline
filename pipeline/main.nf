@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:39e6b57a66fced8261025e2b9e75300e10b77aa1ca5cf4994e013fec361fb53a
+// hash:sha256:bfced5b15f4fc2fcde08ca714ede8b78a86ec1bbeec76d80295057e4139594a8
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -12,7 +12,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	publishDir "$RESULTS_PATH", saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
 
 	output:
-	path 'capsule/results/params/*', emit: to_capsule_qc_filtering_doublet_detection_11_1
+	path 'capsule/results/params/*', emit: to_capsule_qc_filtering_doublet_detection_11_2
 	path 'capsule/results/params/*', emit: to_capsule_cell_type_mapping_14_4
 	path 'capsule/results/params/*', emit: to_capsule_add_cell_type_colors_16_5
 	path 'capsule/results/params/*', emit: to_capsule_combine_sections_17_8
@@ -111,7 +111,7 @@ process capsule_dispatch_jobs_28 {
 // capsule - QC Filtering & Doublet Detection
 process capsule_qc_filtering_doublet_detection_11 {
 	tag 'capsule-0022544'
-	container "$REGISTRY_HOST/published/1e4a1b6e-a690-4c20-809a-f5def0dbaac2:v3"
+	container "$REGISTRY_HOST/published/1e4a1b6e-a690-4c20-809a-f5def0dbaac2:v4"
 
 	cpus 16
 	memory '61 GB'
@@ -119,8 +119,8 @@ process capsule_qc_filtering_doublet_detection_11 {
 	label 'gpu'
 
 	input:
+	val path1
 	path 'capsule/data/params/'
-	val path2
 
 	output:
 	path 'capsule/results/*', emit: to_capsule_cell_type_mapping_14_3
@@ -138,16 +138,16 @@ process capsule_qc_filtering_doublet_detection_11 {
 	mkdir -p capsule/data && ln -s \$PWD/capsule/data /data
 	mkdir -p capsule/results && ln -s \$PWD/capsule/results /results
 	mkdir -p capsule/scratch && ln -s \$PWD/capsule/scratch /scratch
-	mkdir -p capsule/data/sections
+	mkdir -p capsule/data/segmented_data
 
+	ln -s "/tmp/data/segmented_data/$path1" "capsule/data/segmented_data/$path1" # id: 51ca67b7-1e9b-4dab-8972-6f001bc6cd6c
 	ln -s "/tmp/data/incongruous_genes" "capsule/data/incongruous_genes" # id: 5e5ee663-c304-46a9-ba39-c4003cd416a5
-	ln -s "/tmp/data/segmented_data/$path2" "capsule/data/sections/$path2" # id: 51ca67b7-1e9b-4dab-8972-6f001bc6cd6c
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git -c credential.helper= clone --filter=tree:0 --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
+		git -c credential.helper= clone --filter=tree:0 --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
 	else
-		git -c credential.helper= clone --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
+		git -c credential.helper= clone --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-0022544.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -652,13 +652,13 @@ process capsule_merge_clusters_25 {
 
 workflow {
 	// input data
-	segmented_data_to_qc_filtering_doublet_detection_2 = Channel.fromPath("../data/segmented_data/*", type: 'any', relative: true)
+	segmented_data_to_qc_filtering_doublet_detection_1 = Channel.fromPath("../data/segmented_data/*", type: 'any', relative: true)
 	cell_type_colors_to_add_cell_type_colors_6 = Channel.fromPath("../data/cell_type_colors/*", type: 'any', relative: true)
 
 	// run processes
 	capsule_create_parameters_json_full_pipeline_21()
 	capsule_dispatch_jobs_28(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_dispatch_jobs_28_28.collect())
-	capsule_qc_filtering_doublet_detection_11(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_qc_filtering_doublet_detection_11_1.collect(), segmented_data_to_qc_filtering_doublet_detection_2)
+	capsule_qc_filtering_doublet_detection_11(segmented_data_to_qc_filtering_doublet_detection_1, capsule_create_parameters_json_full_pipeline_21.out.to_capsule_qc_filtering_doublet_detection_11_2.collect())
 	capsule_cell_type_mapping_14(capsule_qc_filtering_doublet_detection_11.out.to_capsule_cell_type_mapping_14_3, capsule_create_parameters_json_full_pipeline_21.out.to_capsule_cell_type_mapping_14_4.collect())
 	capsule_downsample_spot_table_27(capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_27_26.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_27_27.collect())
 	capsule_combine_sections_17(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_combine_sections_17_8.collect(), capsule_cell_type_mapping_14.out.to_capsule_combine_sections_17_9.collect())
