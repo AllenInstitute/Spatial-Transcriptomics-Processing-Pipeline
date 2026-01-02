@@ -1,6 +1,7 @@
 # Spatial Transcriptomics Data Processing Pipeline
 ---
 This repository contains a comprehensive processing pipeline for spatial transcriptomics data analysis.
+
 Repository link: https://github.com/AllenInstitute/Spatial-Transcriptomics-Processing-Pipeline
 
 This pipeline was built and deployed on Code Ocean, a cloud-based computational research platform. The pipeline leverages Code Ocean's containerized environment to ensure reproducible results across different computing environments.
@@ -12,7 +13,6 @@ Code Ocean documentation: https://docs.codeocean.com/user-guide
 The processing section of pipeline consists of the following sequential steps:
 
 ### [Step 1: QC Filtering & Doublet Detection](./docs/processing_docs/1_qc_filtering.md)
-### [Step 1: QC Filtering & Doublet Detection](https://github.com/AllenInstitute/QC-Filtering-Capsule-STPP/blob/master/README.md)
 Quality control filtering and doublet detection with SOLO (Semi-supervised Outlier Detection).
 
 ### [Step 2: Cell Type Mapping](./docs/processing_docs/2_mapping.md)
