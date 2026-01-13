@@ -1,5 +1,5 @@
 metadata_version: 1
-name: Spatial Transcriptomics Processing Pipeline
+name: SCALPEL Pipeline
 description: "Spatial transcriptomics processing pipeline. \n\n## Overview\nThis pipeline
   includes the following steps:\n- [QC filtering](https://codeocean.allenneuraldynamics.org/capsule/8257790/tree)\n-
   [MapMyCells hierarchical and/or flat mapping](https://codeocean.allenneuraldynamics.org/capsule/1928280/tree)\n-
