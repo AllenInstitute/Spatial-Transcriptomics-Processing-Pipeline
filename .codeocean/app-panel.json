@@ -2,23 +2,23 @@
 	"version": 1,
 	"datasets": [
 		{
-			"id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
+			"id": "06ac65b6-0e1c-4d5f-93b3-727617c5983f",
 			"name": "Segmented Dataset",
 			"description": "Folder containing segmented AnnData files. "
 		},
 		{
-			"id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
+			"id": "15694a6e-58a5-44a5-8b3f-29a71fe9a008",
 			"name": "Mapping Files",
 			"description": "Folder containing MapMyCells precomputed stats h5 and marker genes json"
 		},
 		{
-			"id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+			"id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
 			"name": "Barcodes CSV",
 			"description": "Folder containing csv with barcodes.",
 			"help_text": "This csv is required if running domain detection (used to dispatch jobs and load detected transcripts from S3 bucket). Required columns are \"barcode\", \"dataset_id\", \"experiment_id\", \"region\" (if modality is MERSCOPE) "
 		},
 		{
-			"id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+			"id": "6ec26355-4e49-4572-9f44-3cb25b7b5a55",
 			"name": "Incongruous Genes CSV",
 			"description": "CSV file containing two columns: Gene1 and Gene2, representing pairs of genes that are not expected to be expressed in the same cell."
 		}

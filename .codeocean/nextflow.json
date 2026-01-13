@@ -7,7 +7,7 @@
 				"id": "1e4a1b6e-a690-4c20-809a-f5def0dbaac2",
 				"name": "QC Filtering \u0026 Doublet Detection",
 				"slug": "0022544",
-				"version": 4
+				"version": 5
 			},
 			"resources": {
 				"cpus": 16,
@@ -16,21 +16,21 @@
 			},
 			"inputs": [
 				{
-					"id": "GOVWgHtYfGAiECr2",
-					"source_id": "51ca67b7-1e9b-4dab-8972-6f001bc6cd6c",
-					"type": "dataset",
-					"name": "segmented_data",
-					"source_path": "segmented_data/",
-					"target_path": "segmented_data/"
-				},
-				{
-					"id": "ZK4fieQTqRXf2cTY",
-					"source_id": "5e5ee663-c304-46a9-ba39-c4003cd416a5",
+					"id": "YgERrbSlYpXa3Ia7",
+					"source_id": "6ec26355-4e49-4572-9f44-3cb25b7b5a55",
 					"type": "dataset",
 					"name": "incongruous_genes",
 					"source_path": "incongruous_genes/",
 					"target_path": "incongruous_genes",
 					"collect": true
+				},
+				{
+					"id": "BsyN1G8yAdRjZ3yj",
+					"source_id": "06ac65b6-0e1c-4d5f-93b3-727617c5983f",
+					"type": "dataset",
+					"name": "segmented_data",
+					"source_path": "segmented_data/",
+					"target_path": "segmented_data/"
 				},
 				{
 					"id": "0zTIVt84TVjtWmKX",
@@ -49,13 +49,22 @@
 				"id": "55150af8-b031-419d-aa7c-84a0fcc17136",
 				"name": "Cell Type Mapping",
 				"slug": "2601578",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
-				"cpus": 4,
+				"cpus": 16,
 				"memory": 128
 			},
 			"inputs": [
+				{
+					"id": "34Il3uehUOr9rQ1D",
+					"source_id": "15694a6e-58a5-44a5-8b3f-29a71fe9a008",
+					"type": "dataset",
+					"name": "mapping_files",
+					"source_path": "mapping_files/",
+					"target_path": "mapping_files",
+					"collect": true
+				},
 				{
 					"id": "azC3QkysG2CHPs7Z",
 					"source_id": "capsule_qc_filtering_doublet_detection_11",
@@ -70,15 +79,6 @@
 					"source_path": "params/",
 					"target_path": "params",
 					"collect": true
-				},
-				{
-					"id": "UErNtRhGnnzCfEQG",
-					"source_id": "4940b042-3c8e-4d28-9701-a087f9de1f3e",
-					"type": "dataset",
-					"name": "mapping_files",
-					"source_path": "mapping_files/",
-					"target_path": "markers",
-					"collect": true
 				}
 			]
 		},
@@ -88,13 +88,21 @@
 				"id": "d0406dbe-3873-4f8a-be1d-e7d2bc67a65c",
 				"name": "Add Cell Type Colors",
 				"slug": "9455197",
-				"version": 2
+				"version": 4
 			},
 			"resources": {
-				"cpus": 8,
-				"memory": 64
+				"cpus": 32,
+				"memory": 128
 			},
 			"inputs": [
+				{
+					"id": "KUhFq5YIpxU6cEwU",
+					"source_id": "d867a519-164b-46b4-b9c5-14234c1c95a8",
+					"type": "dataset",
+					"name": "cell_type_colors",
+					"source_path": "cell_type_colors/",
+					"target_path": "cell_type_colors/"
+				},
 				{
 					"id": "IQqk00oHJF07f2nX",
 					"source_id": "capsule_create_parameters_json_full_pipeline_21",
@@ -103,14 +111,6 @@
 					"source_path": "params/",
 					"target_path": "params",
 					"collect": true
-				},
-				{
-					"id": "eL6EuA97ewMp2J6F",
-					"source_id": "ada9bde4-502c-43e2-8e6d-517d02744905",
-					"type": "dataset",
-					"name": "cell_type_colors",
-					"source_path": "cell_type_colors/",
-					"target_path": "cell_type_colors/"
 				},
 				{
 					"id": "cjOgg0avlvQQY0rk",
@@ -126,11 +126,11 @@
 				"id": "15ad4435-978d-459b-a609-a07c13363adb",
 				"name": "Combine Sections",
 				"slug": "2475763",
-				"version": 1
+				"version": 2
 			},
 			"resources": {
-				"cpus": 16,
-				"memory": 42
+				"cpus": 32,
+				"memory": 128
 			},
 			"inputs": [
 				{
@@ -159,10 +159,10 @@
 				"id": "014e682e-513f-4a62-a139-d6563efccdf9",
 				"name": "Save Processing Results",
 				"slug": "1191238",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
-				"cpus": 16,
+				"cpus": 32,
 				"memory": 128
 			},
 			"inputs": [
@@ -192,7 +192,7 @@
 				"id": "b832ab1b-afd8-4e50-974e-49a8373054e0",
 				"name": "DoubleMAD Mapping Filtering",
 				"slug": "7462997",
-				"version": 4
+				"version": 5
 			},
 			"resources": {
 				"cpus": 16,
@@ -222,15 +222,16 @@
 				"id": "e4dec6b2-35fc-43ea-b344-a9994fba770d",
 				"name": "Create Parameters JSON Full Pipeline",
 				"slug": "1710219",
-				"version": 3,
+				"version": 4,
 				"app_panel": true
 			},
 			"resources": {
 				"cpus": 2
 			},
 			"results": {
-				"id": "339c7e20-a61b-4fba-b996-7341b935ad19",
-				"source_path": "params/*"
+				"id": "e4dec6b2-35fc-43ea-b344-a9994fba770d",
+				"source_path": "params/*",
+				"target_path": "params"
 			}
 		},
 		{
@@ -239,7 +240,7 @@
 				"id": "41eb134b-3949-48a2-949b-18b016715656",
 				"name": "Leiden Clustering - RAPIDS",
 				"slug": "2535964",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 16,
@@ -280,11 +281,11 @@
 				"id": "9df4783c-c9fb-4705-859e-26d24fd784f4",
 				"name": "Add Cluster Labels to Cells",
 				"slug": "7143267",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
-				"cpus": 4,
-				"memory": 32
+				"cpus": 32,
+				"memory": 128
 			},
 			"inputs": [
 				{
@@ -318,7 +319,7 @@
 				"id": "f976ba49-9d0f-4769-aec1-693173e2e571",
 				"name": "Merge Clusters",
 				"slug": "7874811",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 32,
@@ -361,7 +362,7 @@
 				}
 			],
 			"results": {
-				"id": "3bc517fd-7f8f-4942-82ff-dda5e63fc5ae"
+				"id": "f976ba49-9d0f-4769-aec1-693173e2e571"
 			}
 		},
 		{
@@ -370,7 +371,7 @@
 				"id": "827e81af-5645-42b8-af98-36c4f453fcf3",
 				"name": "Run STAligner",
 				"slug": "9167853",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 16,
@@ -385,15 +386,6 @@
 					"name": "Downsample Spot Table",
 					"source_path": "downsampled/",
 					"target_path": "downsampled/",
-					"collect": true
-				},
-				{
-					"id": "uFVUklUadpvLXAq9",
-					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
-					"type": "dataset",
-					"name": "barcodes_csv",
-					"source_path": "barcodes_csv/",
-					"target_path": "barcodes",
 					"collect": true
 				},
 				{
@@ -413,13 +405,22 @@
 				"id": "32dae177-f153-4aa3-aad8-aecec7c8c0a5",
 				"name": "Downsample Spot Table",
 				"slug": "6366717",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 16,
 				"memory": 128
 			},
 			"inputs": [
+				{
+					"id": "fLvxQK94KDhGcJrC",
+					"source_id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
+					"type": "dataset",
+					"name": "barcodes_csv",
+					"source_path": "barcodes_csv/",
+					"target_path": "barcodes",
+					"collect": true
+				},
 				{
 					"id": "20b0yxg3lDGNShAS",
 					"source_id": "capsule_dispatch_jobs_28",
@@ -445,7 +446,7 @@
 				"id": "a81edc3a-4e8b-487a-80ec-8c3b3fca92a7",
 				"name": "Dispatch Jobs",
 				"slug": "8473949",
-				"version": 2
+				"version": 3
 			},
 			"resources": {
 				"cpus": 1,
@@ -453,8 +454,8 @@
 			},
 			"inputs": [
 				{
-					"id": "toZRJ3tWauqy3oBL",
-					"source_id": "361c4975-9e72-41fa-af33-837cf648d2d4",
+					"id": "U4AzibQzufGd011l",
+					"source_id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
 					"type": "dataset",
 					"name": "barcodes_csv",
 					"source_path": "barcodes_csv/",
