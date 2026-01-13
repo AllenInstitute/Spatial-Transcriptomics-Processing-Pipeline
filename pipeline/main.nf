@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:d9feda4e762ed91a252a4048aff57141938e676e307a1d81054d2413a2b8f7d1
+// hash:sha256:23e0652a448908bf92646c15da51b922ed5271b6f1078346f5a9750def3a562a
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -24,7 +24,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	path 'capsule/results/params/*', emit: to_capsule_add_cluster_labels_to_cells_24_19
 	path 'capsule/results/params/*', emit: to_capsule_merge_clusters_25_24
 	path 'capsule/results/res_params/*', emit: to_capsule_merge_clusters_25_25
-	path 'capsule/results/params/*', emit: to_capsule_run_staligner_26_27
+	path 'capsule/results/params/*', emit: to_capsule_run_staligner_26_28
 	path 'capsule/results/params/*', emit: to_capsule_downsample_spot_table_27_30
 	path 'capsule/results/params/*', emit: to_capsule_dispatch_jobs_28_32
 
@@ -69,7 +69,7 @@ process capsule_dispatch_jobs_28 {
 	memory '7.5 GB'
 
 	input:
-	path 'capsule/data'
+	path 'capsule/data/barcodes_csv'
 	path 'capsule/data/params/'
 
 	output:
@@ -214,12 +214,11 @@ process capsule_downsample_spot_table_27 {
 	memory '120 GB'
 
 	input:
-	path 'capsule/data/barcodes'
 	path 'capsule/data/section_metadata/'
 	path 'capsule/data/params/'
 
 	output:
-	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_26_26
+	path 'capsule/results/downsampled/*', emit: to_capsule_run_staligner_26_27
 
 	script:
 	"""
@@ -311,6 +310,7 @@ process capsule_run_staligner_26 {
 	label 'gpu'
 
 	input:
+	path 'capsule/data/barcodes_csv'
 	path 'capsule/data/downsampled/'
 	path 'capsule/data/params/'
 
@@ -653,7 +653,7 @@ workflow {
 	segmented_data_to_qc_filtering_doublet_detection_2 = Channel.fromPath(params.segmented_data_url + "/*", type: 'any')
 	mapping_files_to_cell_type_mapping_4 = Channel.fromPath(params.mapping_files_url + "/", type: 'any')
 	cell_type_colors_to_add_cell_type_colors_7 = Channel.fromPath(params.cell_type_colors_url + "/*", type: 'any')
-	barcodes_csv_to_downsample_spot_table_28 = Channel.fromPath(params.barcodes_csv_url + "/", type: 'any')
+	barcodes_csv_to_run_staligner_26 = Channel.fromPath(params.barcodes_csv_url + "/", type: 'any')
 	barcodes_csv_to_dispatch_jobs_31 = Channel.fromPath(params.barcodes_csv_url + "/", type: 'any')
 
 	// run processes
@@ -661,9 +661,9 @@ workflow {
 	capsule_dispatch_jobs_28(barcodes_csv_to_dispatch_jobs_31.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_dispatch_jobs_28_32.collect())
 	capsule_qc_filtering_doublet_detection_11(incongruous_genes_to_qc_filtering_doublet_detection_1.collect(), segmented_data_to_qc_filtering_doublet_detection_2, capsule_create_parameters_json_full_pipeline_21.out.to_capsule_qc_filtering_doublet_detection_11_3.collect())
 	capsule_cell_type_mapping_14(mapping_files_to_cell_type_mapping_4.collect(), capsule_qc_filtering_doublet_detection_11.out.to_capsule_cell_type_mapping_14_5, capsule_create_parameters_json_full_pipeline_21.out.to_capsule_cell_type_mapping_14_6.collect())
-	capsule_downsample_spot_table_27(barcodes_csv_to_downsample_spot_table_28.collect(), capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_27_29.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_27_30.collect())
+	capsule_downsample_spot_table_27(capsule_dispatch_jobs_28.out.to_capsule_downsample_spot_table_27_29.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_downsample_spot_table_27_30.collect())
 	capsule_combine_sections_17(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_combine_sections_17_10.collect(), capsule_cell_type_mapping_14.out.to_capsule_combine_sections_17_11.collect())
-	capsule_run_staligner_26(capsule_downsample_spot_table_27.out.to_capsule_run_staligner_26_26.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_run_staligner_26_27.collect())
+	capsule_run_staligner_26(barcodes_csv_to_run_staligner_26.collect(), capsule_downsample_spot_table_27.out.to_capsule_run_staligner_26_27.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_run_staligner_26_28.collect())
 	capsule_add_cell_type_colors_16(cell_type_colors_to_add_cell_type_colors_7, capsule_create_parameters_json_full_pipeline_21.out.to_capsule_add_cell_type_colors_16_8.collect(), capsule_combine_sections_17.out.to_capsule_add_cell_type_colors_16_9)
 	capsule_leiden_clustering_rapids_23(capsule_run_staligner_26.out.to_capsule_leiden_clustering_rapids_23_16.collect(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_17.flatten(), capsule_create_parameters_json_full_pipeline_21.out.to_capsule_leiden_clustering_rapids_23_18.collect())
 	capsule_doublemad_mapping_filtering_20(capsule_create_parameters_json_full_pipeline_21.out.to_capsule_doublemad_mapping_filtering_20_14.collect(), capsule_add_cell_type_colors_16.out.to_capsule_doublemad_mapping_filtering_20_15)

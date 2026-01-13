@@ -165,10 +165,9 @@
 			"target": "capsule_dispatch_jobs_28"
 		},
 		{
-			"id": "xy-edge__8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c-capsule_downsample_spot_table_27",
-			"selected": false,
+			"id": "xy-edge__8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c-capsule_run_staligner_26",
 			"source": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
-			"target": "capsule_downsample_spot_table_27"
+			"target": "capsule_run_staligner_26"
 		}
 	],
 	"nodes": [
@@ -375,14 +374,14 @@
 		{
 			"id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
 			"position": {
-				"x": 2302.3219860848444,
-				"y": 8.23007617496544
+				"x": 2379.055314508568,
+				"y": 46.59674038682718
 			},
-			"selected": true,
+			"selected": false,
 			"type": "dataset"
 		}
 	],
-	"timestamp": 1768334990078,
+	"timestamp": 1768337359118,
 	"viewport": {
 		"x": -141.11754650336695,
 		"y": 292.49684429656793,

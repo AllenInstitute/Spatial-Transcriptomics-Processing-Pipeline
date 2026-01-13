@@ -380,6 +380,15 @@
 			},
 			"inputs": [
 				{
+					"id": "T7bMXsLTAZYZtF3b",
+					"source_id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
+					"type": "dataset",
+					"name": "barcodes_csv",
+					"source_path": "barcodes_csv/",
+					"target_path": "barcodes_csv",
+					"collect": true
+				},
+				{
 					"id": "sR7oOYPeBQyVLFRb",
 					"source_id": "capsule_downsample_spot_table_27",
 					"type": "capsule",
@@ -412,15 +421,6 @@
 				"memory": 128
 			},
 			"inputs": [
-				{
-					"id": "fLvxQK94KDhGcJrC",
-					"source_id": "8a76b1b6-8b1c-4e7f-bfd6-425f20d7964c",
-					"type": "dataset",
-					"name": "barcodes_csv",
-					"source_path": "barcodes_csv/",
-					"target_path": "barcodes",
-					"collect": true
-				},
 				{
 					"id": "20b0yxg3lDGNShAS",
 					"source_id": "capsule_dispatch_jobs_28",
@@ -459,6 +459,7 @@
 					"type": "dataset",
 					"name": "barcodes_csv",
 					"source_path": "barcodes_csv/",
+					"target_path": "barcodes_csv",
 					"collect": true
 				},
 				{
