@@ -1,8 +1,10 @@
-# Spatial Transcriptomics Data Processing Pipeline
+# SCALPEL Pipeline
 ---
-This repository contains a comprehensive processing pipeline for spatial transcriptomics data analysis.
 
-Repository link: https://github.com/AllenInstitute/Spatial-Transcriptomics-Processing-Pipeline
+This repository contains the **SCALPEL** (Spatial Cell Analysis, Labeling, Processing, and Expression Linking) processing pipeline for spatial transcriptomics data analysis.
+
+- **Preprint:** https://www.biorxiv.org/content/10.64898/2026.01.09.698732v1  
+- **Repository:** https://github.com/AllenInstitute/Spatial-Transcriptomics-Processing-Pipeline
 
 This pipeline was built and deployed on Code Ocean, a cloud-based computational research platform. The pipeline leverages Code Ocean's containerized environment to ensure reproducible results across different computing environments.
 
