@@ -240,7 +240,7 @@
 				"id": "41eb134b-3949-48a2-949b-18b016715656",
 				"name": "Leiden Clustering - RAPIDS",
 				"slug": "2535964",
-				"version": 3
+				"version": 4
 			},
 			"resources": {
 				"cpus": 16,
@@ -371,7 +371,7 @@
 				"id": "827e81af-5645-42b8-af98-36c4f453fcf3",
 				"name": "Run STAligner",
 				"slug": "9167853",
-				"version": 3
+				"version": 4
 			},
 			"resources": {
 				"cpus": 16,
