@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-// hash:sha256:da31201c6144caa2f8bc3647eadeac8bd1db2e9349af4d80bda86a2675188920
+// hash:sha256:cc248fa607d74f20d92108aba88edb6d6067204dc59cd52bf15b9349bc5c11cc
 
 // capsule - Create Parameters JSON Full Pipeline
 process capsule_create_parameters_json_full_pipeline_21 {
@@ -9,7 +9,7 @@ process capsule_create_parameters_json_full_pipeline_21 {
 	cpus 2
 	memory '0 GB'
 
-	publishDir "$RESULTS_PATH/params", saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
+	publishDir "$RESULTS_PATH/params", mode: 'copy', saveAs: { filename -> filename.matches("capsule/results/params/.*") ? new File(filename).getName() : null }
 
 	output:
 	path 'capsule/results/params/*', emit: to_capsule_qc_filtering_doublet_detection_11_3
@@ -160,7 +160,7 @@ process capsule_qc_filtering_doublet_detection_11 {
 // capsule - Cell Type Mapping
 process capsule_cell_type_mapping_14 {
 	tag 'capsule-2601578'
-	container "$REGISTRY_HOST/published/55150af8-b031-419d-aa7c-84a0fcc17136:v3"
+	container "$REGISTRY_HOST/published/55150af8-b031-419d-aa7c-84a0fcc17136:v4"
 
 	cpus 16
 	memory '120 GB'
@@ -189,9 +189,9 @@ process capsule_cell_type_mapping_14 {
 
 	echo "[${task.tag}] cloning git repo..."
 	if [[ "\$(printf '%s\n' "2.20.0" "\$(git version | awk '{print \$3}')" | sort -V | head -n1)" = "2.20.0" ]]; then
-		git -c credential.helper= clone --filter=tree:0 --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
+		git -c credential.helper= clone --filter=tree:0 --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
 	else
-		git -c credential.helper= clone --branch v3.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
+		git -c credential.helper= clone --branch v4.0 "https://\$GIT_ACCESS_TOKEN@\$GIT_HOST/capsule-2601578.git" capsule-repo
 	fi
 	mv capsule-repo/code capsule/code && ln -s \$PWD/capsule/code /code
 	rm -rf capsule-repo
@@ -598,7 +598,7 @@ process capsule_merge_clusters_25 {
 	cpus 32
 	memory '240 GB'
 
-	publishDir "$RESULTS_PATH", saveAs: { filename -> new File(filename).getName() }
+	publishDir "$RESULTS_PATH", mode: 'copy', saveAs: { filename -> new File(filename).getName() }
 
 	input:
 	path 'capsule/data/data_dir/'

@@ -49,7 +49,7 @@
 				"id": "55150af8-b031-419d-aa7c-84a0fcc17136",
 				"name": "Cell Type Mapping",
 				"slug": "2601578",
-				"version": 3
+				"version": 4
 			},
 			"resources": {
 				"cpus": 16,
